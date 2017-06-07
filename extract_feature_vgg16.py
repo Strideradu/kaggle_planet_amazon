@@ -4,6 +4,8 @@ from keras.models import Model
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 from keras.layers import Flatten, Input
+import pandas as pd
+from tqdm import tqdm
 import numpy as np
 
 
@@ -27,6 +29,23 @@ x = preprocess_input(x)
 
 features = model.predict(x)
 print(features.shape)
+
+# add label
+train = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/train_v2.csv")
+y_train = []
+
+flatten = lambda l: [item for sublist in l for item in sublist]
+labels = list(set(flatten([l.split(' ') for l in train['tags'].values])))
+
+label_map = {l: i for i, l in enumerate(labels)}
+inv_label_map = {i: l for l, i in label_map.items()}
+
+for tags in tqdm(train.tags.values, miniters=50):
+    targets = np.zeros(17)
+    for t in tags.split(' '):
+        targets[label_map[t]] = 1
+    y_train.append(targets)
+    print targets
 
 
 # save the feature to the tf record file
