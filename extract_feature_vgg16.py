@@ -14,7 +14,7 @@ def _int64_feature(value):
 
 # use vgg 16 model extract feature
 
-model = VGG16(weights='imagenet', include_top=False)
+model = VGG16(weights='imagenet', include_top=False, pooling = max)
 
 img_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/train_9.jpg"
 img = image.load_img(img_path, target_size=(224, 224))
@@ -22,14 +22,10 @@ x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
 x = preprocess_input(x)
 
-print(x.shape)
-output_vgg16_conv = model(x)
-x = Flatten(name='flatten')(output_vgg16_conv)
-print(x.size)
-"""
+
 features = model.predict(x)
 print(features.shape)
-"""
+
 
 # save the feature to the tf record file
 
