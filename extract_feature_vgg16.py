@@ -10,14 +10,12 @@ import numpy as np
 
 
 def _bytes_feature(value):
-    if not isinstance(value, list):
-        value = [value]
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 def _int64_feature(value):
     if not isinstance(value, list):
         value = [value]
-    return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
+    return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
 test_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/test-jpg/"
@@ -59,7 +57,7 @@ for f, tags in tqdm(train.values[:1000], miniters=1000):
         file_id= int(f.split("_")[-1]) + 2000000
 
     example = tf.train.Example(features=tf.train.Features(feature={
-        'video_id': _int64_feature(file_id),
+        'video_id': _bytes_feature(f),
         'labels': _int64_feature(targets),
         'rgb': _bytes_feature(features)}))
 
