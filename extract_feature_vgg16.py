@@ -22,7 +22,7 @@ x = np.expand_dims(x, axis=0)
 x = preprocess_input(x)
 
 features = model.predict(x)
-print(features)
+print(features.shape)
 
 # save the feature to the tf record file
 
