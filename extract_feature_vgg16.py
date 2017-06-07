@@ -67,7 +67,7 @@ for f, tags in tqdm(train.values[:1000], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _bytes_feature(features)}))
+        'rgb': _bytes_feature(features.tobytes())}))
 
     writer.write(example.SerializeToString())
 
