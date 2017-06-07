@@ -25,7 +25,7 @@ x = preprocess_input(x)
 print(x.shape)
 output_vgg16_conv = model(x)
 x = Flatten(name='flatten')(output_vgg16_conv)
-print(x.shape)
+print(x.size)
 """
 features = model.predict(x)
 print(features.shape)
