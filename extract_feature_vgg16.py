@@ -73,8 +73,8 @@ writer.close()
 """
 
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_test"
-writer = tf.python_io.TFRecordWriter(tfrecords_filename)
-record_size = 1000
+#writer = tf.python_io.TFRecordWriter(tfrecords_filename)
+record_size = 1000000
 num = 0
 index = 0
 for f, tags in tqdm(test.values[:], miniters=1000):
@@ -83,7 +83,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
         num = 0
 
     if num == 0:
-        ouput_path = tfrecords_filename + str(index).zfill(5) + ".tfrecord"
+        ouput_path = tfrecords_filename + ".tfrecord"
         writer = tf.python_io.TFRecordWriter(ouput_path)
         index += 1
 
