@@ -45,7 +45,7 @@ for tags in tqdm(train.tags.values, miniters=50):
     for t in tags.split(' '):
         targets[label_map[t]] = 1
     y_train.append(targets)
-    print targets
+    print(targets)
 
 
 # save the feature to the tf record file
