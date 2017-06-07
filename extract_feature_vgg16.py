@@ -50,7 +50,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     features = model.predict(x)
 
     # generate one hot vecctor for label
-    
+
     targets = []
     for t in tags.split(' '):
         targets.append(label_map[t])
@@ -72,9 +72,23 @@ writer.close()
 
 """
 
-tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_test.tfrecord"
+tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_test"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
+record_size = 1000
+num = 0
+index = 0
 for f, tags in tqdm(test.values[:], miniters=1000):
+    if num == record_size:
+        writer.close()
+        num = 0
+
+    if num == 0:
+        ouput_path = tfrecords_filename + str(index).zfill(5) + ".tfrecord"
+        writer = tf.python_io.TFRecordWriter(ouput_path)
+        index += 1
+
+    num += 1
+
     # preprocess input image
     img_path = test_path + "{}.jpg".format(f)
     img = image.load_img(img_path, target_size=(224, 224))
