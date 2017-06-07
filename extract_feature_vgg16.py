@@ -1,5 +1,6 @@
 import tensorflow as tf
 from keras.applications.vgg16 import VGG16
+from keras.models import Model
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 from keras.layers import Flatten, Input
@@ -14,7 +15,8 @@ def _int64_feature(value):
 
 # use vgg 16 model extract feature
 
-model = VGG16(weights='imagenet', include_top=False, pooling = max)
+base_model = VGG16(weights='imagenet', pooling = max)
+model = Model(inputs=base_model.input, outputs=base_model.get_layer('flatten').output)
 
 img_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/train_9.jpg"
 img = image.load_img(img_path, target_size=(224, 224))
