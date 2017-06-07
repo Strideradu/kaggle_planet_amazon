@@ -10,9 +10,13 @@ import numpy as np
 
 
 def _bytes_feature(value):
+    if not isinstance(value, list):
+        value = [value]
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 def _int64_feature(value):
+    if not isinstance(value, list):
+        value = [value]
     return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
