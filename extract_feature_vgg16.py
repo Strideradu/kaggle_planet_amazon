@@ -12,6 +12,9 @@ import numpy as np
 def _bytes_feature(value):
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
+def _bytes_feature_from_string(s):
+    return tf.train.Feature(bytes_list=tf.train.BytesList().FromString(s))
+
 def _int64_feature(value):
     if not isinstance(value, list):
         value = [value]
@@ -57,7 +60,7 @@ for f, tags in tqdm(train.values[:1000], miniters=1000):
         file_id= int(f.split("_")[-1]) + 2000000
 
     example = tf.train.Example(features=tf.train.Features(feature={
-        'video_id': _bytes_feature(f),
+        'video_id': _bytes_feature_from_string(f),
         'labels': _int64_feature(targets),
         'rgb': _bytes_feature(features)}))
 
