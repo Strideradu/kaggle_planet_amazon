@@ -28,7 +28,17 @@ x = preprocess_input(x)
 
 
 features = model.predict(x)
-print(features.shape)
+print(features)
+
+img_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/train_8.jpg"
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+
+features = model.predict(x)
+print(features)
 
 # add label
 train = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/train_v2.csv")
@@ -45,7 +55,7 @@ for tags in tqdm(train.tags.values, miniters=50):
     for t in tags.split(' '):
         targets[label_map[t]] = 1
     y_train.append(targets)
-    print(targets)
+
 
 print(len(y_train))
 
