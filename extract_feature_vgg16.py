@@ -49,9 +49,14 @@ for f, tags in tqdm(train.values[:1000], miniters=1000):
     features = model.predict(x)
 
     # generate one hot vecctor for label
+    """
     targets = np.zeros(17)
     for t in tags.split(' '):
         targets[label_map[t]] = 1
+    """
+    targets = []
+    for t in tags.split(' '):
+        targets.append(label_map[t])
 
     # generate file id by replace test to 100000 and file to 200000
     if f.split("_")[0] == "test":
