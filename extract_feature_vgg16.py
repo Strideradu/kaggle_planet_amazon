@@ -2,6 +2,7 @@ import tensorflow as tf
 from keras.applications.vgg16 import VGG16
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
+from keras.layers import Flatten, Input
 import numpy as np
 
 
@@ -21,8 +22,14 @@ x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
 x = preprocess_input(x)
 
+print(x.shape)
+output_vgg16_conv = model(x)
+x = Flatten(name='flatten')(output_vgg16_conv)
+print(x.shape)
+"""
 features = model.predict(x)
 print(features.shape)
+"""
 
 # save the feature to the tf record file
 
