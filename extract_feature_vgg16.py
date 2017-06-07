@@ -47,6 +47,8 @@ for tags in tqdm(train.tags.values, miniters=50):
     y_train.append(targets)
     print(targets)
 
+print(len(y_train))
+
 
 # save the feature to the tf record file
 
