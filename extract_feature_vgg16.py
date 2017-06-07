@@ -60,7 +60,7 @@ for f, tags in tqdm(train.values[:1000], miniters=1000):
         file_id= int(f.split("_")[-1]) + 2000000
 
     example = tf.train.Example(features=tf.train.Features(feature={
-        'video_id': _bytes_feature_from_string(f),
+        'video_id': _bytes_feature(tf.constant(f)),
         'labels': _int64_feature(targets),
         'rgb': _bytes_feature(features)}))
 
