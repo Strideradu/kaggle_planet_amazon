@@ -13,6 +13,7 @@ def _bytes_feature(value):
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 def _float_feature(value):
+    """Wrapper for inserting float features into Example proto."""
     if not isinstance(value, list):
         value = [value]
     return tf.train.Feature(float_list=tf.train.FloatList(value=value))
@@ -50,6 +51,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
     # generate feature [4096]
     features = model.predict(x)
+    print(features.shape)
 
     # generate one hot vecctor for label
 
