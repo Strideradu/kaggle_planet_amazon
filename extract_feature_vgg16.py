@@ -51,7 +51,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
     # generate feature [4096]
     features = model.predict(x)
-    print(features[0].shape)
+    np.squeeze(features)
     
     # generate one hot vecctor for label
 
@@ -68,7 +68,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _float_feature(features[0])}))
+        'rgb': _float_feature(features)}))
 
     writer.write(example.SerializeToString())
 
