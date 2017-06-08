@@ -14,8 +14,10 @@ def _bytes_feature(value):
 
 def _float_feature(value):
     """Wrapper for inserting float features into Example proto."""
+    """
     if not isinstance(value, list):
         value = [value]
+    """
     return tf.train.Feature(float_list=tf.train.FloatList(value=value))
 
 def _int64_feature(value):
