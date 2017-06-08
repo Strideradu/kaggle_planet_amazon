@@ -14,10 +14,10 @@ def _bytes_feature(value):
 
 def _float_feature(value):
     """Wrapper for inserting float features into Example proto."""
-    """
+    
     if not isinstance(value, list):
         value = [value]
-    """
+    
     return tf.train.Feature(float_list=tf.train.FloatList(value=value))
 
 def _int64_feature(value):
@@ -70,7 +70,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _float_feature(features)}))
+        'rgb': _float_feature(features.tolist())}))
 
     writer.write(example.SerializeToString())
 
@@ -104,7 +104,8 @@ for f, tags in tqdm(test.values[:], miniters=1000):
 
     # generate feature [4096]
     features = model.predict(x)
-
+    np.squeeze(features)
+    
     # generate one hot vecctor for label
     """
     targets = np.zeros(17)
@@ -116,7 +117,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _float_feature(features)}))
+        'rgb': _float_feature(features.tolist())}))
 
     writer.write(example.SerializeToString())
 
