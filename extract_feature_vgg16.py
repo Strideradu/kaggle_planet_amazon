@@ -12,8 +12,10 @@ import numpy as np
 def _bytes_feature(value):
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
-def _bytes_feature_from_string(s):
-    return tf.train.Feature(bytes_list=tf.train.BytesList().FromString(s))
+def _float_feature(value):
+    if not isinstance(value, list):
+        value = [value]
+    return tf.train.Feature(float_list=tf.train.FloatList(value=value))
 
 def _int64_feature(value):
     if not isinstance(value, list):
@@ -64,7 +66,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _bytes_feature(features.tobytes())}))
+        'rgb': _float_feature(features)}))
 
     writer.write(example.SerializeToString())
 
@@ -110,7 +112,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
         'labels': _int64_feature(targets),
-        'rgb': _bytes_feature(features.tobytes())}))
+        'rgb': _float_feature(features)}))
 
     writer.write(example.SerializeToString())
 
