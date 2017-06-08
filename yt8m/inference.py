@@ -65,7 +65,7 @@ if __name__ == '__main__':
   # Other flags.
   flags.DEFINE_integer("num_readers", 1,
                        "How many threads to use for reading input files.")
-  flags.DEFINE_integer("top_k", 20,
+  flags.DEFINE_integer("top_k", 17,
                        "How many predictions to output per video.")
 
 def format_lines(video_ids, predictions, top_k):
