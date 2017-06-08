@@ -35,7 +35,7 @@ inv_label_map = {i: l for l, i in label_map.items()}
 base_model = VGG16(weights='imagenet', pooling = max)
 model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc1').output)
 
-"""
+
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_train.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
 for f, tags in tqdm(train.values[:], miniters=1000):
@@ -70,7 +70,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
 writer.close()
 
-"""
+
 
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_test"
 #writer = tf.python_io.TFRecordWriter(tfrecords_filename)
