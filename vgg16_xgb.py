@@ -14,6 +14,10 @@ from keras.layers import Flatten, Input
 import scipy
 from sklearn.metrics import fbeta_score
 
+random_seed = 0
+random.seed(random_seed)
+np.random.seed(random_seed)
+
 n_classes = 17
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
