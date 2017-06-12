@@ -34,6 +34,7 @@ flatten = lambda l: [item for sublist in l for item in sublist]
 labels = list(set(flatten([l.split(' ') for l in train['tags'].values])))
 
 label_map = {l: i for i, l in enumerate(labels)}
+print(label_map)
 inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
