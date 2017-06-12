@@ -59,7 +59,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
 
-    # generate feature [4096]
+    # generate feature [2048]
     features = model.predict(x)
     print(features.shape)
     np.squeeze(features)
