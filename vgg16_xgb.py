@@ -91,7 +91,13 @@ for class_i in tqdm(range(n_classes), miniters=1):
     model.fit(X, y[:, class_i])
     y_pred[:, class_i] = model.predict_proba(X_test)[:, 1]
 
-preds = [' '.join(labels[y_pred_row > 0.21]) for y_pred_row in y_pred]
+preds = []
+for y_pred_row in y_pred:
+    result = []
+    for i, value in enumerate(y_pred_row):
+        if value > 0.21:
+            result.append(labels[i])
+    preds.append(" ".join(result))
 
 subm = pd.DataFrame()
 subm['image_name'] = test.image_name.values
