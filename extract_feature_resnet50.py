@@ -43,10 +43,11 @@ inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
 base_model = ResNet50(weights='imagenet', pooling=max, include_top = False)
-x = base_model(base_model.input)
+input = Input(shape=(224,224,3),name = 'image_input')
+x = base_model(input)
 # x = base_model.get_layer('avg_pool').output
 x = Flatten()(x)
-model = Model(inputs=base_model.input, outputs=x)
+model = Model(inputs=input, outputs=x)
 
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_train.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
