@@ -96,4 +96,4 @@ preds = [' '.join(labels[y_pred_row > 0.21]) for y_pred_row in y_pred]
 subm = pd.DataFrame()
 subm['image_name'] = test.image_name.values
 subm['tags'] = preds
-subm.to_csv('submission.csv', index=False)
+subm.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission.csv', index=False)
