@@ -100,8 +100,8 @@ for y_pred_row in y_pred:
     result = []
     full_result = []
     for i, value in enumerate(y_pred_row):
-        full_result.append(i)
-        full_result.append(value)
+        full_result.append(str(i))
+        full_result.append(str(value))
         if value > 0.21:
             result.append(labels[i])
     preds.append(" ".join(result))
