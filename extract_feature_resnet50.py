@@ -61,7 +61,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
     # generate feature [2048]
     features = model.predict(x)
-    print(features.shape)
+    # print(features.shape)
     np.squeeze(features)
 
     # generate one hot vecctor for label
