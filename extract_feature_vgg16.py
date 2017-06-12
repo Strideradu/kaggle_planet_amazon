@@ -12,18 +12,21 @@ import numpy as np
 def _bytes_feature(value):
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
+
 def _float_feature(value):
     """Wrapper for inserting float features into Example proto."""
-    
+
     if not isinstance(value, list):
         value = [value]
-    
+
     return tf.train.Feature(float_list=tf.train.FloatList(value=value))
+
 
 def _int64_feature(value):
     if not isinstance(value, list):
         value = [value]
     return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
+
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
 test_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/test-jpg/"
@@ -33,14 +36,14 @@ test = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/sample_submission
 flatten = lambda l: [item for sublist in l for item in sublist]
 labels = list(set(flatten([l.split(' ') for l in train['tags'].values])))
 
-label_map = {l: i for i, l in enumerate(labels)}
-print(label_map)
+label_map = {'agriculture': 0, 'artisinal_mine': 1, 'bare_ground': 2, 'blooming': 3, 'blow_down': 4, 'clear': 5,
+             'cloudy': 6, 'conventional_mine': 7, 'cultivation': 8, 'habitation': 9, 'haze': 10, 'partly_cloudy': 11,
+             'primary': 12, 'road': 13, 'selective_logging': 14, 'slash_burn': 15, 'water': 16}
 inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
-base_model = VGG16(weights='imagenet', pooling = max)
+base_model = VGG16(weights='imagenet', pooling=max)
 model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc1').output)
-
 
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_train.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
@@ -55,7 +58,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     # generate feature [4096]
     features = model.predict(x)
     np.squeeze(features)
-    
+
     # generate one hot vecctor for label
 
     targets = []
@@ -66,7 +69,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     if f.split("_")[0] == "test":
         file_id = int(f.split("_")[-1]) + 1000000
     else:
-        file_id= int(f.split("_")[-1]) + 2000000
+        file_id = int(f.split("_")[-1]) + 2000000
 
     example = tf.train.Example(features=tf.train.Features(feature={
         'video_id': _bytes_feature(f.encode('utf-8')),
@@ -76,8 +79,6 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     writer.write(example.SerializeToString())
 
 writer.close()
-
-
 
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/vgg16_fc1_test.tf_record"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
@@ -92,7 +93,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     # generate feature [4096]
     features = model.predict(x)
     np.squeeze(features)
-    
+
     # generate one hot vecctor for label
     """
     targets = np.zeros(17)
