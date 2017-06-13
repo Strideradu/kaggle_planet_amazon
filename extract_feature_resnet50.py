@@ -79,10 +79,10 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
 writer.close()
 """
-tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_test_test.tfrecord"
+tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_test_batch32.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
 
-for f, tags in tqdm(test.values[:100], miniters=1000):
+for f, tags in tqdm(test.values[:], miniters=1000):
     # preprocess input image
     img_path = test_path + "{}.jpg".format(f)
     img = image.load_img(img_path, target_size=(224, 224))
