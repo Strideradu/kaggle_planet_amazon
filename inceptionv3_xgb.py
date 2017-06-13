@@ -32,11 +32,7 @@ label_map = {l: i for i, l in enumerate(labels)}
 inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
-base_model = InceptionV3(weights='imagenet', include_top=False, pooling = "avg")
-input = Input(shape=(299,299,3),name = 'image_input')
-x = base_model(input)
-x = Flatten()(x)
-model = Model(inputs=input, outputs=x)
+model = InceptionV3(weights='imagenet', include_top=False, pooling = "avg")
 
 X_train = []
 y_train = []
@@ -44,7 +40,7 @@ y_train = []
 for f, tags in tqdm(train.values[:], miniters=1000):
     # preprocess input image
     img_path = train_path + "{}.jpg".format(f)
-    img = image.load_img(img_path, target_size=(224, 224))
+    img = image.load_img(img_path, target_size=(299, 299))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
@@ -70,7 +66,7 @@ X_test = []
 
 for f, tags in tqdm(test.values[:], miniters=1000):
     img_path = test_path + "{}.jpg".format(f)
-    img = image.load_img(img_path, target_size=(224, 224))
+    img = image.load_img(img_path, target_size=(299, 299))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
@@ -117,4 +113,4 @@ subm.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission.csv', index=F
 orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values
 orginin['tags'] = scores
-orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/rsenet50_origin_result.csv', index=False)
+orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/inceptionv3_origin_result.csv', index=False)
