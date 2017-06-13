@@ -104,7 +104,7 @@ for f, tags in tqdm(test.values[:100], miniters=1000):
 
     writer.write(example.SerializeToString())
 
-num_test = len(test.vaslues)
+num_test = len(test.values)
 a, b = divmod(num_test, 32)
 if b != 0:
     extra = num_test - a*32
