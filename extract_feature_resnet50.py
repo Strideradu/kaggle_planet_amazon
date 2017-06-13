@@ -48,7 +48,7 @@ x = base_model(input)
 # x = base_model.get_layer('avg_pool').output
 x = Flatten()(x)
 model = Model(inputs=input, outputs=x)
-
+"""
 tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_train.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
 for f, tags in tqdm(train.values[:], miniters=1000):
@@ -78,10 +78,11 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     writer.write(example.SerializeToString())
 
 writer.close()
-
-tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_test.tf_record"
+"""
+tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/resnet50_flatten_test_test.tfrecord"
 writer = tf.python_io.TFRecordWriter(tfrecords_filename)
-for f, tags in tqdm(test.values[:], miniters=1000):
+
+for f, tags in tqdm(test.values[:100], miniters=1000):
     # preprocess input image
     img_path = test_path + "{}.jpg".format(f)
     img = image.load_img(img_path, target_size=(224, 224))
@@ -93,12 +94,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     features = model.predict(x)
     np.squeeze(features)
 
-    # generate one hot vecctor for label
-    """
-    targets = np.zeros(17)
-    for t in tags.split(' '):
-        targets[label_map[t]] = 1
-    """
+
     targets = []
 
     example = tf.train.Example(features=tf.train.Features(feature={
@@ -108,4 +104,28 @@ for f, tags in tqdm(test.values[:], miniters=1000):
 
     writer.write(example.SerializeToString())
 
+num_test = len(test.vaslues)
+a, b = divmod(num_test, 32)
+if b != 0:
+    extra = num_test - a*32
+
+for i in range(extra):
+    f = str("ToRemove") + str(i)
+    x = np.full((224, 224, 3), 1.0)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    # generate feature [4096]
+    features = model.predict(x)
+    np.squeeze(features)
+
+
+    targets = []
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'video_id': _bytes_feature(f.encode('utf-8')),
+        'labels': _int64_feature(targets),
+        'rgb': _float_feature(features.tolist()[0])}))
+
+    writer.write(example.SerializeToString())
 writer.close()
