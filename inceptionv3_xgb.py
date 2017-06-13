@@ -47,7 +47,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
 
     # generate feature [4096]
     features = model.predict(x)
-    print(features.shapoe)
+    print(features.shape)
     features_reduce =  features.squeeze()
     print(features_reduce.shape)
     X_train.append(features_reduce)
