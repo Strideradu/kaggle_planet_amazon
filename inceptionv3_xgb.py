@@ -45,11 +45,11 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
 
-    # generate feature [4096]
+    # generate feature [2048]
     features = model.predict(x)
-    print(features.shape)
+    #(features.shape)
     features_reduce =  features.squeeze()
-    print(features_reduce.shape)
+    #print(features_reduce.shape)
     X_train.append(features_reduce)
 
     # generate one hot vecctor for label
@@ -71,7 +71,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
 
-    # generate feature [4096]
+    # generate feature [2048]
     features = model.predict(x)
     features_reduce = features.squeeze()
     X_test.append(features_reduce)
