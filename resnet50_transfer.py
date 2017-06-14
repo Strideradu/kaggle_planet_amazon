@@ -33,9 +33,9 @@ label_map = {l: i for i, l in enumerate(labels)}
 inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
-base_model = ResNet50(weights='imagenet', pooling=max, include_top = False)
+base_model = ResNet50(weights='imagenet', pooling=max, include_top = False, input_tensor=Input(shape=(224,224,3)))
 x = base_model.output
-x = Flatten(input_shape=base_model.output_shape[1:])(x)
+x = Flatten()(x)
 predictions = Dense(17, activation='softmax', name='fc1000')(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
