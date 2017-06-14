@@ -57,7 +57,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     img_path = train_path + "{}.jpg".format(f)
     img = image.load_img(img_path, target_size=(224, 224))
     x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
+    #x = np.expand_dims(x, axis=0)
     X_train.append(x)
 
     # generate one hot vecctor for label
@@ -82,7 +82,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     img_path = test_path + "{}.jpg".format(f)
     img = image.load_img(img_path, target_size=(224, 224))
     x = image.img_to_array(img)
-    x = np.expand_dims(x, axis=0)
+    #x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
 
