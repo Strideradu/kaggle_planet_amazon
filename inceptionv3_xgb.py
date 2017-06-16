@@ -8,7 +8,7 @@ import tensorflow as tf
 from keras.applications.inception_v3 import InceptionV3
 from keras.models import Model
 from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input, decode_predictions
+from keras.applications.inception_v3 import preprocess_input
 from keras.layers import Flatten, Input
 
 import scipy
@@ -110,7 +110,7 @@ for y_pred_row in y_pred:
 subm = pd.DataFrame()
 subm['image_name'] = test.image_name.values
 subm['tags'] = preds
-subm.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission.csv', index=False)
+subm.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/inceptionv3_submission.csv', index=False)
 
 orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values

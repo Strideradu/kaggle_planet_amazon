@@ -1,0 +1,127 @@
+import tensorflow as tf
+from keras.applications.inception_v3 import InceptionV3
+from keras.applications.inception_v3 import preprocess_input
+from keras.models import Model
+from keras.preprocessing import image
+from keras.layers import Flatten, Input
+import pandas as pd
+from tqdm import tqdm
+import numpy as np
+
+
+def _bytes_feature(value):
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
+
+
+def _float_feature(value):
+    """Wrapper for inserting float features into Example proto."""
+
+    if not isinstance(value, list):
+        value = [value]
+
+    return tf.train.Feature(float_list=tf.train.FloatList(value=value))
+
+
+def _int64_feature(value):
+    if not isinstance(value, list):
+        value = [value]
+    return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
+
+
+train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
+test_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/test-jpg/"
+train = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/train_v2.csv")
+test = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/sample_submission_v2.csv")
+
+flatten = lambda l: [item for sublist in l for item in sublist]
+labels = list(set(flatten([l.split(' ') for l in train['tags'].values])))
+
+label_map = {'agriculture': 0, 'artisinal_mine': 1, 'bare_ground': 2, 'blooming': 3, 'blow_down': 4, 'clear': 5,
+             'cloudy': 6, 'conventional_mine': 7, 'cultivation': 8, 'habitation': 9, 'haze': 10, 'partly_cloudy': 11,
+             'primary': 12, 'road': 13, 'selective_logging': 14, 'slash_burn': 15, 'water': 16}
+inv_label_map = {i: l for l, i in label_map.items()}
+
+# use vgg 16 model extract feature from fc1 layer
+model = InceptionV3(weights='imagenet', pooling="avg", include_top = False)
+
+tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/inceptionv3_train.tfrecord"
+writer = tf.python_io.TFRecordWriter(tfrecords_filename)
+for f, tags in tqdm(train.values[:], miniters=1000):
+    # preprocess input image
+    img_path = train_path + "{}.jpg".format(f)
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    # generate feature [2048]
+    features = model.predict(x)
+    # print(features.shape)
+    np.squeeze(features)
+
+    # generate one hot vecctor for label
+
+    targets = []
+    for t in tags.split(' '):
+        targets.append(label_map[t])
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'video_id': _bytes_feature(f.encode('utf-8')),
+        'labels': _int64_feature(targets),
+        'rgb': _float_feature(features.tolist()[0])}))
+
+    writer.write(example.SerializeToString())
+
+writer.close()
+
+tfrecords_filename = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/extracted_feature/inceptionv3_test.tfrecord"
+writer = tf.python_io.TFRecordWriter(tfrecords_filename)
+
+for f, tags in tqdm(test.values[:], miniters=1000):
+    # preprocess input image
+    img_path = test_path + "{}.jpg".format(f)
+    img = image.load_img(img_path, target_size=(299, 299))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    # generate feature [4096]
+    features = model.predict(x)
+    np.squeeze(features)
+
+
+    targets = []
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'video_id': _bytes_feature(f.encode('utf-8')),
+        'labels': _int64_feature(targets),
+        'rgb': _float_feature(features.tolist()[0])}))
+
+    writer.write(example.SerializeToString())
+
+num_test = len(test.values)
+a, b = divmod(num_test, 32)
+extra = 0
+if b != 0:
+    extra = num_test - a*32
+
+for i in range(extra):
+    f = str("ToRemove") + str(i)
+    x = np.full((299, 299, 3), 1.0)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+
+    # generate feature [4096]
+    features = model.predict(x)
+    np.squeeze(features)
+
+
+    targets = []
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'video_id': _bytes_feature(f.encode('utf-8')),
+        'labels': _int64_feature(targets),
+        'rgb': _float_feature(features.tolist()[0])}))
+
+    writer.write(example.SerializeToString())
+writer.close()
