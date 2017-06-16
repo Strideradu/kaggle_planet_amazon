@@ -29,7 +29,9 @@ test = pd.read_csv("/mnt/home/dunan/Learn/Kaggle/planet_amazon/sample_submission
 flatten = lambda l: [item for sublist in l for item in sublist]
 labels = list(set(flatten([l.split(' ') for l in train['tags'].values])))
 
-label_map = {l: i for i, l in enumerate(labels)}
+label_map = {'agriculture': 0, 'artisinal_mine': 1, 'bare_ground': 2, 'blooming': 3, 'blow_down': 4, 'clear': 5,
+             'cloudy': 6, 'conventional_mine': 7, 'cultivation': 8, 'habitation': 9, 'haze': 10, 'partly_cloudy': 11,
+             'primary': 12, 'road': 13, 'selective_logging': 14, 'slash_burn': 15, 'water': 16}
 inv_label_map = {i: l for l, i in label_map.items()}
 
 # use vgg 16 model extract feature from fc1 layer
@@ -90,7 +92,17 @@ for f, tags in tqdm(test.values[:], miniters=1000):
 X_test = np.array(X_test)
 y_pred = model.predict(X_test)
 
+scores = []
+for y_pred_row in y_pred:
+
+    full_result = []
+    for i, value in enumerate(y_pred_row):
+        full_result.append(str(i))
+        full_result.append(str(value))
+
+    scores.append(" ".join(full_result))
+
 orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values
-orginin['tags'] = y_pred
+orginin['tags'] = scores
 orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/rsenet50_trnsfer_learning.csv', index=False)
