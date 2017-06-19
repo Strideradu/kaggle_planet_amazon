@@ -1,4 +1,4 @@
-from keras import initializations
+from keras import initializers
 from keras.engine import Layer, InputSpec
 
 import keras.backend as K
