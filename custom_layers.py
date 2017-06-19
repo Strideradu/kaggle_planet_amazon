@@ -3,6 +3,11 @@ from keras.engine import Layer, InputSpec
 
 import keras.backend as K
 
+from .utils.generic_utils import get_from_module
+def get(identifier, **kwargs):
+    return get_from_module(identifier, globals(),
+                           'initialization', kwargs=kwargs)
+
 
 class Scale(Layer):
     '''Custom Layer for DenseNet used for BatchNormalization.
@@ -35,8 +40,8 @@ class Scale(Layer):
     def __init__(self, weights=None, axis=-1, momentum=0.9, beta_init='zero', gamma_init='one', **kwargs):
         self.momentum = momentum
         self.axis = axis
-        self.beta_init = initializations.get(beta_init)
-        self.gamma_init = initializations.get(gamma_init)
+        self.beta_init =get(beta_init)
+        self.gamma_init = get(gamma_init)
         self.initial_weights = weights
         super(Scale, self).__init__(**kwargs)
 
