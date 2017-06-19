@@ -3,7 +3,7 @@ from keras.engine import Layer, InputSpec
 
 import keras.backend as K
 
-from .utils.generic_utils import get_from_module
+from keras.utils.generic_utils import get_from_module
 def get(identifier, **kwargs):
     return get_from_module(identifier, globals(),
                            'initialization', kwargs=kwargs)
