@@ -1,7 +1,7 @@
 from keras.models import Model
 from keras.layers import Input, merge, ZeroPadding2D
 from keras.layers.core import Dense, Dropout, Activation
-from keras.layers.convolutional import Convolution2D
+from keras.layers.convolutional import Conv2D
 from keras.layers.pooling import AveragePooling2D, GlobalAveragePooling2D, MaxPooling2D
 from keras.layers.normalization import BatchNormalization
 import keras.backend as K
@@ -45,7 +45,7 @@ def DenseNet(nb_dense_block=4, growth_rate=32, nb_filter=64, reduction=0.0, drop
 
     # Initial convolution
     x = ZeroPadding2D((3, 3), name='conv1_zeropadding')(img_input)
-    x = Convolution2D(nb_filter, 7, 7, subsample=(2, 2), name='conv1', bias=False)(x)
+    x = Conv2D(nb_filter, (7, 7), name="conv1", strides=(2, 2), use_bias=False)(x)
     x = BatchNormalization(epsilon=eps, axis=concat_axis, name='conv1_bn')(x)
     x = Scale(axis=concat_axis, name='conv1_scale')(x)
     x = Activation('relu', name='relu1')(x)

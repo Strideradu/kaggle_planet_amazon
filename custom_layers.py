@@ -1,35 +1,8 @@
-from keras import initializers as initializations
+from keras import initializers
 from keras.engine import Layer, InputSpec
 
 import keras.backend as K
-import six
 
-def get_from_module(identifier, module_params, module_name,
-                    instantiate=False, kwargs=None):
-    if isinstance(identifier, six.string_types):
-        res = module_params.get(identifier)
-        if not res:
-            raise Exception('Invalid ' + str(module_name) + ': ' +
-                            str(identifier))
-        if instantiate and not kwargs:
-            return res()
-        elif instantiate and kwargs:
-            return res(**kwargs)
-        else:
-            return res
-    elif type(identifier) is dict:
-        name = identifier.pop('name')
-        res = module_params.get(name)
-        if res:
-            return res(**identifier)
-        else:
-            raise Exception('Invalid ' + str(module_name) + ': ' +
-                            str(identifier))
-    return identifier
-
-def get(identifier, **kwargs):
-    return get_from_module(identifier, globals(),
-                           'initialization', kwargs=kwargs)
 
 
 class Scale(Layer):
@@ -60,11 +33,11 @@ class Scale(Layer):
             This parameter is only relevant if you don't pass a `weights` argument.
     '''
 
-    def __init__(self, weights=None, axis=-1, momentum=0.9, beta_init='zero', gamma_init='one', **kwargs):
+    def __init__(self, weights=None, axis=-1, momentum=0.9, beta_init='zeros', gamma_init='ones', **kwargs):
         self.momentum = momentum
         self.axis = axis
-        self.beta_init =get(beta_init)
-        self.gamma_init = get(gamma_init)
+        self.beta_init = initializers.get(beta_init)
+        self.gamma_init = initializers.get(gamma_init)
         self.initial_weights = weights
         super(Scale, self).__init__(**kwargs)
 
