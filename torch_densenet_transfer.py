@@ -72,7 +72,7 @@ train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=32,
-                                               shuffle=True, num_workers=4)
+                                               shuffle=True, num_workers=2)
                 for x in ['train', 'val']}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = 17
@@ -292,7 +292,7 @@ for f, tags in tqdm(test.values[:], miniters=1000):
 X_test = torch.stack(X_test)
 y_test = torch.zeros(X_test.size(0), n_classes)
 test_data = TensorDataset(X_test, y_test)
-test_loader = torch.utils.data.DataLoader(test_data, batch_size=32, num_workers=4)
+test_loader = torch.utils.data.DataLoader(test_data, batch_size=32, num_workers=2)
 
 
 def predict(net, test_loader):
