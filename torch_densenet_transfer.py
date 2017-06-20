@@ -17,12 +17,13 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
+from torch.nn.functional import sigmoid
 
 plt.ion()   # interactive mode
 
 input_transform = transforms.Compose([
         transforms.Scale(224),
-        transforms.RandomHorizontalFlip,
+        transforms.RandomHorizontalFlip(),
         transforms.ToTensor()])
 
 random_seed = 0
@@ -63,13 +64,14 @@ for f, tags in tqdm(train.values[:], miniters=1000):
         targets[label_map[t]] = 1
     y.append(targets)
 
-X = np.array(X)
-y = np.array(y, np.uint8)
+
+#X = np.array(X, np.float32)
+y = np.array(y, np.float32)
 
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.1)
-train_data = TensorDataset(X_train, y_train)
-valid_data = TensorDataset(X_valid, y_valid)
-dsets = {"train":train_data, "valid":valid_data}
+train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
+valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
+dsets = {"train":train_data, "val":valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=32,
                                                shuffle=True, num_workers=4)
                 for x in ['train', 'val']}
@@ -93,7 +95,7 @@ def imshow(inp, title=None):
     plt.pause(0.001)  # pause a bit so that plots are updated
 
 def multi_criterion(logits, labels):
-    loss = nn.MultiLabelSoftMarginLoss()(logits, Variable(labels))
+    loss = nn.MultiLabelSoftMarginLoss()(logits, labels)
     return loss
 
 def multi_f_measure( probs, labels, threshold=0.235, beta=2 ):
@@ -103,11 +105,11 @@ def multi_f_measure( probs, labels, threshold=0.235, beta=2 ):
 
     #weather
     l = labels
-    p = (probs>threshold).float()
+    p = Variable((probs>threshold).float())
 
     num_pos     = torch.sum(p,  1)
     num_pos_hat = torch.sum(l,  1)
-    tp          = torch.sum(l*p,1)
+    tp          = torch.sum(torch.mul(l,p),1)
     precise     = tp/(num_pos     + SMALL)
     recall      = tp/(num_pos_hat + SMALL)
 
@@ -152,8 +154,9 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                 optimizer.zero_grad()
 
                 # forward
-                logits, probs = model(inputs)
-                loss = multi_criterion(logits, labels.cuda())
+                logits = model(inputs)
+                probs = sigmoid(logits)
+                loss = multi_criterion(logits, labels)
 
                 # backward + optimize only if in training phase
                 if phase == 'train':
@@ -161,7 +164,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                     optimizer.step()
 
                 # statistics
-                train_acc = multi_f_measure(probs.data, labels.cuda())
+                train_acc = multi_f_measure(probs.data, labels)
                 running_loss += loss.data[0]
 
             epoch_loss = running_loss / dset_sizes[phase]
@@ -189,9 +192,9 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=7):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.1**(epoch // lr_decay_epoch))
+    lr = init_lr * (0.85**(epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
@@ -265,7 +268,7 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 ######################################################################
 #
 
-visualize_model(model_ft)
+#visualize_model(model_ft)
 
 ######################################################################
 
@@ -280,22 +283,24 @@ for f, tags in tqdm(test.values[:], miniters=1000):
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
-X_test = np.array(X_test)
-test_data = TensorDataset(X_test)
+X_test = torch.stack(X_test)
+y_test = torch.zeros(X_test.size(0), n_classes)
+test_data = TensorDataset(X_test, y_test)
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=32, num_workers=4)
 
 
 def predict(net, test_loader):
 
     test_dataset = test_loader.dataset
-    num_classes  = len(test_dataset.class_names)
-    predictions  = np.zeros((test_dataset.num,num_classes),np.float32)
+    num_classes  = test_dataset.target_tensor.size(1)
+    predictions  = np.zeros((test_dataset.target_tensor.size(0),num_classes),np.float32)
 
     test_num  = 0
     for iter, (images, indices) in enumerate(test_loader, 0):
 
         # forward
-        logits, probs = net(Variable(images.cuda(),volatile=True))
+        logits= net(Variable(images.cuda(),volatile=True))
+        probs = sigmoid(logits)
 
         batch_size = len(images)
         test_num  += batch_size
@@ -303,9 +308,23 @@ def predict(net, test_loader):
         end   = test_num
         predictions[start:end] = probs.data.cpu().numpy().reshape(-1,num_classes)
 
-    assert(test_dataset.num==test_num)
+    assert(test_dataset.target_tensor.size(0)==test_num)
 
     return predictions
 
 predictions = predict(model_ft, test_loader )
+scores = []
+for y_pred_row in predictions:
+
+    full_result = []
+    for i, value in enumerate(y_pred_row):
+        full_result.append(str(i))
+        full_result.append(str(value))
+
+    scores.append(" ".join(full_result))
+
+orginin = pd.DataFrame()
+orginin['image_name'] = test.image_name.values[:]
+orginin['tags'] = scores
+orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_transfer_learning.csv', index=False)
 
