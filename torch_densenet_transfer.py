@@ -138,7 +138,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                 model.train(False)  # Set model to evaluate mode
 
             running_loss = 0.0
-            running_corrects = 0
+            running_acc = 0
 
             # Iterate over data.
             for data in dset_loaders[phase]:
@@ -166,11 +166,11 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                     optimizer.step()
 
                 # statistics
-                train_acc = multi_f_measure(probs.data, labels)
+                running_acc += multi_f_measure(probs.data, labels)
                 running_loss += loss.data[0]
 
             epoch_loss = running_loss / dset_sizes[phase]
-            epoch_acc = running_corrects / dset_sizes[phase]
+            epoch_acc = running_acc / dset_sizes[phase]
 
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))
