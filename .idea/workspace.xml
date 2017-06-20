@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet_transfer.py" afterPath="$PROJECT_DIR$/torch_densenet_transfer.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +21,7 @@
       <file leaf-file-name="extract_feature_vgg16.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extract_feature_vgg16.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
+            <state relative-caret-position="999">
               <caret line="45" column="81" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="81" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="torch_densenet_transfer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="923">
-              <caret line="294" column="81" lean-forward="false" selection-start-line="294" selection-start-column="81" selection-end-line="294" selection-end-column="81" />
+            <state relative-caret-position="1625">
+              <caret line="168" column="71" lean-forward="false" selection-start-line="168" selection-start-column="71" selection-end-line="168" selection-end-column="71" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -108,8 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,6 +137,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,10 +299,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
+    <frame x="-11" y="-11" width="2182" height="1402" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24682651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24635637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -716,7 +717,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/extract_feature_vgg16.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
+        <state relative-caret-position="999">
           <caret line="45" column="81" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="81" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
@@ -736,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="294" column="81" lean-forward="false" selection-start-line="294" selection-start-column="81" selection-end-line="294" selection-end-column="81" />
+        <state relative-caret-position="1625">
+          <caret line="168" column="71" lean-forward="false" selection-start-line="168" selection-start-column="71" selection-end-line="168" selection-end-column="71" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
