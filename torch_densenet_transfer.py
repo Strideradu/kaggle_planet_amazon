@@ -19,12 +19,12 @@ from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from torch.nn.functional import sigmoid
 
-plt.ion()   # interactive mode
+plt.ion()  # interactive mode
 
 input_transform = transforms.Compose([
-        transforms.Scale(224),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor()])
+    transforms.Scale(224),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor()])
 
 random_seed = 0
 random.seed(random_seed)
@@ -54,7 +54,7 @@ for f, tags in tqdm(train.values[:], miniters=1000):
     img = Image.open(img_path)
     img = img.convert('RGB')
     x = input_transform(img)
-    #x = np.expand_dims(x, axis=0)
+    # x = np.expand_dims(x, axis=0)
     X.append(x)
 
     # generate one hot vecctor for label
@@ -64,14 +64,13 @@ for f, tags in tqdm(train.values[:], miniters=1000):
         targets[label_map[t]] = 1
     y.append(targets)
 
-
-#X = np.array(X, np.float32)
+# X = np.array(X, np.float32)
 y = np.array(y, np.float32)
 
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.1)
 train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
-dsets = {"train":train_data, "val":valid_data}
+dsets = {"train": train_data, "val": valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=32,
                                                shuffle=True, num_workers=4)
                 for x in ['train', 'val']}
@@ -79,6 +78,7 @@ dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = 17
 
 use_gpu = torch.cuda.is_available()
+
 
 ######################################################################
 # Visualize a few images
@@ -94,28 +94,30 @@ def imshow(inp, title=None):
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
 
+
 def multi_criterion(logits, labels):
     loss = nn.MultiLabelSoftMarginLoss()(logits, labels)
     return loss
 
-def multi_f_measure( probs, labels, threshold=0.235, beta=2 ):
 
-    SMALL = 1e-6 #0  #1e-12
+def multi_f_measure(probs, labels, threshold=0.235, beta=2):
+    SMALL = 1e-6  # 0  #1e-12
     batch_size = probs.size()[0]
 
-    #weather
+    # weather
     l = labels
-    p = Variable((probs>threshold).float())
+    p = Variable((probs > threshold).float())
 
-    num_pos     = torch.sum(p,  1)
-    num_pos_hat = torch.sum(l,  1)
-    tp          = torch.sum(torch.mul(l,p),1)
-    precise     = tp/(num_pos     + SMALL)
-    recall      = tp/(num_pos_hat + SMALL)
+    num_pos = torch.sum(p, 1)
+    num_pos_hat = torch.sum(l, 1)
+    tp = torch.sum(torch.mul(l, p), 1)
+    precise = tp / (num_pos + SMALL)
+    recall = tp / (num_pos_hat + SMALL)
 
-    fs = (1+beta*beta)*precise*recall/(beta*beta*precise + recall + SMALL)
-    f  = fs.sum()/batch_size
+    fs = (1 + beta * beta) * precise * recall / (beta * beta * precise + recall + SMALL)
+    f = fs.sum() / batch_size
     return f
+
 
 def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
     since = time.time()
@@ -146,7 +148,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                 # wrap them in Variable
                 if use_gpu:
                     inputs, labels = Variable(inputs.cuda()), \
-                        Variable(labels.cuda())
+                                     Variable(labels.cuda())
                 else:
                     inputs, labels = Variable(inputs), Variable(labels)
 
@@ -186,6 +188,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
     print('Best val Acc: {:4f}'.format(best_acc))
     return best_model
 
+
 ######################################################################
 # Learning rate scheduler
 # ^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +197,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 
 def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.85**(epoch // lr_decay_epoch))
+    lr = init_lr * (0.85 ** (epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
@@ -203,6 +206,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
         param_group['lr'] = lr
 
     return optimizer
+
 
 ######################################################################
 # Visualizing the model predictions
@@ -227,13 +231,14 @@ def visualize_model(model, num_images=6):
 
         for j in range(inputs.size()[0]):
             images_so_far += 1
-            ax = plt.subplot(num_images//2, 2, images_so_far)
+            ax = plt.subplot(num_images // 2, 2, images_so_far)
             ax.axis('off')
             ax.set_title('predicted: {}'.format(dset_classes[labels.data[j]]))
             imshow(inputs.cpu().data[j])
 
             if images_so_far == num_images:
                 return
+
 
 ######################################################################
 # Finetuning the convnet
@@ -268,7 +273,7 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 ######################################################################
 #
 
-#visualize_model(model_ft)
+# visualize_model(model_ft)
 
 ######################################################################
 
@@ -290,29 +295,28 @@ test_loader = torch.utils.data.DataLoader(test_data, batch_size=32, num_workers=
 
 
 def predict(net, test_loader):
-
     test_dataset = test_loader.dataset
-    num_classes  = test_dataset.target_tensor.size(1)
-    predictions  = np.zeros((test_dataset.target_tensor.size(0),num_classes),np.float32)
+    num_classes = test_dataset.target_tensor.size(1)
+    predictions = np.zeros((test_dataset.target_tensor.size(0), num_classes), np.float32)
 
-    test_num  = 0
+    test_num = 0
     for iter, (images, indices) in enumerate(test_loader, 0):
-
         # forward
-        logits= net(Variable(images.cuda(),volatile=True))
+        logits = net(Variable(images.cuda(), volatile=True))
         probs = sigmoid(logits)
 
         batch_size = len(images)
-        test_num  += batch_size
-        start = test_num-batch_size
-        end   = test_num
-        predictions[start:end] = probs.data.cpu().numpy().reshape(-1,num_classes)
+        test_num += batch_size
+        start = test_num - batch_size
+        end = test_num
+        predictions[start:end] = probs.data.cpu().numpy().reshape(-1, num_classes)
 
-    assert(test_dataset.target_tensor.size(0)==test_num)
+    assert (test_dataset.target_tensor.size(0) == test_num)
 
     return predictions
 
-predictions = predict(model_ft, test_loader )
+
+predictions = predict(model_ft, test_loader)
 scores = []
 for y_pred_row in predictions:
 
@@ -327,4 +331,3 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_transfer_learning.csv', index=False)
-
