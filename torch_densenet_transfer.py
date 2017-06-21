@@ -53,7 +53,7 @@ inv_label_map = {i: l for l, i in label_map.items()}
 X = []
 y = []
 
-for f, tags in train.values[:]:
+for f, tags in train.values[:160]:
     # preprocess input image
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
@@ -285,7 +285,7 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 
 X_test = []
 
-for f, tags in test.values[:]:
+for f, tags in test.values[:160]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
@@ -333,6 +333,6 @@ for y_pred_row in predictions:
     scores.append(" ".join(full_result))
 
 orginin = pd.DataFrame()
-orginin['image_name'] = test.image_name.values[:]
+orginin['image_name'] = test.image_name.values[:160]
 orginin['tags'] = scores
 orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_transfer_learning.csv', index=False)
