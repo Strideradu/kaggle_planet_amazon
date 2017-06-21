@@ -26,6 +26,10 @@ input_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor()])
 
+test_transform = transforms.Compose([
+    transforms.Scale(224),
+    transforms.ToTensor()])
+
 random_seed = 0
 random.seed(random_seed)
 np.random.seed(random_seed)
@@ -49,7 +53,7 @@ inv_label_map = {i: l for l, i in label_map.items()}
 X = []
 y = []
 
-for f, tags in tqdm(train.values[:], miniters=1000):
+for f, tags in train.values[:]:
     # preprocess input image
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
@@ -73,7 +77,7 @@ train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=batch_size,
-                                               shuffle=True, num_workers=2)
+                                               shuffle=True, num_workers=02)
                 for x in ['train', 'val']}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = 17
@@ -167,12 +171,11 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
                     optimizer.step()
 
                 # statistics
-                running_acc += multi_f_measure(probs.data, labels).data[0]
-                running_loss += loss.data[0]
+                running_acc += batch_size * multi_f_measure(probs.data, labels).data[0]
+                running_loss += batch_size * loss.data[0]
 
             epoch_loss = running_loss / dset_sizes[phase]
             epoch_acc = running_acc / dset_sizes[phase]
-
 
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))
@@ -249,7 +252,7 @@ def visualize_model(model, num_images=6):
 # Load a pretrained model and reset final fully connected layer.
 #
 
-model_ft = models.resnet50(pretrained=True)
+model_ft = models.resnet50(pretrained=True, num_classes=n_classes)
 num_ftrs = model_ft.fc.in_features
 model_ft.fc = nn.Linear(num_ftrs, n_classes)
 
@@ -282,18 +285,18 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 
 X_test = []
 
-for f, tags in tqdm(test.values[:], miniters=1000):
+for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform(img)
+    x = test_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
 X_test = torch.stack(X_test)
 y_test = torch.zeros(X_test.size(0), n_classes)
 test_data = TensorDataset(X_test, y_test)
-test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=2)
+test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=0)
 
 
 def predict(net, test_loader):
@@ -317,7 +320,7 @@ def predict(net, test_loader):
 
     return predictions
 
-
+model_ft.cuda().eval()
 predictions = predict(model_ft, test_loader)
 scores = []
 for y_pred_row in predictions:
