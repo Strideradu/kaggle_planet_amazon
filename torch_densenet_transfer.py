@@ -81,7 +81,7 @@ train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=batch_size,
-                                               shuffle=True, num_workers=02)
+                                               shuffle=True, num_workers=0)
                 for x in ['train', 'val']}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = n_classes
