@@ -18,12 +18,17 @@ from PIL import Image
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from torch.nn.functional import sigmoid
+from pytorch_utils import *
 
-plt.ion()  # interactive mode
+size = 224
+n_classes = 17
+batch_size = 32
 
 input_transform = transforms.Compose([
-    transforms.Scale(224),
+    transforms.Scale(size + 5),
+    transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
+    transforms.Lambda(lambda x: randomTranspose(np.array(x))),
     transforms.ToTensor()])
 
 test_transform = transforms.Compose([
@@ -34,8 +39,7 @@ random_seed = 0
 random.seed(random_seed)
 np.random.seed(random_seed)
 
-n_classes = 17
-batch_size = 16
+
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
 test_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/test-jpg/"
@@ -80,7 +84,7 @@ dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=batch_size,
                                                shuffle=True, num_workers=02)
                 for x in ['train', 'val']}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
-dset_classes = 17
+dset_classes = n_classes
 
 use_gpu = torch.cuda.is_available()
 
@@ -200,7 +204,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.005, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
     lr = init_lr * (0.85 ** (epoch // lr_decay_epoch))
 
@@ -335,4 +339,4 @@ for y_pred_row in predictions:
 orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
-orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_transfer_learning.csv', index=False)
+orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_add_transpose_and_crop.csv', index=False)
