@@ -32,8 +32,8 @@
       <file leaf-file-name="torch_densenet_transfer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="264" column="71" lean-forward="true" selection-start-line="264" selection-start-column="71" selection-end-line="264" selection-end-column="71" />
+            <state relative-caret-position="395">
+              <caret line="323" column="44" lean-forward="true" selection-start-line="323" selection-start-column="44" selection-end-line="323" selection-end-column="44" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -730,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="264" column="71" lean-forward="true" selection-start-line="264" selection-start-column="71" selection-end-line="264" selection-end-column="71" />
+        <state relative-caret-position="395">
+          <caret line="323" column="44" lean-forward="true" selection-start-line="323" selection-start-column="44" selection-end-line="323" selection-end-column="44" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
