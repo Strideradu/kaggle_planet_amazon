@@ -4,6 +4,7 @@ import numpy as np
 import random
 import PIL
 import cv2
+import math
 
 def randomTranspose(img, u=0.5):
     if random.random() < u:
