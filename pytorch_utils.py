@@ -37,6 +37,26 @@ def randomRotate90(img, u=0.25):
             #return  img.transpose((1,0, 2))[::-1,:,:]
     return img
 
+#http://enthusiaststudent.blogspot.jp/2015/01/horizontal-and-vertical-flip-using.html
+#http://qiita.com/supersaiakujin/items/3a2ac4f2b05de584cb11
+def randomVerticalFlip(img, u=0.5):
+    if random.random() < u:
+        img = cv2.flip(img,0)  #np.flipud(img)  #cv2.flip(img,0) ##up-down
+    return img
+
+def randomHorizontalFlip(img, u=0.5):
+    shape=img.shape
+    if random.random() < u:
+        img = cv2.flip(img,1)  #np.fliplr(img)  #cv2.flip(img,1) ##left-right
+    return img
+
+
+def randomFlip(img, u=0.5):
+    if random.random() < u:
+        img = cv2.flip(img,random.randint(-1,1))
+    return img
+
+
 def randomShiftScaleRotate(img, shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, u=0.5):
     if random.random() < u:
         height,width,channel = img.shape
