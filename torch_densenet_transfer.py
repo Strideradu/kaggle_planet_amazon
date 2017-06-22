@@ -29,7 +29,7 @@ input_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
-    transforms.Lambda(lambda x: randomTranspose(np.array(x))),
+    transforms.Lambda(lambda x: randomTranspose(x)),
     transforms.ToTensor()])
 
 

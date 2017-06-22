@@ -6,6 +6,7 @@ import PIL
 import cv2
 
 def randomTranspose(img, u=0.5):
+    img = np.array(img)
     if random.random() < u:
         img = cv2.transpose(img)
     return img
