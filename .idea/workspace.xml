@@ -32,8 +32,8 @@
       <file leaf-file-name="torch_densenet_transfer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="240" column="70" lean-forward="true" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
+            <state relative-caret-position="703">
+              <caret line="354" column="72" lean-forward="true" selection-start-line="354" selection-start-column="72" selection-end-line="354" selection-end-column="72" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -281,7 +281,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.torch_densenet_transfer">
+    <configuration default="false" name="torch_densenet_transfer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="kaggle_planet_amazon" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/torch_densenet_transfer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -378,6 +396,14 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
+      </list>
+    </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -859,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="240" column="70" lean-forward="true" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
+        <state relative-caret-position="703">
+          <caret line="354" column="72" lean-forward="true" selection-start-line="354" selection-start-column="72" selection-end-line="354" selection-end-column="72" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>

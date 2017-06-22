@@ -330,7 +330,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_add_transpose_and_crop.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation.csv',
     index=False)
 
 ######################################################################
