@@ -83,6 +83,7 @@ for f, tags in train.values[:]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
+    img = np.array(img)
     x = input_transform_augmentation(img)
     # x = np.expand_dims(x, axis=0)
     X.append(x)
