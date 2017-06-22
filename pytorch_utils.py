@@ -6,7 +6,6 @@ import PIL
 import cv2
 
 def randomTranspose(img, u=0.5):
-    img = np.array(img)
     if random.random() < u:
         img = cv2.transpose(img)
     return img
@@ -46,7 +45,6 @@ def randomVerticalFlip(img, u=0.5):
     return img
 
 def randomFlip(img, u=0.5):
-    img = np.array(img)
     if random.random() < u:
         img = cv2.flip(img,random.randint(-1,1))
     return img
