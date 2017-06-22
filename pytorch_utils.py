@@ -44,13 +44,6 @@ def randomVerticalFlip(img, u=0.5):
         img = cv2.flip(img,0)  #np.flipud(img)  #cv2.flip(img,0) ##up-down
     return img
 
-def randomHorizontalFlip(img, u=0.5):
-    shape=img.shape
-    if random.random() < u:
-        img = cv2.flip(img,1)  #np.fliplr(img)  #cv2.flip(img,1) ##left-right
-    return img
-
-
 def randomFlip(img, u=0.5):
     if random.random() < u:
         img = cv2.flip(img,random.randint(-1,1))
