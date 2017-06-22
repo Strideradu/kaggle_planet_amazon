@@ -49,10 +49,10 @@ def augment(x, u=0.75):
     return x
 
 
-input_transform_augmentation = [
+input_transform_augmentation = transforms.Compose([
     lambda x: augment(x),
     lambda x: img_to_tensor(x),
-]
+])
 
 test_transform = transforms.Compose([
     transforms.Scale(224),
