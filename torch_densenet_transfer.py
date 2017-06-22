@@ -19,6 +19,7 @@ from tqdm import tqdm
 from sklearn.model_selection import train_test_split
 from torch.nn.functional import sigmoid
 from pytorch_utils import *
+from sklearn.metrics import fbeta_score
 
 size = 224
 n_classes = 17
@@ -101,7 +102,7 @@ train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
 dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=batch_size,
-                                               shuffle=True, num_workers=02)
+                                               shuffle=True, num_workers=0)
                 for x in ['train', 'val']}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = n_classes
@@ -331,3 +332,34 @@ orginin['tags'] = scores
 orginin.to_csv(
     '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_add_transpose_and_crop.csv',
     index=False)
+
+######################################################################
+
+# determine best F2 threshold using validation dataset
+
+def get_optimal_threshhold(true_label, prediction, iterations = 100):
+
+    best_threshhold = [0.2]*17
+    for t in range(17):
+        best_fbeta = 0
+        temp_threshhold = [0.2]*17
+        for i in range(iterations):
+            temp_value = i / float(iterations)
+            temp_threshhold[t] = temp_value
+            temp_fbeta = fbeta(true_label, prediction > temp_threshhold)
+            if  temp_fbeta > best_fbeta:
+                best_fbeta = temp_fbeta
+                best_threshhold[t] = temp_value
+
+def fbeta(true_label, prediction):
+   return fbeta_score(true_label, prediction, beta=2, average='samples')
+
+model_ft.cuda().eval()
+# a new validation data loader without shuffle
+valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size,
+                                               shuffle=False, num_workers=0)
+valid_predictions = predict(model_ft, dset_loaders["val"])
+valid_label = valid_data.target_tensor
+f2_threshold = get_optimal_threshhold(valid_label, valid_predictions)
+
+print(f2_threshold)
