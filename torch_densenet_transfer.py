@@ -50,8 +50,8 @@ def augment(x, u=0.75):
 
 
 input_transform_augmentation = transforms.Compose([
-    lambda x: augment(x),
-    lambda x: img_to_tensor(x),
+    transforms.Lambda(lambda x: augment(x)),
+    transforms.ToTensor(),
 ])
 
 test_transform = transforms.Compose([
