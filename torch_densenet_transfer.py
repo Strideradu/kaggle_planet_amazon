@@ -31,6 +31,28 @@ input_transform = transforms.Compose([
     transforms.Lambda(lambda x: randomTranspose(np.array(x))),
     transforms.ToTensor()])
 
+
+def augment(x, u=0.75):
+    if random.random() < u:
+        if random.random() > 0.5:
+            x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
+        else:
+            x = randomDistort2(x, num_steps=10, distort_limit=0.2, u=1)
+        x = randomShiftScaleRotate(x, shift_limit=0.0625, scale_limit=0.10, rotate_limit=45, u=1)
+
+    x = randomFlip(x, u=0.5)
+    x = randomTranspose(x, u=0.5)
+    x = randomContrast(x, limit=0.2, u=0.5)
+    # x = randomSaturation(x, limit=0.2, u=0.5),
+    x = randomFilter(x, limit=0.5, u=0.2)
+    return x
+
+
+input_transform_augmentation = [
+    lambda x: augment(x),
+    lambda x: img_to_tensor(x),
+]
+
 test_transform = transforms.Compose([
     transforms.Scale(224),
     transforms.ToTensor()])
@@ -38,8 +60,6 @@ test_transform = transforms.Compose([
 random_seed = 0
 random.seed(random_seed)
 np.random.seed(random_seed)
-
-
 
 train_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/train-jpg/"
 test_path = "/mnt/home/dunan/Learn/Kaggle/planet_amazon/test-jpg/"
@@ -62,7 +82,7 @@ for f, tags in train.values[:]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform(img)
+    x = input_transform_augmentation(img)
     # x = np.expand_dims(x, axis=0)
     X.append(x)
 
@@ -218,38 +238,6 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.005, lr_decay_epoch=1):
 
 
 ######################################################################
-# Visualizing the model predictions
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-#
-# Generic function to display predictions for a few images
-#
-
-def visualize_model(model, num_images=6):
-    images_so_far = 0
-    fig = plt.figure()
-
-    for i, data in enumerate(dset_loaders['val']):
-        inputs, labels = data
-        if use_gpu:
-            inputs, labels = Variable(inputs.cuda()), Variable(labels.cuda())
-        else:
-            inputs, labels = Variable(inputs), Variable(labels)
-
-        outputs = model(inputs)
-        _, preds = torch.max(outputs.data, 1)
-
-        for j in range(inputs.size()[0]):
-            images_so_far += 1
-            ax = plt.subplot(num_images // 2, 2, images_so_far)
-            ax.axis('off')
-            ax.set_title('predicted: {}'.format(dset_classes[labels.data[j]]))
-            imshow(inputs.cpu().data[j])
-
-            if images_so_far == num_images:
-                return
-
-
-######################################################################
 # Finetuning the convnet
 # ----------------------
 #
@@ -324,6 +312,7 @@ def predict(net, test_loader):
 
     return predictions
 
+
 model_ft.cuda().eval()
 predictions = predict(model_ft, test_loader)
 scores = []
@@ -339,4 +328,6 @@ for y_pred_row in predictions:
 orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
-orginin.to_csv('/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_add_transpose_and_crop.csv', index=False)
+orginin.to_csv(
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_add_transpose_and_crop.csv',
+    index=False)
