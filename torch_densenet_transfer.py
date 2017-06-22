@@ -75,36 +75,51 @@ label_map = {'agriculture': 0, 'artisinal_mine': 1, 'bare_ground': 2, 'blooming'
              'primary': 12, 'road': 13, 'selective_logging': 14, 'slash_burn': 15, 'water': 16}
 inv_label_map = {i: l for l, i in label_map.items()}
 
-X = []
-y = []
+X_train = []
+y_train = []
+X_valid = []
+y_valid = []
 
 for f, tags in train.values[:]:
-    # preprocess input image
-    img_path = train_path + "{}.jpg".format(f)
-    img = Image.open(img_path)
-    img = img.convert('RGB')
-    img = np.array(img)
-    x = input_transform_augmentation(img)
-    # x = np.expand_dims(x, axis=0)
-    X.append(x)
-
-    # generate one hot vecctor for label
 
     targets = np.zeros(n_classes)
     for t in tags.split(' '):
         targets[label_map[t]] = 1
-    y.append(targets)
+
+    # preprocess input image
+    if random.random() < 0.1:
+        img_path = train_path + "{}.jpg".format(f)
+        img = Image.open(img_path)
+        img = img.convert('RGB')
+        x = test_transform(img)
+        X_valid.append(x)
+        y_valid.append(targets)
+    else:
+        img_path = train_path + "{}.jpg".format(f)
+        img = Image.open(img_path)
+        img = img.convert('RGB')
+        img = np.array(img)
+        x = input_transform_augmentation(img)
+        # x = np.expand_dims(x, axis=0)
+        X_train.append(x)
+        y_train.append(targets)
+
+
+
+
 
 # X = np.array(X, np.float32)
-y = np.array(y, np.float32)
+y_train = np.array(y_train, np.float32)
+y_valid = np.array(y_valid, np.float32)
 
-X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.1)
 train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
-dset_loaders = {x: torch.utils.data.DataLoader(dsets[x], batch_size=batch_size,
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size,
                                                shuffle=True, num_workers=0)
-                for x in ['train', 'val']}
+valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size,
+                                               shuffle=False, num_workers=0)
+dset_loaders = {"train":train_loader,"val":valid_loader}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = n_classes
 
@@ -359,8 +374,8 @@ model_ft.cuda().eval()
 # a new validation data loader without shuffle
 valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size,
                                                shuffle=False, num_workers=0)
-valid_predictions = predict(model_ft, dset_loaders["val"])
-valid_label = valid_data.target_tensor
+valid_predictions = torch.from_numpy(predict(model_ft, dset_loaders["val"]))
+valid_label = y_valid
 f2_threshold = get_optimal_threshhold(valid_label, valid_predictions)
 
 print(f2_threshold)
