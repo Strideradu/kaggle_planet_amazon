@@ -243,7 +243,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.01, lr_decay_epoch=1):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
     lr = init_lr * (0.85 ** (epoch // lr_decay_epoch))
 
@@ -251,7 +251,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.01, lr_decay_epoch=1):
         print('LR is set to {}'.format(lr))
 
     optimizer.param_groups[0]['lr'] = lr
-    optimizer.param_groups[1]['lr'] = lr * 0.1
+    optimizer.param_groups[1]['lr'] = lr * 10
 
     return optimizer
 
@@ -273,10 +273,13 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
+ignored_params = list(map(id, model_ft.fc.parameters()))
+base_params = filter(lambda p: id(p) not in ignored_params,
+                     model_ft.parameters())
 optimizer_ft = optim.SGD([
-                {'params': model_ft.parameters()},
-                {'params': model_ft.fc.parameters(), 'lr': 1e-3}
-            ], lr=0.01, momentum=0.9)
+                {'params': base_params},
+                {'params': model_ft.fc.parameters(), 'lr': 0.01}
+            ], lr=0.001, momentum=0.9)
 
 ######################################################################
 # Train and evaluate
