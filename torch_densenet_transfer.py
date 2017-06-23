@@ -373,6 +373,6 @@ def fbeta(true_label, prediction):
 model_ft.cuda().eval()
 valid_predictions = predict(model_ft, dset_loaders["val"])
 valid_label = y_valid
-f2_threshold = get_optimal_threshhold(valid_label, valid_predictions.numpy)
+f2_threshold = get_optimal_threshhold(valid_label, valid_predictions)
 
 print(f2_threshold)
