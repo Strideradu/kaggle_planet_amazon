@@ -79,6 +79,7 @@ X_train = []
 y_train = []
 X_valid = []
 y_valid = []
+y_valid_id = []
 
 for f, tags in train.values[:]:
 
@@ -94,6 +95,7 @@ for f, tags in train.values[:]:
         x = test_transform(img)
         X_valid.append(x)
         y_valid.append(targets)
+        y_valid_id.append(f)
     else:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
@@ -367,6 +369,9 @@ def get_optimal_threshhold(true_label, prediction, iterations = 100):
                 best_fbeta = temp_fbeta
                 best_threshhold[t] = temp_value
 
+
+    return best_threshhold
+
 def fbeta(true_label, prediction):
    return fbeta_score(true_label, prediction, beta=2, average='samples')
 
@@ -374,5 +379,21 @@ model_ft.cuda().eval()
 valid_predictions = predict(model_ft, dset_loaders["val"])
 valid_label = y_valid
 f2_threshold = get_optimal_threshhold(valid_label, valid_predictions)
-
 print(f2_threshold)
+
+scores = []
+for y_pred_row in valid_predictions:
+
+    full_result = []
+    for i, value in enumerate(y_pred_row):
+        full_result.append(str(i))
+        full_result.append(str(value))
+
+    scores.append(" ".join(full_result))
+
+valid_df = pd.DataFrame()
+valid_df['image_name'] = y_valid_id
+valid_df['tags'] = scores
+valid_df.to_csv(
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation_valid.csv',
+    index=False)
