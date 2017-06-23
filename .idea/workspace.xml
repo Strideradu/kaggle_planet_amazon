@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet_transfer.py" afterPath="$PROJECT_DIR$/torch_densenet_transfer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/torch_densenet169.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,12 +30,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_densenet_transfer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="torch_densenet_transfer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1112">
-              <caret line="397" column="106" lean-forward="false" selection-start-line="397" selection-start-column="106" selection-end-line="397" selection-end-column="106" />
-              <folding />
+            <state relative-caret-position="1004">
+              <caret line="399" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10800">
+              <caret line="400" column="98" lean-forward="false" selection-start-line="400" selection-start-column="98" selection-end-line="400" selection-end-column="98" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,6 +110,7 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/image_process.py" />
         <option value="$PROJECT_DIR$/torch_densenet_transfer.py" />
+        <option value="$PROJECT_DIR$/torch_densenet169.py" />
       </list>
     </option>
   </component>
@@ -390,13 +406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yt8m/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="73" column="81" lean-forward="false" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yt8m/readers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1917">
@@ -763,9 +772,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet_transfer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1112">
-          <caret line="397" column="106" lean-forward="false" selection-start-line="397" selection-start-column="106" selection-end-line="397" selection-end-column="106" />
-          <folding />
+        <state relative-caret-position="1004">
+          <caret line="399" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10800">
+          <caret line="400" column="98" lean-forward="false" selection-start-line="400" selection-start-column="98" selection-end-line="400" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
