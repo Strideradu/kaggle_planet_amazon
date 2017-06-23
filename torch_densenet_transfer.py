@@ -346,7 +346,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation_2.csv',
     index=False)
 
 ######################################################################
@@ -371,11 +371,8 @@ def fbeta(true_label, prediction):
    return fbeta_score(true_label, prediction, beta=2, average='samples')
 
 model_ft.cuda().eval()
-# a new validation data loader without shuffle
-valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size,
-                                               shuffle=False, num_workers=0)
-valid_predictions = torch.from_numpy(predict(model_ft, dset_loaders["val"]))
+valid_predictions = predict(model_ft, dset_loaders["val"])
 valid_label = y_valid
-f2_threshold = get_optimal_threshhold(valid_label, valid_predictions)
+f2_threshold = get_optimal_threshhold(valid_label, valid_predictions.numpy)
 
 print(f2_threshold)
