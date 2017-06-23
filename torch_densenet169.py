@@ -275,7 +275,7 @@ criterion = nn.CrossEntropyLoss()
 # Observe that all parameters are being optimized
 optimizer_ft = optim.SGD([
                 {'params': model_ft.parameters()},
-                {'params': model_ft.ft.parameters(), 'lr': 1e-3}
+                {'params': model_ft.fc.parameters(), 'lr': 1e-3}
             ], lr=0.01, momentum=0.9)
 
 ######################################################################
