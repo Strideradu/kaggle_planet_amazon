@@ -265,7 +265,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
 
 model_ft = models.densenet169(pretrained=True)
 num_ftrs = model_ft.classifier.in_features
-model_ft.fc = nn.Linear(num_ftrs, n_classes)
+model_ft.classifier = nn.Linear(num_ftrs, n_classes)
 
 if use_gpu:
     model_ft = model_ft.cuda()
@@ -273,12 +273,12 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-ignored_params = list(map(id, model_ft.fc.parameters()))
+ignored_params = list(map(id, model_ft.classifier.parameters()))
 base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
 optimizer_ft = optim.SGD([
                 {'params': base_params},
-                {'params': model_ft.fc.parameters(), 'lr': 0.01}
+                {'params': model_ft.classifier.parameters(), 'lr': 0.01}
             ], lr=0.001, momentum=0.9)
 
 ######################################################################
