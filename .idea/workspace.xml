@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet169.py" afterPath="$PROJECT_DIR$/torch_densenet169.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_resnet50.py" afterPath="$PROJECT_DIR$/torch_resnet50.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="torch_resnet50.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="torch_resnet50.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="56" column="2" lean-forward="false" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
+            <state relative-caret-position="748">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -31,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="709">
@@ -39,6 +37,16 @@
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/standard-7-1/net/model/pyramidnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4158">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,9 +139,9 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/image_process.py" />
         <option value="$PROJECT_DIR$/torch_densenet_transfer.py" />
-        <option value="$PROJECT_DIR$/torch_resnet50.py" />
         <option value="$PROJECT_DIR$/pytorch_utils.py" />
         <option value="$PROJECT_DIR$/torch_densenet169.py" />
+        <option value="$PROJECT_DIR$/torch_resnet50.py" />
       </list>
     </option>
   </component>
@@ -462,7 +470,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1924" height="1056" extended-state="1" />
+    <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24633123" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -531,13 +539,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/extract_feature_vgg16.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="111" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/extract_feature_resnet50.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="972">
@@ -872,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="56" column="2" lean-forward="false" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -892,10 +883,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/standard-7-1/net/model/pyramidnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4158">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="709">
           <caret line="408" column="101" lean-forward="false" selection-start-line="408" selection-start-column="101" selection-end-line="408" selection-end-column="101" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>

@@ -34,7 +34,7 @@ input_transform = transforms.Compose([
     transforms.ToTensor()])
 
 
-def augment(x, u=0.75):
+def augment(x, u=0.25):
     if random.random() < u:
         if random.random() > 0.5:
             x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
@@ -51,7 +51,7 @@ def augment(x, u=0.75):
 
 
 input_transform_augmentation = transforms.Compose([
-    transforms.Scale(size),
+    transforms.Scale(256),
     transforms.Lambda(lambda x: augment(x)),
     transforms.ToTensor(),
 ])
@@ -352,7 +352,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_crop_flip.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_scale_augmentation.csv',
     index=False)
 
 
@@ -400,5 +400,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_crop_flip_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_scale_augmentation_valid.csv',
     index=False)
