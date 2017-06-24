@@ -7,11 +7,15 @@ import cv2
 import math
 
 def randomTranspose(img, u=0.5):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         img = cv2.transpose(img)
     return img
 
 def randomRotate(img, u=0.25, limit=90):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         angle = random.uniform(-limit,limit)  #degree
 
@@ -23,6 +27,8 @@ def randomRotate(img, u=0.25, limit=90):
     return img
 
 def randomRotate90(img, u=0.25):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         angle=random.randint(1,3)*90
         if angle == 90:
@@ -41,17 +47,23 @@ def randomRotate90(img, u=0.25):
 #http://enthusiaststudent.blogspot.jp/2015/01/horizontal-and-vertical-flip-using.html
 #http://qiita.com/supersaiakujin/items/3a2ac4f2b05de584cb11
 def randomVerticalFlip(img, u=0.5):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         img = cv2.flip(img,0)  #np.flipud(img)  #cv2.flip(img,0) ##up-down
     return img
 
 def randomFlip(img, u=0.5):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         img = cv2.flip(img,random.randint(-1,1))
     return img
 
 
 def randomShiftScaleRotate(img, shift_limit=0.0625, scale_limit=0.1, rotate_limit=45, u=0.5):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         height,width,channel = img.shape
 
@@ -85,7 +97,8 @@ def randomShiftScaleRotate(img, shift_limit=0.0625, scale_limit=0.1, rotate_limi
 
 ## barrel\pincushion distortion
 def randomDistort1(img, distort_limit=0.35, shift_limit=0.25, u=0.5):
-
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         height, width, channel = img.shape
 
@@ -119,7 +132,8 @@ def randomDistort1(img, distort_limit=0.35, shift_limit=0.25, u=0.5):
 #http://pythology.blogspot.sg/2014/03/interpolation-on-regular-distorted-grid.html
 ## grid distortion
 def randomDistort2(img, num_steps=10, distort_limit=0.2, u=0.5):
-
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     if random.random() < u:
         height, width, channel = img.shape
 
