@@ -50,6 +50,7 @@ def augment(x, u=0.75):
 
 
 input_transform_augmentation = transforms.Compose([
+    transforms.Scale(size),
     transforms.Lambda(lambda x: augment(x)),
     transforms.ToTensor(),
 ])
@@ -100,15 +101,11 @@ for f, tags in train.values[:]:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
         img = img.convert('RGB')
-        img = np.array(img)
+        # img = np.array(img)
         x = input_transform_augmentation(img)
         # x = np.expand_dims(x, axis=0)
         X_train.append(x)
         y_train.append(targets)
-
-
-
-
 
 # X = np.array(X, np.float32)
 y_train = np.array(y_train, np.float32)
@@ -118,10 +115,10 @@ train_data = TensorDataset(torch.stack(X_train), torch.from_numpy(y_train))
 valid_data = TensorDataset(torch.stack(X_valid), torch.from_numpy(y_valid))
 dsets = {"train": train_data, "val": valid_data}
 train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size,
-                                               shuffle=True, num_workers=0)
+                                           shuffle=True, num_workers=0)
 valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size,
-                                               shuffle=False, num_workers=0)
-dset_loaders = {"train":train_loader,"val":valid_loader}
+                                           shuffle=False, num_workers=0)
+dset_loaders = {"train": train_loader, "val": valid_loader}
 dset_sizes = {x: len(dsets[x]) for x in ['train', 'val']}
 dset_classes = n_classes
 
@@ -277,9 +274,9 @@ ignored_params = list(map(id, model_ft.classifier.parameters()))
 base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
 optimizer_ft = optim.SGD([
-                {'params': base_params},
-                {'params': model_ft.classifier.parameters(), 'lr': 0.01}
-            ], lr=0.001, momentum=0.9)
+    {'params': base_params},
+    {'params': model_ft.classifier.parameters(), 'lr': 0.01}
+], lr=0.001, momentum=0.9)
 
 ######################################################################
 # Train and evaluate
@@ -357,29 +354,30 @@ orginin.to_csv(
     '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_augmentation.csv',
     index=False)
 
+
 ######################################################################
 
 # determine best F2 threshold using validation dataset
 
-def get_optimal_threshhold(true_label, prediction, iterations = 100):
-
-    best_threshhold = [0.2]*17
+def get_optimal_threshhold(true_label, prediction, iterations=100):
+    best_threshhold = [0.2] * 17
     for t in range(17):
         best_fbeta = 0
-        temp_threshhold = [0.2]*17
+        temp_threshhold = [0.2] * 17
         for i in range(iterations):
             temp_value = i / float(iterations)
             temp_threshhold[t] = temp_value
             temp_fbeta = fbeta(true_label, prediction > temp_threshhold)
-            if  temp_fbeta > best_fbeta:
+            if temp_fbeta > best_fbeta:
                 best_fbeta = temp_fbeta
                 best_threshhold[t] = temp_value
 
-
     return best_threshhold
 
+
 def fbeta(true_label, prediction):
-   return fbeta_score(true_label, prediction, beta=2, average='samples')
+    return fbeta_score(true_label, prediction, beta=2, average='samples')
+
 
 model_ft.cuda().eval()
 valid_predictions = predict(model_ft, dset_loaders["val"])

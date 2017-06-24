@@ -51,6 +51,7 @@ def augment(x, u=0.75):
 
 
 input_transform_augmentation = transforms.Compose([
+    transforms.Scale(size),
     transforms.Lambda(lambda x: augment(x)),
     transforms.ToTensor(),
 ])
