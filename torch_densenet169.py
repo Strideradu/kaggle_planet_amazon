@@ -243,15 +243,15 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.005, lr_decay_epoch=1):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
     lr = init_lr * (0.85 ** (epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
 
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr
+    optimizer.param_groups[0]['lr'] = lr
+    optimizer.param_groups[1]['lr'] = lr * 10
 
     return optimizer
 
@@ -263,9 +263,9 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.005, lr_decay_epoch=1):
 # Load a pretrained model and reset final fully connected layer.
 #
 
-model_ft = models.resnet50(pretrained=True)
-num_ftrs = model_ft.fc.in_features
-model_ft.fc = nn.Linear(num_ftrs, n_classes)
+model_ft = models.densenet169(pretrained=True)
+num_ftrs = model_ft.classifier.in_features
+model_ft.classifier = nn.Linear(num_ftrs, n_classes)
 
 if use_gpu:
     model_ft = model_ft.cuda()
@@ -273,7 +273,13 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.001, momentum=0.9)
+ignored_params = list(map(id, model_ft.classifier.parameters()))
+base_params = filter(lambda p: id(p) not in ignored_params,
+                     model_ft.parameters())
+optimizer_ft = optim.SGD([
+                {'params': base_params},
+                {'params': model_ft.classifier.parameters(), 'lr': 0.01}
+            ], lr=0.001, momentum=0.9)
 
 ######################################################################
 # Train and evaluate
@@ -348,7 +354,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation_2.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_augmentation.csv',
     index=False)
 
 ######################################################################
@@ -395,5 +401,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet50_transfer_learning_more_augmentation_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_augmentation_valid.csv',
     index=False)
