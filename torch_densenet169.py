@@ -249,9 +249,9 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=10):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.9 ** (epoch // lr_decay_epoch))
+    lr = init_lr * (0.1 ** (epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
