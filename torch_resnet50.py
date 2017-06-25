@@ -21,9 +21,9 @@ from torch.nn.functional import sigmoid
 from pytorch_utils import *
 from sklearn.metrics import fbeta_score
 
-size = 224
+size = 256
 n_classes = 17
-batch_size = 32
+batch_size = 64
 
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
@@ -31,7 +31,9 @@ input_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.Lambda(lambda x: randomTranspose(x)),
-    transforms.ToTensor()])
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
 
 
 def augment(x, u=0.25):
@@ -51,9 +53,10 @@ def augment(x, u=0.25):
 
 
 input_transform_augmentation = transforms.Compose([
-    transforms.Scale(256),
+    transforms.Scale(size),
     transforms.Lambda(lambda x: augment(x)),
     transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
 test_transform = transforms.Compose([
@@ -275,9 +278,9 @@ ignored_params = list(map(id, model_ft.fc.parameters()))
 base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
 optimizer_ft = optim.SGD([
-                {'params': base_params},
-                {'params': model_ft.fc.parameters(), 'lr': 0.01}
-            ], lr=0.001, momentum=0.9)
+    {'params': base_params},
+    {'params': model_ft.fc.parameters(), 'lr': 0.01}
+], lr=0.001, momentum=0.9)
 
 ######################################################################
 # Train and evaluate

@@ -21,11 +21,11 @@ from torch.nn.functional import sigmoid
 from pytorch_utils import *
 from sklearn.metrics import fbeta_score
 
-size = 224
+size = 256
 n_classes = 17
-batch_size = 32
+batch_size = 64
 
-"""
+
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
@@ -39,7 +39,7 @@ input_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor()
 ])
-
+"""
 
 def augment(x, u=0.75):
     if random.random() < u:
@@ -267,7 +267,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
 # Load a pretrained model and reset final fully connected layer.
 #
 
-model_ft = models.densenet169(pretrained=True)
+model_ft = models.densenet169(pretrained=True, drop_rate=0.5)
 num_ftrs = model_ft.classifier.in_features
 model_ft.classifier = nn.Linear(num_ftrs, n_classes)
 
@@ -358,7 +358,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_clip.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_batch64_drop0p5.csv',
     index=False)
 
 
@@ -406,5 +406,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_randomcrop_clip_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_batch64_drop0p5_valid.csv',
     index=False)
