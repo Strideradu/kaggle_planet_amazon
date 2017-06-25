@@ -23,15 +23,15 @@ from sklearn.metrics import fbeta_score
 
 size = 256
 n_classes = 17
-batch_size = 48
-
+batch_size = 32
 
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
     transforms.Lambda(lambda x: randomTranspose(x)),
-    transforms.ToTensor()])
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 """
 
 input_transform = transforms.Compose([
@@ -40,6 +40,7 @@ input_transform = transforms.Compose([
     transforms.ToTensor()
 ])
 """
+
 
 def augment(x, u=0.75):
     if random.random() < u:
@@ -65,7 +66,8 @@ input_transform_augmentation = transforms.Compose([
 
 test_transform = transforms.Compose([
     transforms.Scale(size),
-    transforms.ToTensor()])
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
 random_seed = 0
 random.seed(random_seed)
@@ -249,7 +251,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 
 def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=1):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.85 ** (epoch // lr_decay_epoch))
+    lr = init_lr * (0.9 ** (epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
@@ -294,7 +296,7 @@ optimizer_ft = optim.SGD([
 #
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
-                       num_epochs=25)
+                       num_epochs=30)
 
 ######################################################################
 #
@@ -358,7 +360,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_batch48_drop0p5.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_drop0p5.csv',
     index=False)
 
 
@@ -406,5 +408,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_batch48_drop0p5_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_drop0p5_valid.csv',
     index=False)
