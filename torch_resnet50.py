@@ -60,7 +60,7 @@ input_transform_augmentation = transforms.Compose([
 ])
 
 test_transform = transforms.Compose([
-    transforms.Scale(224),
+    transforms.Scale(size),
     transforms.ToTensor()])
 
 random_seed = 0
