@@ -21,7 +21,7 @@ from torch.nn.functional import sigmoid
 from pytorch_utils import *
 from sklearn.metrics import fbeta_score
 
-size = 256
+size = 224
 n_classes = 17
 batch_size = 32
 
