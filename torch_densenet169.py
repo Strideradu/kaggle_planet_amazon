@@ -23,7 +23,7 @@ from sklearn.metrics import fbeta_score
 
 size = 256
 n_classes = 17
-batch_size = 64
+batch_size = 48
 
 
 input_transform = transforms.Compose([
@@ -358,7 +358,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_batch64_drop0p5.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_batch48_drop0p5.csv',
     index=False)
 
 
@@ -406,5 +406,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_batch64_drop0p5_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_batch48_drop0p5_valid.csv',
     index=False)
