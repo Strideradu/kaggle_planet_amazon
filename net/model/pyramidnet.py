@@ -1,4 +1,4 @@
-from net.util import 
+from net.util import *
 
 
 # ----- helper functions --------
