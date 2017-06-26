@@ -1,19 +1,3 @@
-# [1] "Feature Pyramid Networks for Object Detection" -  Tsung-Yi Lin, Piotr Dollár,
-#         Ross Girshick, Kaiming He, Bharath Hariharan, Serge Belongie, arxiv 2016
-#         https://arxiv.org/abs/1612.03144
-#
-# [2] "DSSD : Deconvolutional Single Shot Detector" - Cheng-Yang Fu, Wei Liu, Ananth Ranga,
-#         Ambrish Tyagi, Alexander C. Berg, arxiv 2017
-#
-# [3] "Aggregated Residual Transformations for Deep Neural Networks" - Saining Xie,
-#         Ross Girshick, Piotr Dollár, Zhuowen Tu, Kaiming He, arxiv 2016
-#         https://github.com/D-X-Y/ResNeXt/blob/master/models/resnext.py
-#
-# [4] "Is object localization for free? – Weakly-supervised learning with convolutional neural networks" -
-#         Maxime Oquab, Léon Bottou, Ivan Laptev, Josef Sivic, cvpr 2015
-#
-#
-
 from net.util import *
 
 
