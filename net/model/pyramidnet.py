@@ -599,7 +599,7 @@ if __name__ == '__main__':
         start = timer()
         logit, prob = net.forward(x)
         end = timer()
-        print('cuda(): end-start=%0.0f  ms' % ((end - start)  1000))
+        print('cuda(): end-start=%0.0f  ms' % ((end - start)* 1000))
 
         # dot = make_dot(y)
         # dot.view()
