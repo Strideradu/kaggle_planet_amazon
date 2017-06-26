@@ -25,6 +25,7 @@ size = 224
 n_classes = 17
 batch_size = 32
 
+"""
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
@@ -37,9 +38,10 @@ input_transform = transforms.Compose([
 input_transform = transforms.Compose([
     transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
-    transforms.ToTensor()
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
-"""
+
 
 
 def augment(x, u=0.75):
@@ -99,7 +101,7 @@ for f, tags in train.values[:]:
         targets[label_map[t]] = 1
 
     # preprocess input image
-    if random.random() < 0.1:
+    if random.random() < 0.15:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
         img = img.convert('RGB')
@@ -360,7 +362,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_scale_crop_clip_drop0p5.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_random_crop_flip_drop0p5.csv',
     index=False)
 
 
@@ -408,5 +410,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_scale_crop_clip_drop0p5_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_random_crop_flip_drop0p5_valid.csv',
     index=False)
