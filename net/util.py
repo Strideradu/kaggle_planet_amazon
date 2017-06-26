@@ -7,7 +7,7 @@
 from net.common import *
 # from graphviz import Digraph
 from torch.autograd import Variable
-import builtins
+# import builtins
 import time
 
 # log ------------------------------------
@@ -21,18 +21,6 @@ def remove_comments(lines, token='#'):
         if s != '':
             l.append(s)
     return l
-
-
-def open(file, mode=None, encoding=None):
-    if mode == None: mode = 'r'
-
-    if '/' in file:
-        if 'w' or 'a' in mode:
-            dir = os.path.dirname(file)
-            if not os.path.isdir(dir):  os.makedirs(dir)
-
-    f = builtins.open(file, mode=mode, encoding=encoding)
-    return f
 
 
 def remove(file):
