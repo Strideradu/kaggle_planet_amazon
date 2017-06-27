@@ -59,12 +59,16 @@ class PyNet_10(nn.Module):
         super(PyNet_10, self).__init__()
         # in_channels, height, width = in_shape
 
+        preprocess_list = make_list(
+            make_conv_bn_relu(3, 16, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0))
+
+        print(preprocess_list)
+
         self.preprocess = nn.Sequential(
-            make_list(
-                make_conv_bn_relu(3, 16, kernel_size=1, stride=1, padding=0),
-                make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
-                make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
-                make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0))
+            preprocess_list
         )  # 128
 
         self.conv1d = nn.Sequential(
