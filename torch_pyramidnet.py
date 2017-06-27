@@ -274,9 +274,6 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-ignored_params = list(map(id, model_ft.fc.parameters()))
-base_params = filter(lambda p: id(p) not in ignored_params,
-                     model_ft.parameters())
 optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9)
 
 ######################################################################

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/net/model/pyramidnet.py" afterPath="$PROJECT_DIR$/net/model/pyramidnet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_pyramidnet.py" afterPath="$PROJECT_DIR$/torch_pyramidnet.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_pyramidnet.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="torch_pyramidnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7788">
-              <caret line="354" column="85" lean-forward="false" selection-start-line="354" selection-start-column="85" selection-end-line="354" selection-end-column="85" />
+            <state relative-caret-position="506">
+              <caret line="272" column="0" lean-forward="true" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -41,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/model/pyramidnet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="748">
@@ -166,10 +166,10 @@
         <option value="$PROJECT_DIR$/torch_densenet169.py" />
         <option value="$PROJECT_DIR$/pyramidnet.py" />
         <option value="$PROJECT_DIR$/torch_resnet34.py" />
-        <option value="$PROJECT_DIR$/torch_pyramidnet.py" />
         <option value="$PROJECT_DIR$/net/model/fusenet.py" />
         <option value="$PROJECT_DIR$/net/util.py" />
         <option value="$PROJECT_DIR$/net/model/pyramidnet.py" />
+        <option value="$PROJECT_DIR$/torch_pyramidnet.py" />
       </list>
     </option>
   </component>
@@ -1002,16 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7788">
-          <caret line="354" column="85" lean-forward="false" selection-start-line="354" selection-start-column="85" selection-end-line="354" selection-end-column="85" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net/model/fusenet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -1051,6 +1041,16 @@
         <state relative-caret-position="748">
           <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="272" column="0" lean-forward="true" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
