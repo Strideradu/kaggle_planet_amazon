@@ -52,111 +52,111 @@ class PyNet_10(nn.Module):
         # in_channels, height, width = in_shape
 
         self.preprocess = nn.Sequential(
-            make_conv_bn_relu(3, 16, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(3, 16, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(16, 16, kernel_size=1, stride=1, padding=0)
         )  # 128
 
         self.conv1d = nn.Sequential(
-            make_conv_bn_relu(16, 32, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(32, 32, kernel_size=3, stride=1, padding=1),
-            make_conv_bn_relu(32, 64, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(16, 32, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(32, 32, kernel_size=3, stride=1, padding=1)+
+            make_conv_bn_relu(32, 64, kernel_size=1, stride=1, padding=0)
         )  # 128
         self.shortld = nn.Conv2d(16, 64, kernel_size=1, stride=1, padding=0, bias=False)
 
         self.conv2d = nn.Sequential(
-            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1),
-            make_conv_bn_relu(64, 128, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1)+
+            make_conv_bn_relu(64, 128, kernel_size=1, stride=1, padding=0)+
         )  # 64
         self.short2d = nn.Conv2d(64, 128, kernel_size=1, stride=1, padding=0, bias=False)
 
         self.conv3d = nn.Sequential(
-            make_conv_bn_relu(128, 128, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(128, 128, kernel_size=3, stride=1, padding=1, groups=16),
-            make_conv_bn_relu(128, 256, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(128, 128, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(128, 128, kernel_size=3, stride=1, padding=1, groups=16)+
+            make_conv_bn_relu(128, 256, kernel_size=1, stride=1, padding=0)
         )  # 32
         self.short3d = nn.Conv2d(128, 256, kernel_size=1, stride=1, padding=0, bias=False)
 
         self.conv4d = nn.Sequential(
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16),
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16)+
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)
         )  # 16
         self.short4d = None  # nn.Identity()
 
         self.conv5d = nn.Sequential(
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16),
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16)+
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)
         )  # 8
         self.short5d = None  # nn.Identity()
 
         self.conv4u = nn.Sequential(
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16),
-            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(256, 256, kernel_size=3, stride=1, padding=1, groups=16)+
+            make_conv_bn_relu(256, 256, kernel_size=1, stride=1, padding=0)
         )  # 16
 
         self.conv3u = nn.Sequential(
-            make_conv_bn_relu(256, 128, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(128, 128, kernel_size=3, stride=1, padding=1, groups=16),
-            make_conv_bn_relu(128, 128, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(256, 128, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(128, 128, kernel_size=3, stride=1, padding=1, groups=16)+
+            make_conv_bn_relu(128, 128, kernel_size=1, stride=1, padding=0)
         )  # 32
 
         self.conv2u = nn.Sequential(
-            make_conv_bn_relu(128, 64, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1),
-            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(128, 64, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1)+
+            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0)
         )  # 64
 
         self.conv1u = nn.Sequential(
-            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0),
-            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1),
-            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0),
+            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1)+
+            make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0)
         )  # 128
 
         self.cls2d = nn.Sequential(
-            make_linear_bn_relu(128, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(128, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls3d = nn.Sequential(
-            make_linear_bn_relu(256, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(256, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls4d = nn.Sequential(
-            make_linear_bn_relu(256, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(256, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls5d = nn.Sequential(
-            make_linear_bn_relu(256, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(256, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
 
         self.cls1u = nn.Sequential(
-            make_linear_bn_relu(64, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(64, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls2u = nn.Sequential(
-            make_linear_bn_relu(64, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(64, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls3u = nn.Sequential(
-            make_linear_bn_relu(128, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(128, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
         self.cls4u = nn.Sequential(
-            make_linear_bn_relu(256, 512),
-            make_linear_bn_relu(512, 512),
-            nn.Linear(512, num_classes)
+            make_linear_bn_relu(256, 512)+
+            make_linear_bn_relu(512, 512)+
+            [nn.Linear(512, num_classes)]
         )
 
     def forward(self, x):
