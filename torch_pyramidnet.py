@@ -8,7 +8,7 @@ import numpy as np
 import torchvision
 from torchvision import datasets, models, transforms
 from torch.utils.data import TensorDataset
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import time
 import copy
 import os
