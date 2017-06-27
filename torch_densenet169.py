@@ -362,7 +362,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_random_crop_flip_drop0p5.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_random_crop_flip_drop0p5_TTA.csv',
     index=False)
 
 
@@ -410,5 +410,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_random_crop_flip_drop0p5_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_random_crop_flip_drop0p5_TTA_valid.csv',
     index=False)
