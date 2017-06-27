@@ -68,7 +68,7 @@ class PyNet_10(nn.Module):
         self.conv2d = nn.Sequential(
             make_conv_bn_relu(64, 64, kernel_size=1, stride=1, padding=0)+
             make_conv_bn_relu(64, 64, kernel_size=3, stride=1, padding=1)+
-            make_conv_bn_relu(64, 128, kernel_size=1, stride=1, padding=0)+
+            make_conv_bn_relu(64, 128, kernel_size=1, stride=1, padding=0)
         )  # 64
         self.short2d = nn.Conv2d(64, 128, kernel_size=1, stride=1, padding=0, bias=False)
 
