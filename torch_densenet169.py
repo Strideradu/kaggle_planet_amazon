@@ -36,12 +36,12 @@ input_transform = transforms.Compose([
 """
 
 input_transform = transforms.Compose([
-    transforms.RandomCrop(size),
+    transforms.Scale(size),
     transforms.RandomHorizontalFlip(),
+    transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
-
 
 
 def augment(x, u=0.75):
@@ -68,6 +68,12 @@ input_transform_augmentation = transforms.Compose([
 
 test_transform = transforms.Compose([
     transforms.Scale(size),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+tta_transform = transforms.Compose([
+    transforms.Scale(size),
+    transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
@@ -256,12 +262,15 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=10):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=2):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.1 ** (epoch // lr_decay_epoch))
+    lr = init_lr * (0.8 ** (epoch // lr_decay_epoch))
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
+
+    if lr < 5e-6:
+        lr = 0.0001
 
     optimizer.param_groups[0]['lr'] = lr
     optimizer.param_groups[1]['lr'] = lr * 10
@@ -276,9 +285,11 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=10):
 # Load a pretrained model and reset final fully connected layer.
 #
 
-model_ft = models.densenet169(pretrained=True, drop_rate=0.5)
+model_ft = models.densenet169(pretrained=True)
 num_ftrs = model_ft.classifier.in_features
 model_ft.classifier = nn.Linear(num_ftrs, n_classes)
+
+model_ft.max_num = 2
 
 if use_gpu:
     model_ft = model_ft.cuda()
@@ -292,7 +303,7 @@ base_params = filter(lambda p: id(p) not in ignored_params,
 optimizer_ft = optim.SGD([
     {'params': base_params},
     {'params': model_ft.classifier.parameters(), 'lr': 0.01}
-], lr=0.001, momentum=0.9)
+], lr=0.001, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
@@ -319,7 +330,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform(img)
+    x = tta_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
@@ -367,7 +378,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_valid_noDA_random_crop_flip_drop0p5_TTA.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_simple_TTA_l2.csv',
     index=False)
 
 
@@ -415,5 +426,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_valid_noDA_random_crop_flip_drop0p5_TTA_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_simple_TTA_l2_valid.csv',
     index=False)

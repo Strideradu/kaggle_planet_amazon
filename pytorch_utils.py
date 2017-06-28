@@ -26,11 +26,17 @@ def randomRotate(img, u=0.25, limit=90):
 
     return img
 
+def randomRotate90(img):
+    d = random.randint(0,4) * 90
+    img2 = img.rotate(d, resample=Image.NEAREST)
+    return img2
+
+""""
 def randomRotate90(img, u=0.25):
     if not isinstance(img, np.ndarray):
         img = np.array(img)
     if random.random() < u:
-        angle=random.randint(1,3)*90
+        angle=random.randint(0,3)*90
         if angle == 90:
             img = cv2.transpose(img)
             img = cv2.flip(img,1)
@@ -43,7 +49,7 @@ def randomRotate90(img, u=0.25):
             img = cv2.flip(img,0)
             #return  img.transpose((1,0, 2))[::-1,:,:]
     return img
-
+"""
 #http://enthusiaststudent.blogspot.jp/2015/01/horizontal-and-vertical-flip-using.html
 #http://qiita.com/supersaiakujin/items/3a2ac4f2b05de584cb11
 def randomVerticalFlip(img, u=0.5):
