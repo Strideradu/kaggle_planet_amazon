@@ -36,7 +36,7 @@ input_transform = transforms.Compose([
 ])
 
 
-def augment(x, u=0.25):
+def augment(x, u=0.5):
     if random.random() < u:
         if random.random() > 0.5:
             x = randomDistort1(x, distort_limit=0.35, shift_limit=0.25, u=1)
@@ -102,12 +102,16 @@ for f, tags in train.values[:]:
         X_valid.append(x)
         y_valid.append(targets)
         y_valid_id.append(f)
+
+        x = input_transform_augmentation(img)
+        X_train.append(x)
+        y_train.append(targets)
     else:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
         img = img.convert('RGB')
         # img = np.array(img)
-        x = input_transform(img)
+        x = input_transform_augmentation(img)
         # x = np.expand_dims(x, axis=0)
         X_train.append(x)
         y_train.append(targets)
@@ -281,7 +285,7 @@ base_params = filter(lambda p: id(p) not in ignored_params,
 optimizer_ft = optim.SGD([
     {'params': base_params},
     {'params': model_ft.fc.parameters(), 'lr': 0.01}
-], lr=0.001, momentum=0.9)
+], lr=0.001, momentum=0.9, weight_decay=0.001)
 
 ######################################################################
 # Train and evaluate
@@ -308,7 +312,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = test_transform(img)
+    x = input_transform_augmentation(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
@@ -356,7 +360,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_crop_flip.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_augmentation.csv',
     index=False)
 
 
@@ -404,5 +408,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_crop_flip_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_augmentation.csv',
     index=False)

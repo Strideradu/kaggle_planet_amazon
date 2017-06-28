@@ -105,10 +105,15 @@ for f, tags in train.values[:]:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
         img = img.convert('RGB')
-        x = input_transform(img)
+        x = test_transform(img)
         X_valid.append(x)
         y_valid.append(targets)
         y_valid_id.append(f)
+
+        # add augmentaion one to the train
+        x = input_transform(img)
+        X_train.append(x)
+        y_train.append(targets)
     else:
         img_path = train_path + "{}.jpg".format(f)
         img = Image.open(img_path)
@@ -362,7 +367,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_random_crop_flip_drop0p5_TTA.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_valid_noDA_random_crop_flip_drop0p5_TTA.csv',
     index=False)
 
 
@@ -410,5 +415,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_random_crop_flip_drop0p5_TTA_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_valid_noDA_random_crop_flip_drop0p5_TTA_valid.csv',
     index=False)
