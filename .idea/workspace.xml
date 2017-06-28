@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_pyramidnet.py" afterPath="$PROJECT_DIR$/torch_pyramidnet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet169.py" afterPath="$PROJECT_DIR$/torch_densenet169.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +21,7 @@
       <file leaf-file-name="torch_resnet34.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9099">
+            <state relative-caret-position="7414">
               <caret line="358" column="98" lean-forward="false" selection-start-line="358" selection-start-column="98" selection-end-line="358" selection-end-column="98" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
@@ -30,21 +30,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_pyramidnet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="torch_pyramidnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9553">
+            <state relative-caret-position="-242">
               <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10287">
-              <caret line="402" column="42" lean-forward="false" selection-start-line="402" selection-start-column="42" selection-end-line="402" selection-end-column="42" />
+            <state relative-caret-position="796">
+              <caret line="290" column="43" lean-forward="true" selection-start-line="290" selection-start-column="43" selection-end-line="290" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -53,9 +53,24 @@
       <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/model/pyramidnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3942">
+            <state relative-caret-position="1606">
               <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-              <folding />
+              <folding>
+                <marker date="1498614848331" expanded="true" signature="1617:2864" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="1654:2864" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="9337:9415" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="9444:16492" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="9491:14281" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="14308:16492" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="16163:16246" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="16602:23606" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="16649:21170" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="21197:23606" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="23708:24398" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="23787:23886" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="24033:24398" ph="..." />
+                <marker date="1498614848331" expanded="true" signature="24294:24334" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,8 +78,8 @@
       <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forest-7/net/model/pyramidnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="198" column="9" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="198" selection-end-column="9" />
+            <state relative-caret-position="4224">
+              <caret line="198" column="9" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="198" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -73,7 +88,7 @@
       <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/net/util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
+            <state relative-caret-position="550">
               <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding>
                 <element signature="e#215#239#0" expanded="true" />
@@ -156,17 +171,17 @@
         <option value="$PROJECT_DIR$/torch_resnet34.py" />
         <option value="$PROJECT_DIR$/net/model/fusenet.py" />
         <option value="$PROJECT_DIR$/net/util.py" />
-        <option value="$PROJECT_DIR$/torch_densenet169.py" />
         <option value="$PROJECT_DIR$/net/model/pyramidnet.py" />
         <option value="$PROJECT_DIR$/torch_pyramidnet.py" />
+        <option value="$PROJECT_DIR$/torch_densenet169.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="2182" />
-    <option name="height" value="1402" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -202,8 +217,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -436,6 +451,7 @@
       <option name="SCRIPT_NAME" value="C:\Users\User\Documents\GitHub\kaggle_planet_amazon\torch_resnet50.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -453,6 +469,7 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
@@ -465,25 +482,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="kaggle_planet_amazon" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="kaggle_planet_amazon" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -515,15 +513,10 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="kaggle_planet_amazon" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -536,19 +529,36 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="kaggle_planet_amazon" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="kaggle_planet_amazon" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
+      </list>
+    </recent_temporary>
+    <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -565,21 +575,8 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.torch_densenet_transfer" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -595,27 +592,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24447578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24733475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -972,17 +969,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10287">
-          <caret line="402" column="42" lean-forward="false" selection-start-line="402" selection-start-column="42" selection-end-line="402" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9099">
+        <state relative-caret-position="7414">
           <caret line="358" column="98" lean-forward="false" selection-start-line="358" selection-start-column="98" selection-end-line="358" selection-end-column="98" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
@@ -992,7 +981,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/net/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
+        <state relative-caret-position="550">
           <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding>
             <element signature="e#215#239#0" expanded="true" />
@@ -1010,24 +999,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/forest-7/net/model/pyramidnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="198" column="9" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="198" selection-end-column="9" />
+        <state relative-caret-position="4224">
+          <caret line="198" column="9" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="198" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/net/model/pyramidnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3942">
+        <state relative-caret-position="1606">
           <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding />
+          <folding>
+            <marker date="1498614848331" expanded="true" signature="1617:2864" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="1654:2864" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="9337:9415" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="9444:16492" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="9491:14281" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="14308:16492" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="16163:16246" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="16602:23606" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="16649:21170" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="21197:23606" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="23708:24398" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="23787:23886" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="24033:24398" ph="..." />
+            <marker date="1498614848331" expanded="true" signature="24294:24334" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9553">
+        <state relative-caret-position="-242">
           <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="290" column="43" lean-forward="true" selection-start-line="290" selection-start-column="43" selection-end-line="290" selection-end-column="43" />
           <folding />
         </state>
       </provider>
