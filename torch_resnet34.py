@@ -286,7 +286,7 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9, weight_decay = 0.0005)
+optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
