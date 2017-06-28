@@ -312,7 +312,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = test_transform(img)
+    x = input_transform_augmentation(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
