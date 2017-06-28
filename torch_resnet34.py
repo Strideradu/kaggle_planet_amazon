@@ -285,7 +285,7 @@ base_params = filter(lambda p: id(p) not in ignored_params,
 optimizer_ft = optim.SGD([
     {'params': base_params},
     {'params': model_ft.fc.parameters(), 'lr': 0.01}
-], lr=0.001, momentum=0.9)
+], lr=0.001, momentum=0.9, weight_decay=0.001)
 
 ######################################################################
 # Train and evaluate

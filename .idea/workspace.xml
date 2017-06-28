@@ -20,8 +20,8 @@
       <file leaf-file-name="torch_resnet34.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="337" column="37" lean-forward="true" selection-start-line="337" selection-start-column="37" selection-end-line="337" selection-end-column="37" />
+            <state relative-caret-position="774">
+              <caret line="312" column="30" lean-forward="true" selection-start-line="312" selection-start-column="30" selection-end-line="312" selection-end-column="30" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -117,8 +117,8 @@
       <file leaf-file-name="train-forest-0.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/standard-7-1/train-forest-0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="182" column="11" lean-forward="true" selection-start-line="182" selection-start-column="4" selection-end-line="182" selection-end-column="11" />
+            <state relative-caret-position="792">
+              <caret line="314" column="83" lean-forward="true" selection-start-line="314" selection-start-column="66" selection-end-line="314" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -1004,14 +1004,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="290" column="43" lean-forward="true" selection-start-line="290" selection-start-column="43" selection-end-line="290" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/standard-7-1/net/model/resnext.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6248">
@@ -1036,18 +1028,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="290" column="43" lean-forward="true" selection-start-line="290" selection-start-column="43" selection-end-line="290" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/standard-7-1/train-forest-0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="182" column="11" lean-forward="true" selection-start-line="182" selection-start-column="4" selection-end-line="182" selection-end-column="11" />
+        <state relative-caret-position="792">
+          <caret line="314" column="83" lean-forward="true" selection-start-line="314" selection-start-column="66" selection-end-line="314" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="337" column="37" lean-forward="true" selection-start-line="337" selection-start-column="37" selection-end-line="337" selection-end-column="37" />
+        <state relative-caret-position="774">
+          <caret line="312" column="30" lean-forward="true" selection-start-line="312" selection-start-column="30" selection-end-line="312" selection-end-column="30" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
