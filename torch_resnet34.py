@@ -409,5 +409,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_valid.csv',
     index=False)
