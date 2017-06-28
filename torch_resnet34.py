@@ -23,7 +23,7 @@ from sklearn.metrics import fbeta_score
 
 size = 256
 n_classes = 17
-batch_size = 32
+batch_size = 64
 
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
@@ -249,15 +249,22 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=10):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.01, lr_decay_epoch=10):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    lr = init_lr * (0.1 ** (epoch // lr_decay_epoch))
+    if epoch > 30:
+        lr = 0.00001
+
+    if epoch > 20:
+        lr =0.0001
+
+    if epoch > 10:
+        lr = 0.001
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
 
-    optimizer.param_groups[0]['lr'] = lr
-    optimizer.param_groups[1]['lr'] = lr * 10
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
 
     return optimizer
 
@@ -279,13 +286,7 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-ignored_params = list(map(id, model_ft.fc.parameters()))
-base_params = filter(lambda p: id(p) not in ignored_params,
-                     model_ft.parameters())
-optimizer_ft = optim.SGD([
-    {'params': base_params},
-    {'params': model_ft.fc.parameters(), 'lr': 0.01}
-], lr=0.001, momentum=0.9, weight_decay=0.001)
+optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
@@ -296,7 +297,7 @@ optimizer_ft = optim.SGD([
 #
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
-                       num_epochs=30)
+                       num_epochs=40)
 
 ######################################################################
 #
@@ -360,7 +361,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_augmentation.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch.csv',
     index=False)
 
 
@@ -408,5 +409,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_augmentation.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch.csv',
     index=False)
