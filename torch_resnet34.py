@@ -254,11 +254,15 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.01, lr_decay_epoch=10):
     if epoch > 30:
         lr = 0.00001
 
-    if epoch > 20:
+    elif epoch > 20:
         lr =0.0001
 
-    if epoch > 10:
+    elif epoch > 10:
         lr = 0.001
+
+    else:
+        lr = init_lr
+
 
     if epoch % lr_decay_epoch == 0:
         print('LR is set to {}'.format(lr))
