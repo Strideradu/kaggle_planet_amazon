@@ -87,34 +87,35 @@ X_valid = []
 y_valid = []
 y_valid_id = []
 
-for f, tags in train.values[:]:
+# total we have 40479 training samples, use last 4000 as validation
+
+for f, tags in train.values[:36479]:
 
     targets = np.zeros(n_classes)
     for t in tags.split(' '):
         targets[label_map[t]] = 1
 
     # preprocess input image
-    if random.random() < 0.1:
-        img_path = train_path + "{}.jpg".format(f)
-        img = Image.open(img_path)
-        img = img.convert('RGB')
-        x = test_transform(img)
-        X_valid.append(x)
-        y_valid.append(targets)
-        y_valid_id.append(f)
+    img_path = train_path + "{}.jpg".format(f)
+    img = Image.open(img_path)
+    img = img.convert('RGB')
+    x = input_transform_augmentation(img)
+    # x = np.expand_dims(x, axis=0)
+    X_train.append(x)
+    y_train.append(targets)
 
-        x = input_transform_augmentation(img)
-        X_train.append(x)
-        y_train.append(targets)
-    else:
-        img_path = train_path + "{}.jpg".format(f)
-        img = Image.open(img_path)
-        img = img.convert('RGB')
-        # img = np.array(img)
-        x = input_transform_augmentation(img)
-        # x = np.expand_dims(x, axis=0)
-        X_train.append(x)
-        y_train.append(targets)
+for f, tags in train.values[36479:]:
+    targets = np.zeros(n_classes)
+    for t in tags.split(' '):
+        targets[label_map[t]] = 1
+
+    img_path = train_path + "{}.jpg".format(f)
+    img = Image.open(img_path)
+    img = img.convert('RGB')
+    x = test_transform(img)
+    X_valid.append(x)
+    y_valid.append(targets)
+    y_valid_id.append(f)
 
 # X = np.array(X, np.float32)
 y_train = np.array(y_train, np.float32)
@@ -284,6 +285,8 @@ model_ft = models.resnet34(pretrained=True)
 num_ftrs = model_ft.fc.in_features
 model_ft.fc = nn.Linear(num_ftrs, n_classes)
 
+model_ft.max_num = 2
+
 if use_gpu:
     model_ft = model_ft.cuda()
 
@@ -317,7 +320,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform_augmentation(img)
+    x = test_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
@@ -365,7 +368,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_4000valid.csv',
     index=False)
 
 
@@ -413,5 +416,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_4000vaid_valid.csv',
     index=False)

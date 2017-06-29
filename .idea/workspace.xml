@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet169.py" afterPath="$PROJECT_DIR$/torch_densenet169.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_resnet34.py" afterPath="$PROJECT_DIR$/torch_resnet34.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,30 +18,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="torch_resnet34.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="torch_resnet34.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7020">
-              <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+            <state relative-caret-position="611">
+              <caret line="362" column="38" lean-forward="true" selection-start-line="362" selection-start-column="38" selection-end-line="362" selection-end-column="38" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
-                <marker date="1498750167302" expanded="true" signature="8247:8662" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="8665:8854" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="9205:9409" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="9526:9699" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="9745:9950" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="10194:10861" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="10456:10776" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="10974:11155" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11039:11113" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11389:11515" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11584:12057" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11641:12029" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11737:12029" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="11941:12029" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="12094:12168" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="12414:12595" ph="..." />
-                <marker date="1498750167302" expanded="true" signature="12479:12553" ph="..." />
               </folding>
             </state>
           </provider>
@@ -58,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="301" column="59" lean-forward="true" selection-start-line="301" selection-start-column="59" selection-end-line="301" selection-end-column="59" />
+            <state relative-caret-position="502">
+              <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="20" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -73,7 +57,7 @@
       <file leaf-file-name="train-forest-1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forest-7/train-forest-1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7425">
+            <state relative-caret-position="351">
               <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="17" />
               <folding />
             </state>
@@ -187,8 +171,8 @@
         <option value="$PROJECT_DIR$/torch_pyramidnet.py" />
         <option value="$PROJECT_DIR$/net/model/pyramidnet.py" />
         <option value="$PROJECT_DIR$/pytorch_utils.py" />
-        <option value="$PROJECT_DIR$/torch_resnet34.py" />
         <option value="$PROJECT_DIR$/torch_densenet169.py" />
+        <option value="$PROJECT_DIR$/torch_resnet34.py" />
       </list>
     </option>
   </component>
@@ -232,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -424,6 +407,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -628,7 +612,7 @@
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24541607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24494593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1036,36 +1020,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7020">
-          <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-            <marker date="1498750167302" expanded="true" signature="8247:8662" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="8665:8854" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="9205:9409" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="9526:9699" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="9745:9950" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="10194:10861" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="10456:10776" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="10974:11155" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11039:11113" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11389:11515" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11584:12057" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11641:12029" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11737:12029" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="11941:12029" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="12094:12168" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="12414:12595" ph="..." />
-            <marker date="1498750167302" expanded="true" signature="12479:12553" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/forest-7/train-forest-1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7425">
+        <state relative-caret-position="351">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="17" />
           <folding />
         </state>
@@ -1073,8 +1030,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="301" column="59" lean-forward="true" selection-start-line="301" selection-start-column="59" selection-end-line="301" selection-end-column="59" />
+        <state relative-caret-position="502">
+          <caret line="292" column="0" lean-forward="false" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="362" column="38" lean-forward="true" selection-start-line="362" selection-start-column="38" selection-end-line="362" selection-end-column="38" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
