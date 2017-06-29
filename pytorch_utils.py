@@ -5,6 +5,8 @@ import random
 import PIL
 import cv2
 import math
+from PIL import Image
+
 
 def randomTranspose(img, u=0.5):
     if not isinstance(img, np.ndarray):
