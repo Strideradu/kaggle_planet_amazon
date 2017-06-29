@@ -23,7 +23,7 @@ from sklearn.metrics import fbeta_score
 
 size = 224
 n_classes = 17
-batch_size = 32
+batch_size = 64
 
 """
 input_transform = transforms.Compose([
