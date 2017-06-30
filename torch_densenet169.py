@@ -100,34 +100,35 @@ X_valid = []
 y_valid = []
 y_valid_id = []
 
-for f, tags in train.values[:]:
+# total we have 40479 training samples, use last 4000 as validation
+
+for f, tags in train.values[:36479]:
 
     targets = np.zeros(n_classes)
     for t in tags.split(' '):
         targets[label_map[t]] = 1
 
     # preprocess input image
-    if random.random() < 0.15:
-        img_path = train_path + "{}.jpg".format(f)
-        img = Image.open(img_path)
-        img = img.convert('RGB')
-        x = test_transform(img)
-        X_valid.append(x)
-        y_valid.append(targets)
-        y_valid_id.append(f)
+    img_path = train_path + "{}.jpg".format(f)
+    img = Image.open(img_path)
+    img = img.convert('RGB')
+    x = input_transform(img)
+    # x = np.expand_dims(x, axis=0)
+    X_train.append(x)
+    y_train.append(targets)
 
-        # add augmentaion one to the train
-        x = input_transform(img)
-        X_train.append(x)
-        y_train.append(targets)
-    else:
-        img_path = train_path + "{}.jpg".format(f)
-        img = Image.open(img_path)
-        img = img.convert('RGB')
-        x = input_transform(img)
-        # x = np.expand_dims(x, axis=0)
-        X_train.append(x)
-        y_train.append(targets)
+for f, tags in train.values[36479:]:
+    targets = np.zeros(n_classes)
+    for t in tags.split(' '):
+        targets[label_map[t]] = 1
+
+    img_path = train_path + "{}.jpg".format(f)
+    img = Image.open(img_path)
+    img = img.convert('RGB')
+    x = test_transform(img)
+    X_valid.append(x)
+    y_valid.append(targets)
+    y_valid_id.append(f)
 
 # X = np.array(X, np.float32)
 y_train = np.array(y_train, np.float32)
@@ -378,7 +379,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_simple_TTA_l2.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_simple_TTA_l2_4000_valid.csv',
     index=False)
 
 
@@ -426,5 +427,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_simple_TTA_l2_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_simple_TTA_l2_4000_valid_valid.csv',
     index=False)
