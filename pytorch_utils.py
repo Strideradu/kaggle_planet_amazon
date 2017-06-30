@@ -6,7 +6,7 @@ import PIL
 import cv2
 import math
 from PIL import Image, ImageOps
-from torchvision import transform
+from torchvision import transforms
 
 class RandomSizedCrop(object):
     """Crop the given PIL.Image to random size and aspect ratio.
