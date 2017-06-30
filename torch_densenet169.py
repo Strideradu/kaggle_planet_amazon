@@ -25,18 +25,18 @@ size = 224
 n_classes = 17
 batch_size = 32
 
-"""
-input_transform = transforms.Compose([
+
+tta_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
     transforms.Lambda(lambda x: randomTranspose(x)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
-"""
+
 
 input_transform = transforms.Compose([
-    transforms.Scale(size),
+    RandomSizedCrop(size),
     transforms.RandomHorizontalFlip(),
     transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.ToTensor(),
@@ -71,12 +71,13 @@ test_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
+"""
 tta_transform = transforms.Compose([
     transforms.Scale(size),
     transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
-
+"""
 random_seed = 0
 random.seed(random_seed)
 np.random.seed(random_seed)
@@ -263,7 +264,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=2):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.0005, lr_decay_epoch=2):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
     lr = init_lr * (0.8 ** (epoch // lr_decay_epoch))
 
@@ -271,7 +272,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=2):
         print('LR is set to {}'.format(lr))
 
     if lr < 5e-6:
-        lr = 0.0001
+        lr = 0.00001
 
     optimizer.param_groups[0]['lr'] = lr
     optimizer.param_groups[1]['lr'] = lr * 10
@@ -303,8 +304,8 @@ base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
 optimizer_ft = optim.SGD([
     {'params': base_params},
-    {'params': model_ft.classifier.parameters(), 'lr': 0.01}
-], lr=0.001, momentum=0.9, weight_decay = 0.0005)
+    {'params': model_ft.classifier.parameters(), 'lr': 0.0005}
+], lr=0.0005, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
@@ -379,7 +380,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_simple_TTA_l2_4000_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p005_4000valid.csv',
     index=False)
 
 
@@ -427,5 +428,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_learning_simple_TTA_l2_4000_valid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p005_4000valid_valid.csv',
     index=False)

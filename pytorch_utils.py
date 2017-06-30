@@ -5,7 +5,50 @@ import random
 import PIL
 import cv2
 import math
-from PIL import Image
+from PIL import Image, ImageOps
+from torchvision import transform
+
+class RandomSizedCrop(object):
+    """Crop the given PIL.Image to random size and aspect ratio.
+    A crop of random size of (0.08 to 1.0) of the original size and a random
+    aspect ratio of 3/4 to 4/3 of the original aspect ratio is made. This crop
+    is finally resized to given size.
+    This is popularly used to train the Inception networks.
+    Args:
+        size: size of the smaller edge
+        interpolation: Default: PIL.Image.BILINEAR
+    """
+
+    def __init__(self, size, scale = 0.8, interpolation=Image.BILINEAR):
+        self.size = size
+        self.interpolation = interpolation
+        self.scale = scale
+
+    def __call__(self, img):
+        for attempt in range(10):
+            area = img.size[0] * img.size[1]
+            target_area = random.uniform(self.scale, 1.0) * area
+            aspect_ratio = random.uniform(3. / 4, 4. / 3)
+
+            w = int(round(math.sqrt(target_area * aspect_ratio)))
+            h = int(round(math.sqrt(target_area / aspect_ratio)))
+
+            if random.random() < 0.5:
+                w, h = h, w
+
+            if w <= img.size[0] and h <= img.size[1]:
+                x1 = random.randint(0, img.size[0] - w)
+                y1 = random.randint(0, img.size[1] - h)
+
+                img = img.crop((x1, y1, x1 + w, y1 + h))
+                assert(img.size == (w, h))
+
+                return img.resize((self.size, self.size), self.interpolation)
+
+        # Fallback
+        scale = trainsform.Scale(self.size, interpolation=self.interpolation)
+        crop = transform.CenterCrop(self.size)
+        return crop(scale(img))
 
 
 def randomTranspose(img, u=0.5):
