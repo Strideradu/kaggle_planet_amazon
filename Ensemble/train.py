@@ -176,7 +176,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, max_num=2, init_lr=0.
             test_loss, test_acc, test_num = evaluate(model, val_loader)
             assert (test_num == val_loader.num)
 
-            print('\r', end='', flush=True)
+            print('\r')
             print('%5.1f   %5d    %0.4f   |  %0.4f  %0.4f  %5.4f | %0.4f  %5.4f  |  %3.1f min' % \
                   (epoch + 1, it + 1, rate, smooth_loss, train_loss, train_acc, test_loss, test_acc, epoch_time))
 
