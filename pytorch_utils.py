@@ -46,8 +46,8 @@ class RandomSizedCrop(object):
                 return img.resize((self.size, self.size), self.interpolation)
 
         # Fallback
-        scale = trainsform.Scale(self.size, interpolation=self.interpolation)
-        crop = transform.CenterCrop(self.size)
+        scale = transforms.Scale(self.size, interpolation=self.interpolation)
+        crop = transforms.CenterCrop(self.size)
         return crop(scale(img))
 
 
