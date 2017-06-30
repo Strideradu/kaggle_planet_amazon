@@ -162,8 +162,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, max_num=2, init_lr=0.
                     train_acc = f_measure(outputs.data, labels.data)
                     train_loss = loss.data[0]
                     print('\r%5.1f   %5d    %0.4f   |  %0.4f  %0.4f  %5.4f | ... ' % \
-                          (epoch, it + 1, rate, smooth_loss, train_loss, train_acc),
-                          end='', flush=True)
+                          (epoch, it + 1, rate, smooth_loss, train_loss, train_acc))
 
                     # train_acc  = f_measure(logits.data, labels.cuda())
                     # train_loss = loss.data[0]
