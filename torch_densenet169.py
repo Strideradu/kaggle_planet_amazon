@@ -176,7 +176,9 @@ def multi_f_measure(probs, labels, threshold=custom_threshold, beta=2):
 
     # weather
     l = labels
-    p = Variable((probs > threshold).float())
+    p = torch.zeros(len(probs), len(probs[0])).cuda()
+    for i in range(17):
+        p[:, i] = probs[:, i] > threshold[i]
 
     num_pos = torch.sum(p, 1)
     num_pos_hat = torch.sum(l, 1)
