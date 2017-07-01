@@ -180,6 +180,7 @@ def multi_f_measure(probs, labels, threshold=custom_threshold, beta=2):
     for i in range(17):
         p[:, i] = probs[:, i] > threshold[i]
 
+    p = Variable(p)
     num_pos = torch.sum(p, 1)
     num_pos_hat = torch.sum(l, 1)
     tp = torch.sum(torch.mul(l, p), 1)
