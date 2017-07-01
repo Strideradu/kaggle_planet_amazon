@@ -25,6 +25,7 @@ size = 224
 n_classes = 17
 batch_size = 32
 
+custom_threshold = [0.17, 0.06, 0.15, 0.28, 0.03, 0.15, 0.07, 0.15, 0.25, 0.25, 0.14, 0.11, 0.26, 0.26, 0.26, 0.18, 0.23]
 
 tta_transform = transforms.Compose([
     transforms.Scale(size + 5),
@@ -169,7 +170,7 @@ def multi_criterion(logits, labels):
     return loss
 
 
-def multi_f_measure(probs, labels, threshold=0.235, beta=2):
+def multi_f_measure(probs, labels, threshold=custom_threshold, beta=2):
     SMALL = 1e-6  # 0  #1e-12
     batch_size = probs.size()[0]
 
@@ -264,7 +265,7 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.0005, lr_decay_epoch=2):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=2):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
     lr = init_lr * (0.8 ** (epoch // lr_decay_epoch))
 
@@ -275,7 +276,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.0005, lr_decay_epoch=2):
         lr = 0.00001
 
     optimizer.param_groups[0]['lr'] = lr
-    optimizer.param_groups[1]['lr'] = lr * 10
+    optimizer.param_groups[1]['lr'] = lr
 
     return optimizer
 
@@ -304,8 +305,8 @@ base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
 optimizer_ft = optim.SGD([
     {'params': base_params},
-    {'params': model_ft.classifier.parameters(), 'lr': 0.0005}
-], lr=0.0005, momentum=0.9, weight_decay = 0.0005)
+    {'params': model_ft.classifier.parameters(), 'lr': 0.001}
+], lr=0.001, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
@@ -316,7 +317,7 @@ optimizer_ft = optim.SGD([
 #
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
-                       num_epochs=30)
+                       num_epochs=40)
 
 ######################################################################
 #
@@ -380,7 +381,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p005_4000valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid.csv',
     index=False)
 
 
@@ -428,5 +429,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p005_4000valid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid_valid.csv',
     index=False)
