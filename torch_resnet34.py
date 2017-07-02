@@ -250,16 +250,18 @@ def train_model(model, criterion, optimizer, lr_scheduler, num_epochs=25):
 # Let's create our learning rate scheduler. We will exponentially
 # decrease the learning rate once every few epochs.
 
-def exp_lr_scheduler(optimizer, epoch, init_lr=0.01, lr_decay_epoch=10):
+def exp_lr_scheduler(optimizer, epoch, init_lr=0.1, lr_decay_epoch=5):
     """Decay learning rate by a factor of 0.1 every lr_decay_epoch epochs."""
-    if epoch > 30:
-        lr = 0.00001
+    if epoch > 40:
+        lr = 0.0001
+    if epoch > 35:
+        lr = 0.001
 
-    elif epoch > 20:
-        lr =0.0001
+    elif epoch > 25:
+        lr =0.005
 
     elif epoch > 10:
-        lr = 0.001
+        lr = 0.01
 
     else:
         lr = init_lr
@@ -293,7 +295,7 @@ if use_gpu:
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
-optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9, weight_decay = 0.0005)
+optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.1, momentum=0.9, weight_decay = 0.0005)
 
 ######################################################################
 # Train and evaluate
@@ -304,7 +306,7 @@ optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.01, momentum=0.9, weight_de
 #
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
-                       num_epochs=40)
+                       num_epochs=45)
 
 ######################################################################
 #
@@ -368,7 +370,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_4000valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_45epoch_0p1lr_4000valid.csv',
     index=False)
 
 
@@ -416,5 +418,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_40epoch_4000vaid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_45epoch_0p1lr_4000vaid_valid.csv',
     index=False)

@@ -291,7 +291,7 @@ def exp_lr_scheduler(optimizer, epoch, init_lr=0.001, lr_decay_epoch=2):
 # Load a pretrained model and reset final fully connected layer.
 #
 
-model_ft = models.densenet169(pretrained=True)
+model_ft = models.densenet169(pretrained=True, drop_rate=0.5)
 num_ftrs = model_ft.classifier.in_features
 model_ft.classifier = nn.Linear(num_ftrs, n_classes)
 
