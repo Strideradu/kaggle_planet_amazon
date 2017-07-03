@@ -23,7 +23,7 @@ from sklearn.metrics import fbeta_score
 
 size = 256
 n_classes = 17
-batch_size = 32
+batch_size = 16
 
 custom_threshold = [0.17, 0.06, 0.15, 0.28, 0.03, 0.15, 0.07, 0.15, 0.25, 0.25, 0.14, 0.11, 0.26, 0.26, 0.26, 0.18, 0.23]
 
