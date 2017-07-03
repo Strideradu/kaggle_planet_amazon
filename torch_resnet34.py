@@ -25,12 +25,22 @@ size = 256
 n_classes = 17
 batch_size = 64
 
+"""
 input_transform = transforms.Compose([
     transforms.Scale(size + 5),
     transforms.RandomCrop(size),
     transforms.RandomHorizontalFlip(),
     transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.Lambda(lambda x: randomTranspose(x)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
+"""
+
+input_transform = transforms.Compose([
+    RandomSizedCrop(size),
+    transforms.RandomHorizontalFlip(),
+    transforms.Lambda(lambda x: randomRotate90(x)),
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
@@ -99,7 +109,7 @@ for f, tags in train.values[:36479]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform_augmentation(img)
+    x = input_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_train.append(x)
     y_train.append(targets)
@@ -112,7 +122,7 @@ for f, tags in train.values[36479:]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = test_transform(img)
+    x = input_transform(img)
     X_valid.append(x)
     y_valid.append(targets)
     y_valid_id.append(f)
@@ -322,7 +332,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = test_transform(img)
+    x = input_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
@@ -370,7 +380,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_45epoch_0p1lr_4000valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_flip_45epoch_0p1lr_4000valid.csv',
     index=False)
 
 
@@ -418,5 +428,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_45epoch_0p1lr_4000vaid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_flip_45epoch_0p1lr_4000vaid_valid.csv',
     index=False)

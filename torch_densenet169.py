@@ -21,7 +21,7 @@ from torch.nn.functional import sigmoid
 from pytorch_utils import *
 from sklearn.metrics import fbeta_score
 
-size = 224
+size = 256
 n_classes = 17
 batch_size = 32
 
@@ -127,7 +127,7 @@ for f, tags in train.values[36479:]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = test_transform(img)
+    x = input_transform(img)
     X_valid.append(x)
     y_valid.append(targets)
     y_valid_id.append(f)
@@ -336,7 +336,7 @@ for f, tags in test.values[:]:
     img_path = test_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = tta_transform(img)
+    x = input_transform(img)
     # x = np.expand_dims(x, axis=0)
     X_test.append(x)
 
@@ -384,7 +384,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid_tta.csv',
     index=False)
 
 
@@ -432,5 +432,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_densenet169_transfer_randomcrop_lr_0p001_4000valid_tta_valid.csv',
     index=False)
