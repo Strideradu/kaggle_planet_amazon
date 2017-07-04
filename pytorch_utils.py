@@ -72,6 +72,8 @@ def randomRotate(img, u=0.25, limit=90):
     return img
 
 def randomRotate90(img):
+    if not isinstance(img, np.ndarray):
+        img = np.array(img)
     d = random.randint(0,4) * 90
     img2 = img.rotate(d, resample=Image.NEAREST)
     return img2
@@ -300,3 +302,39 @@ def randomSaturation(img, limit=0.3, u=0.5):
         img  = np.clip(img,0.,1.)
 
     return img
+
+def defaults(imgs):
+    return imgs
+
+
+def rotate90s(imgs):
+    for index, img in enumerate(imgs):
+        imgs[index] = cv2.transpose(img, (1, 0, 2))
+    return imgs
+
+
+def rotate180s(imgs):
+    for index, img in enumerate(imgs):
+        imgs[index] = cv2.flip(img, -1)
+    return imgs
+
+
+def rotate270s(imgs):
+    for index, img in enumerate(imgs):
+        img = cv2.transpose(img, (1, 0, 2))
+        imgs[index] = cv2.flip(img, -1)
+    return imgs
+
+
+def horizontalFlips(imgs):
+    for index, img in enumerate(imgs):
+        img = cv2.flip(img, 1)
+        imgs[index] = img
+    return imgs
+
+
+def verticalFlips(imgs):
+    for index, img in enumerate(imgs):
+        img = cv2.flip(img, 0)
+        imgs[index] = img
+    return imgs

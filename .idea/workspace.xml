@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/torch_resnet152.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet169.py" afterPath="$PROJECT_DIR$/torch_densenet169.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pytorch_utils.py" afterPath="$PROJECT_DIR$/pytorch_utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="torch_resnet34.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11043">
-              <caret line="430" column="94" lean-forward="false" selection-start-line="430" selection-start-column="94" selection-end-line="430" selection-end-column="94" />
+            <state relative-caret-position="585">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -30,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_pyramidnet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
+      <file leaf-file-name="torch_resnet152.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6858">
-              <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="15" />
+            <state relative-caret-position="1360">
+              <caret line="372" column="118" lean-forward="false" selection-start-line="372" selection-start-column="118" selection-end-line="372" selection-end-column="118" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -42,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="torch_densenet169.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
+            <state relative-caret-position="621">
               <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
@@ -54,68 +55,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ensemble/train.py">
+      <file leaf-file-name="torch_resnet50.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1728">
-              <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="68" selection-end-column="38" />
+            <state relative-caret-position="6127">
+              <caret line="251" column="4" lean-forward="false" selection-start-line="251" selection-start-column="4" selection-end-line="257" selection-end-column="20" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#0#47#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cscreendataset.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ensemble/cscreendataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ensemble/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="predict.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ensemble/predict.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/net/model/pyramidnet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2241">
-              <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyramidnet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forest-7/net/model/pyramidnet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5184">
-              <caret line="198" column="9" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="198" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,8 +70,8 @@
       <file leaf-file-name="pytorch_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2187">
-              <caret line="89" column="27" lean-forward="false" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
+            <state relative-caret-position="833">
+              <caret line="335" column="17" lean-forward="false" selection-start-line="335" selection-start-column="17" selection-end-line="335" selection-end-column="17" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -180,9 +127,11 @@
         <option value="$PROJECT_DIR$/Ensemble/train.py" />
         <option value="$PROJECT_DIR$/Ensemble/utils.py" />
         <option value="$PROJECT_DIR$/Ensemble/predict.py" />
-        <option value="$PROJECT_DIR$/pytorch_utils.py" />
         <option value="$PROJECT_DIR$/torch_resnet34.py" />
         <option value="$PROJECT_DIR$/torch_densenet169.py" />
+        <option value="$PROJECT_DIR$/resnet152.py" />
+        <option value="$PROJECT_DIR$/pytorch_utils.py" />
+        <option value="$PROJECT_DIR$/torch_resnet152.py" />
       </list>
     </option>
   </component>
@@ -703,13 +652,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yt8m/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="73" column="81" lean-forward="false" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yt8m/readers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1917">
@@ -906,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/standard-7-1/net/model/pyramidnet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-14097">
@@ -1000,22 +935,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ensemble/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5761">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Ensemble/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2187">
-          <caret line="89" column="27" lean-forward="false" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1025,25 +958,45 @@
         <state relative-caret-position="108">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="56" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Ensemble/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
+        <state relative-caret-position="1112">
           <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="68" selection-end-column="38" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_pyramidnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6858">
+        <state relative-caret-position="1112">
           <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#47#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/torch_resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6127">
+          <caret line="251" column="4" lean-forward="false" selection-start-line="251" selection-start-column="4" selection-end-line="257" selection-end-column="20" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
@@ -1052,26 +1005,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet34.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11043">
-          <caret line="430" column="94" lean-forward="false" selection-start-line="430" selection-start-column="94" selection-end-line="430" selection-end-column="94" />
+        <state relative-caret-position="585">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ensemble/predict.py">
+    <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="833">
+          <caret line="335" column="17" lean-forward="false" selection-start-line="335" selection-start-column="17" selection-end-line="335" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
+    <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="1360">
+          <caret line="372" column="118" lean-forward="false" selection-start-line="372" selection-start-column="118" selection-end-line="372" selection-end-column="118" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
