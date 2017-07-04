@@ -50,22 +50,20 @@ input_transform = transforms.Compose([
 ])
 
 input_transform_augmentation = transforms.Compose([
-    Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
-    Lambda(lambda x: randomFlip(x)),
-    Lambda(lambda x: randomTranspose(x)),
+    transforms.Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
+    transforms.Lambda(lambda x: randomFlip(x)),
+    transforms.Lambda(lambda x: randomTranspose(x)),
     transforms.ToTensor(),
     transforms.Normalize(mean, std)
 ])
 
 valid_transform = transforms.Compose([
-    Lambda(lambda x: randomFlip(x)),
-    Lambda(lambda x: randomTranspose(x)),
+    transforms.Lambda(lambda x: randomFlip(x)),
+    transforms.Lambda(lambda x: randomTranspose(x)),
     transforms.ToTensor(),
     transforms.Normalize(mean, std)])
 
 test_transform = transforms.Compose([
-    Lambda(lambda x: randomFlip(x)),
-    Lambda(lambda x: randomTranspose(x)),
     transforms.ToTensor(),
     transforms.Normalize(mean, std)])
 
