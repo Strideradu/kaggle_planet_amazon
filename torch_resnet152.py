@@ -316,7 +316,7 @@ optimizer_ft = optim.SGD([
 #
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
-                       num_epochs=45)
+                       num_epochs=40)
 
 ######################################################################
 #
@@ -326,27 +326,6 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 ######################################################################
 
 
-
-
-# use multiple dataset loader
-test_loaders = []
-for t in transforms:
-    X_test = []
-    for f, tags in test.values[:]:
-        img_path = test_path + "{}.jpg".format(f)
-        img = Image.open(img_path)
-        img = img.convert('RGB')
-        img = np.array(img)
-        img = t(img)
-        x = test_transform(img)
-        # x = np.expand_dims(x, axis=0)
-        X_test.append(x)
-
-    X_test = torch.stack(X_test)
-    y_test = torch.zeros(X_test.size(0), n_classes)
-    test_data = TensorDataset(X_test, y_test)
-    test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=0)
-    test_loaders.append(test_loader)
 
 
 def predict(net, test_loader):
@@ -372,9 +351,24 @@ def predict(net, test_loader):
 
 
 model_ft.cuda().eval()
-transforms = [defaults, rotate90s, rotate180s, rotate270s, verticalFlips, horizontalFlips]
 preds = np.zeros((61191, 17))
-for test_loader in test_loaders:
+# use multiple dataset loader
+for t in transforms:
+    X_test = []
+    for f, tags in test.values[:]:
+        img_path = test_path + "{}.jpg".format(f)
+        img = Image.open(img_path)
+        img = img.convert('RGB')
+        img = np.array(img)
+        img = t(img)
+        x = test_transform(img)
+        # x = np.expand_dims(x, axis=0)
+        X_test.append(x)
+
+    X_test = torch.stack(X_test)
+    y_test = torch.zeros(X_test.size(0), n_classes)
+    test_data = TensorDataset(X_test, y_test)
+    test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=0)
     predictions = predict(model_ft, test_loader)
     preds = preds + predictions
 
@@ -393,7 +387,7 @@ orginin = pd.DataFrame()
 orginin['image_name'] = test.image_name.values[:]
 orginin['tags'] = scores
 orginin.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_flip_45epoch_0p1lr_4000valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet152_transfer_learning_multi_tta.csv',
     index=False)
 
 
@@ -441,5 +435,5 @@ valid_df = pd.DataFrame()
 valid_df['image_name'] = y_valid_id
 valid_df['tags'] = scores
 valid_df.to_csv(
-    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet34_transfer_learning_scale_flip_45epoch_0p1lr_4000vaid_valid.csv',
+    '/mnt/home/dunan/Learn/Kaggle/planet_amazon/pytorch_resnet152_transfer_learning_multi_tta_valid.csv',
     index=False)

@@ -32,8 +32,8 @@
       <file leaf-file-name="torch_resnet152.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="-2305">
+              <caret line="318" column="36" lean-forward="false" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="36" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -1023,8 +1023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="-2305">
+          <caret line="318" column="36" lean-forward="false" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="36" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
