@@ -104,7 +104,7 @@ for f, tags in train.values[:36479]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform(img)
+    x = input_transform_augmentation(img)
     # x = np.expand_dims(x, axis=0)
     X_train.append(x)
     y_train.append(targets)
@@ -117,7 +117,7 @@ for f, tags in train.values[36479:]:
     img_path = train_path + "{}.jpg".format(f)
     img = Image.open(img_path)
     img = img.convert('RGB')
-    x = input_transform(img)
+    x = valid_transform(img)
     X_valid.append(x)
     y_valid.append(targets)
     y_valid_id.append(f)
@@ -328,20 +328,27 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 ######################################################################
 
 
-X_test = []
 
-for f, tags in test.values[:]:
-    img_path = test_path + "{}.jpg".format(f)
-    img = Image.open(img_path)
-    img = img.convert('RGB')
-    x = input_transform(img)
-    # x = np.expand_dims(x, axis=0)
-    X_test.append(x)
 
-X_test = torch.stack(X_test)
-y_test = torch.zeros(X_test.size(0), n_classes)
-test_data = TensorDataset(X_test, y_test)
-test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=0)
+# use multiple dataset loader
+test_loaders = []
+for t in transforms:
+    X_test = []
+    for f, tags in test.values[:]:
+        img_path = test_path + "{}.jpg".format(f)
+        img = Image.open(img_path)
+        img = img.convert('RGB')
+        img = np.array(img)
+        img = t(img)
+        x = test_transform(img)
+        # x = np.expand_dims(x, axis=0)
+        X_test.append(x)
+
+    X_test = torch.stack(X_test)
+    y_test = torch.zeros(X_test.size(0), n_classes)
+    test_data = TensorDataset(X_test, y_test)
+    test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, num_workers=0)
+    test_loaders.append(test_loader)
 
 
 def predict(net, test_loader):
@@ -369,8 +376,7 @@ def predict(net, test_loader):
 model_ft.cuda().eval()
 transforms = [defaults, rotate90s, rotate180s, rotate270s, verticalFlips, horizontalFlips]
 preds = np.zeros((61191, 17))
-for t in transforms:
-    test_loader.dataset.data_tensor = t(test_data.data_tensor)  # not sure if we can directly transform pytorch tensor
+for test_loader in test_loaders:
     predictions = predict(model_ft, test_loader)
     preds = preds + predictions
 
