@@ -30,7 +30,7 @@ CLASS_NAMES=[
 
 class KgForestDataset(Dataset):
 
-    def __init__(self, split, transform=None, height=256, width=256, label_csv='train.csv'):
+    def __init__(self, split, transform=None, height=256, width=256, label_csv='train_v2.csv'):
         class_names = CLASS_NAMES
         num_classes = len(class_names)
         data_dir = KAGGLE_DATA_DIR
