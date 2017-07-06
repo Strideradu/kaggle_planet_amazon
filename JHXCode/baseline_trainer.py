@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 import torch.nn as nn
 from torch.nn import functional as F
 from torch import optim
