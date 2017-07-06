@@ -6,7 +6,7 @@ import random
 import math
 import torch
 
-KAGGLE_DATA_DIR ='/media/jxu7/BACK-UP/Data/AmazonPlanet'
+KAGGLE_DATA_DIR ="/mnt/home/dunan/Learn/Kaggle/planet_amazon/"
 CLASS_NAMES=[
     'clear',    	 # 0
     'haze',	         # 1
@@ -34,7 +34,7 @@ class KgForestDataset(Dataset):
         class_names = CLASS_NAMES
         num_classes = len(class_names)
         data_dir = KAGGLE_DATA_DIR
-        ext = 'train' if label_csv else 'test'
+        ext = 'train-jpg' if label_csv else 'test-jpg'
         # read names
         list = data_dir +'/split/'+ split
         print(data_dir)
@@ -46,8 +46,9 @@ class KgForestDataset(Dataset):
         #read images
         images = np.zeros((num,height,width,3),dtype=np.float32)
         for n in range(num):
-            img_file = data_dir + '/{}/'.format(ext) + names[n]
-            jpg_file = img_file.replace('<ext>','jpg')
+            # img_file = data_dir + '/{}/'.format(ext) + names[n]
+            jpg_file = data_dir + '/{}/'.format(ext) + "{}.jpg".format(names[n])
+            # jpg_file = img_file.replace('<ext>','jpg')
             image_jpg = cv2.imread(jpg_file,1)
             h,w = image_jpg.shape[0:2]
             if height!=h or width!=w:
@@ -61,7 +62,7 @@ class KgForestDataset(Dataset):
         if label_csv is not None:
             labels = np.zeros((num,num_classes),dtype=np.float32)
 
-            csv_file = data_dir + '/train/' + label_csv   # read all annotations
+            csv_file = data_dir + label_csv   # read all annotations
             df = pd.read_csv(csv_file)
             for c in class_names:
                 df[c] = df['tags'].apply(lambda x: 1 if c in x.split(' ') else 0)
