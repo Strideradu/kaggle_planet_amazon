@@ -184,13 +184,13 @@ def train_baselines():
                     train_loss = loss.data[0]
                     print('\r{}   {}    {}   |  {}  | {}  {} | ... '.
                           format(epoch + it/num_its, it + 1, rate, smooth_loss, train_loss, train_acc),
-                          end='', flush=True)
+                          )
 
             total_epoch_loss = total_epoch_loss / total_sum
             if epoch % epoch_test == epoch_test-1 or epoch == num_epoches-1:
                 net.cuda().eval()
                 test_loss, test_acc = evaluate(net, val_data)
-                print('\r', end='', flush=True)
+                print('\r')
                 print('{}   {}    {}   |  {}  | {}  {} | {}  {} | {}'.
                       format(epoch + 1, it + 1, rate, smooth_loss, train_loss, train_acc, test_loss, test_acc,
                              total_epoch_loss))

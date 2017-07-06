@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/split_data_set.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kaggle_planet_amazon.iml" afterPath="$PROJECT_DIR$/.idea/kaggle_planet_amazon.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/data/kgdataset.py" afterPath="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" afterPath="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kgdataset.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kgdataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1141">
@@ -121,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state relative-caret-position="-58">
+              <caret line="192" column="26" lean-forward="false" selection-start-line="192" selection-start-column="26" selection-end-line="192" selection-end-column="26" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -188,8 +183,8 @@
         <option value="$PROJECT_DIR$/torch_densenet161.py" />
         <option value="$PROJECT_DIR$/torch_resnet152.py" />
         <option value="$PROJECT_DIR$/split_data_set.py" />
-        <option value="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
+        <option value="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" />
       </list>
     </option>
   </component>
@@ -1150,16 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet169.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1176,6 +1161,16 @@
           <caret line="64" column="34" lean-forward="false" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="192" column="26" lean-forward="false" selection-start-line="192" selection-start-column="26" selection-end-line="192" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
