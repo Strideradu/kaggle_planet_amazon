@@ -293,6 +293,7 @@ model_ft.fc = nn.Linear(num_ftrs, n_classes)
 model_ft.max_num = 2
 
 if use_gpu:
+    model_ft = nn.DataParallel(model_ft.cuda())
     model_ft = model_ft.cuda()
 
 criterion = nn.CrossEntropyLoss()
