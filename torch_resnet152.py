@@ -354,6 +354,7 @@ def predict(net, test_loader):
 model_ft.cuda().eval()
 preds = np.zeros((61191, 17))
 # use multiple dataset loader
+transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 for t in transforms:
     X_test = []
     for f, tags in test.values[:]:
