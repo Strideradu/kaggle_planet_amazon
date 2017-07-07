@@ -354,14 +354,14 @@ def predict(net, test_loader):
 model_ft.cuda().eval()
 preds = np.zeros((61191, 17))
 # use multiple dataset loader
-transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+transforms = [defaults, rotate90s, rotate180s, rotate270s, verticalFlips, horizontalFlips]
 for t in transforms:
     X_test = []
     for f, tags in test.values[:]:
         img_path = test_path + "{}.jpg".format(f)
         img = Image.open(img_path)
         img = img.convert('RGB')
-        img = np.array(img)
+        # img = np.array(img)
         img = t(img)
         x = test_transform(img)
         # x = np.expand_dims(x, axis=0)

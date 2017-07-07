@@ -308,33 +308,20 @@ def defaults(imgs):
 
 
 def rotate90s(imgs):
-    for index, img in enumerate(imgs):
-        imgs[index] = cv2.transpose(img, (1, 0, 2))
-    return imgs
+    return imgs.rotate(90)
 
 
 def rotate180s(imgs):
-    for index, img in enumerate(imgs):
-        imgs[index] = cv2.flip(img, -1)
-    return imgs
+    return imgs.rotate(180)
 
 
 def rotate270s(imgs):
-    for index, img in enumerate(imgs):
-        img = cv2.transpose(img, (1, 0, 2))
-        imgs[index] = cv2.flip(img, -1)
-    return imgs
+    return imgs.rotate(270)
 
 
 def horizontalFlips(imgs):
-    for index, img in enumerate(imgs):
-        img = cv2.flip(img, 1)
-        imgs[index] = img
-    return imgs
+    return imgs.transpose(Image.FLIP_TOP_BOTTOM)
 
 
 def verticalFlips(imgs):
-    for index, img in enumerate(imgs):
-        img = cv2.flip(img, 0)
-        imgs[index] = img
-    return imgs
+    return imgs.transpose(Image.FLIP_LEFT_RIGHT)

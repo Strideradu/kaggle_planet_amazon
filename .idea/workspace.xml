@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pytorch_utils.py" afterPath="$PROJECT_DIR$/pytorch_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_densenet161.py" afterPath="$PROJECT_DIR$/torch_densenet161.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/torch_resnet152.py" afterPath="$PROJECT_DIR$/torch_resnet152.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +23,7 @@
       <file leaf-file-name="kgdataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
+            <state relative-caret-position="702">
               <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -32,7 +35,7 @@
       <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2133">
+            <state relative-caret-position="4563">
               <caret line="169" column="31" lean-forward="true" selection-start-line="169" selection-start-column="31" selection-end-line="169" selection-end-column="31" />
               <folding />
             </state>
@@ -42,7 +45,7 @@
       <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5481">
+            <state relative-caret-position="5211">
               <caret line="203" column="0" lean-forward="true" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -54,8 +57,8 @@
       <file leaf-file-name="torch_resnet152.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+            <state relative-caret-position="567">
+              <caret line="354" column="29" lean-forward="true" selection-start-line="354" selection-start-column="29" selection-end-line="354" selection-end-column="29" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -63,10 +66,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="pytorch_utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="326" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baseline_ensembles.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
+            <state relative-caret-position="3348">
               <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="84" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -88,21 +101,9 @@
       <file leaf-file-name="torch_densenet161.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/torch_densenet161.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="355" column="20" lean-forward="false" selection-start-line="355" selection-start-column="14" selection-end-line="355" selection-end-column="21" />
+            <state relative-caret-position="594">
+              <caret line="362" column="10" lean-forward="false" selection-start-line="362" selection-start-column="10" selection-end-line="362" selection-end-column="10" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_nrgb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JHXCode/trainers/train_nrgb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -182,12 +183,12 @@
         <option value="$PROJECT_DIR$/torch_resnet34.py" />
         <option value="$PROJECT_DIR$/torch_densenet169.py" />
         <option value="$PROJECT_DIR$/resnet152.py" />
-        <option value="$PROJECT_DIR$/pytorch_utils.py" />
         <option value="$PROJECT_DIR$/split_data_set.py" />
         <option value="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/_init_.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
+        <option value="$PROJECT_DIR$/pytorch_utils.py" />
         <option value="$PROJECT_DIR$/torch_densenet161.py" />
         <option value="$PROJECT_DIR$/torch_resnet152.py" />
       </list>
@@ -233,6 +234,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -279,8 +282,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,7 +506,7 @@
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25528914" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.254819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -804,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Ensemble/predict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -837,7 +831,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,7 +865,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
+        <state relative-caret-position="702">
           <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -883,15 +877,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5481">
+        <state relative-caret-position="5211">
           <caret line="203" column="0" lean-forward="true" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -903,9 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5840">
           <caret line="113" column="46" lean-forward="false" selection-start-line="113" selection-start-column="28" selection-end-line="113" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -919,7 +907,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
+        <state relative-caret-position="3348">
           <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="84" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -929,24 +917,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2133">
+        <state relative-caret-position="4563">
           <caret line="169" column="31" lean-forward="true" selection-start-line="169" selection-start-column="31" selection-end-line="169" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="326" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_densenet161.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="355" column="20" lean-forward="false" selection-start-line="355" selection-start-column="14" selection-end-line="355" selection-end-column="21" />
+        <state relative-caret-position="594">
+          <caret line="362" column="10" lean-forward="false" selection-start-line="362" selection-start-column="10" selection-end-line="362" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="310" column="0" lean-forward="true" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        <state relative-caret-position="567">
+          <caret line="354" column="29" lean-forward="true" selection-start-line="354" selection-start-column="29" selection-end-line="354" selection-end-column="29" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
           </folding>
