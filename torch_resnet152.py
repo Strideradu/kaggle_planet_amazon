@@ -292,6 +292,9 @@ model_ft.fc = nn.Linear(num_ftrs, n_classes)
 
 model_ft.max_num = 2
 
+if use_gpu:
+    model_ft = model_ft.cuda()
+
 criterion = nn.CrossEntropyLoss()
 
 # Observe that all parameters are being optimized
@@ -299,10 +302,6 @@ criterion = nn.CrossEntropyLoss()
 ignored_params = list(map(id, model_ft.fc.parameters()))
 base_params = filter(lambda p: id(p) not in ignored_params,
                      model_ft.parameters())
-
-if use_gpu:
-    model_ft = nn.DataParallel(model_ft.cuda())
-    model_ft = model_ft.cuda()
 
 optimizer_ft = optim.SGD([
     {'params': base_params},
