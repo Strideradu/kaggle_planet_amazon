@@ -196,7 +196,7 @@ def train_baselines():
             if epoch % epoch_test == epoch_test-1 or epoch == num_epoches-1:
                 net.cuda().eval()
                 test_loss, test_acc = evaluate(net, val_data)
-                print('\r', end='', flush=True)
+                print('\r')
                 print('{}   {}    {}   |  {}  | {}  {} | {}  {} | {}'.
                       format(epoch + 1, it + 1, rate, smooth_loss, train_loss, train_acc, test_loss, test_acc,
                              total_epoch_loss))
