@@ -234,7 +234,7 @@ def get_test_dataloader():
         label_csv=None
     )
 
-    test_dataloader = DataLoader(test_dataset, batch_size=256)
+    test_dataloader = DataLoader(test_dataset, batch_size=32)
     return test_dataloader
 
 
