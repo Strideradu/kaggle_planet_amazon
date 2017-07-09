@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,10 +87,10 @@
         </entry>
       </file>
       <file leaf-file-name="baseline_ensemble_densenet_resnet.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py">
+        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="314" column="0" lean-forward="true" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+            <state relative-caret-position="-1630">
+              <caret line="236" column="60" lean-forward="false" selection-start-line="236" selection-start-column="60" selection-end-line="236" selection-end-column="60" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -307,13 +307,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nan\Documents\GitHub\kaggle_planet_amazon\JHXCode" />
+      <recent name="C:\Users\User\Documents\GitHub\kaggle_planet_amazon\JHXCode" />
+      <recent name="C:\Users\Nan\Documents\GitHub\kaggle_planet_amazon" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Documents\GitHub\kaggle_planet_amazon\JHXCode" />
       <recent name="C:\Users\User\Documents\GitHub\kaggle_planet_amazon" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Documents\GitHub\kaggle_planet_amazon\JHXCode" />
-      <recent name="C:\Users\Nan\Documents\GitHub\kaggle_planet_amazon" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -523,9 +524,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26281148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26281148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -950,10 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="314" column="0" lean-forward="true" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+        <state relative-caret-position="-1630">
+          <caret line="236" column="60" lean-forward="false" selection-start-line="236" selection-start-column="60" selection-end-line="236" selection-end-column="60" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
