@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/util.py" afterPath="$PROJECT_DIR$/JHXCode/util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +21,7 @@
       <file leaf-file-name="kgdataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
+            <state relative-caret-position="864">
               <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -29,17 +30,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="864">
-              <caret line="202" column="50" lean-forward="true" selection-start-line="202" selection-start-column="50" selection-end-line="202" selection-end-column="99" />
+              <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseline_trainer_resnet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="134" column="24" lean-forward="false" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="702">
@@ -59,16 +70,6 @@
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pytorch_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pytorch_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8127">
-              <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="310" selection-end-column="4" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -182,17 +183,17 @@
         <option value="$PROJECT_DIR$/JHXCode/trainers/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/_init_.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/pytorch_utils.py" />
         <option value="$PROJECT_DIR$/torch_densenet161.py" />
         <option value="$PROJECT_DIR$/torch_resnet152.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
         <option value="$PROJECT_DIR$/baseline_trainer_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/fpn_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/probs_to_csv.py" />
         <option value="$PROJECT_DIR$/JHXCode/util.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
       </list>
     </option>
   </component>
@@ -296,6 +297,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="planet_models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JHXCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataset" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JHXCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -892,32 +929,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles_resnet.py" />
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="202" column="50" lean-forward="true" selection-start-line="202" selection-start-column="50" selection-end-line="202" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/fpn_trainer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="746">
@@ -961,6 +973,32 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="134" column="24" lean-forward="false" selection-start-line="134" selection-start-column="24" selection-end-line="134" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

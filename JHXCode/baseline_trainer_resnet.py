@@ -41,18 +41,19 @@ A baseline trainer trains the models as followed:
 models = [
             resnet18_planet, resnet34_planet,
             resnet50_planet,
+            resnet152_planet
           ]
 batch_size = [
                 # 128, 128,
                 32, 32,
-                32
+                32, 16
                 # 50
             ]
 
 
 def get_dataloader(batch_size):
     train_data = KgForestDataset(
-        split='train-40479',
+        split='train-37479',
         transform=Compose(
             [
                 Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
@@ -131,7 +132,7 @@ def train_baselines():
         train_data.batch_size = batch
         val_data.batch_size = batch
 
-        num_epoches = 40
+        num_epoches = 60
         print_every_iter = 20
         epoch_test = 1
 
