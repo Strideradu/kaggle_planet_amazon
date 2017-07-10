@@ -126,10 +126,10 @@ def train_baselines():
         logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_split'.format(name), name)
 
         # load pre-trained model on train-37479
-        single_net = model(pretrained=True)
-        net = nn.DataParallel(single_net.cuda())
+        net = model(pretrained=True)
+        net = nn.DataParallel(net.cuda())
         # load_net(net, name)
-        optimizer = get_optimizer(single_net, lr=.005, pretrained=True, resnet=True if 'resnet' in name else False)
+        optimizer = get_optimizer(net.module, lr=.005, pretrained=True, resnet=True if 'resnet' in name else False)
         # optimizer = optim.SGD(lr=.005, momentum=0.9, params=net.parameters(), weight_decay=5e-4)
         train_data.batch_size = batch
         val_data.batch_size = batch

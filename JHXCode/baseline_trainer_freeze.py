@@ -129,7 +129,7 @@ def train_baselines():
         net = model(pretrained=True)
         net = nn.DataParallel(net.cuda())
         # load_net(net, name)
-        optimizer = get_optimizer(net, lr=.1, pretrained=True, resnet=True if 'resnet' in name else False)
+        optimizer = get_optimizer(net.module, lr=.1, pretrained=True, resnet=True if 'resnet' in name else False)
         # optimizer = optim.SGD(lr=.005, momentum=0.9, params=net.parameters(), weight_decay=5e-4)
         train_data.batch_size = batch
         val_data.batch_size = batch
