@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/util.py" afterPath="$PROJECT_DIR$/JHXCode/util.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,21 +30,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="125" column="90" lean-forward="false" selection-start-line="125" selection-start-column="90" selection-end-line="125" selection-end-column="90" />
+            <state relative-caret-position="432">
+              <caret line="140" column="25" lean-forward="true" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_trainer_resnet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseline_trainer_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="854">
-              <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+            <state relative-caret-position="935">
+              <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -164,8 +161,8 @@
         <option value="$PROJECT_DIR$/JHXCode/probs_to_csv.py" />
         <option value="$PROJECT_DIR$/JHXCode/util.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
       </list>
     </option>
   </component>
@@ -957,18 +954,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="125" column="90" lean-forward="false" selection-start-line="125" selection-start-column="90" selection-end-line="125" selection-end-column="90" />
+        <state relative-caret-position="935">
+          <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="854">
-          <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+        <state relative-caret-position="432">
+          <caret line="140" column="25" lean-forward="true" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
           <folding />
         </state>
       </provider>

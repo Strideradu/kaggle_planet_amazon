@@ -149,7 +149,7 @@ def train_baselines():
             # train loss averaged every epoch
             total_epoch_loss = 0.0
 
-            lr_schedule(epoch, optimizer, base_lr=0.001, pretrained=True)
+            lr_schedule(epoch, optimizer, base_lr=0.005, pretrained=True)
 
             rate = get_learning_rate(optimizer)[0]  # check
 
