@@ -249,7 +249,7 @@ def do_thresholding(names, models, labels):
 
 
 def get_files(excludes=None):
-    file_names = glob.glob('probs/*.txt')
+    file_names = glob.glob('/mnt/home/dunan/Learn/Kaggle/planet_amazon/probs/*.txt')
     file_names = [f for f in file_names if 'full_data' in f]
     names = []
     for filename in file_names:
@@ -277,7 +277,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_2.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[m_idx]).astype(int)
         labels[m_idx] = preds
@@ -310,23 +310,23 @@ def predict_test_averaging(t):
 
 
 if __name__ == '__main__':
-    # valid_dataloader = get_validation_loader()
-    test_dataloader = get_test_dataloader()
+    valid_dataloader = get_validation_loader()
+    # test_dataloader = get_test_dataloader()
 
     # save results to files
-    # probabilities = probs(valid_dataloader)
+    probabilities = probs(valid_dataloader)
 
     # get threshold
-    # model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
-    # for m in models:
-    #     name = str(m).split()[1].strip('_planet')
-    #     file_names = get_files([n for n in model_names if n != name])
-    #     print('Model {}'.format(name))
-    #     t = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
-    #     print(t)
+    model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
+    for m in models:
+        name = str(m).split()[1].strip('_planet')
+        file_names = get_files([n for n in model_names if n != name])
+        print('Model {}'.format(name))
+        t = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
+        print(t)
 
     # average testing
     # predict_test_averaging(threshold)
 
     # majority voting
-    predict_test_majority()
+    # predict_test_majority()
