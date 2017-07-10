@@ -38,7 +38,7 @@ def pred_csv(predictions, name, threshold=None):
     """
     predictions: numpy array of predicted probabilities
     """
-    csv_name = os.path.join(KAGGLE_DATA_DIR, 'sample_submission.csv')
+    csv_name = os.path.join(KAGGLE_DATA_DIR, 'sample_submission_v2.csv')
     submission = pd.read_csv(csv_name)
     for i, pred in enumerate(predictions):
         if threshold is not None:
