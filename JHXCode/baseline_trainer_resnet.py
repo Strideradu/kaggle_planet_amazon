@@ -197,7 +197,7 @@ def train_baselines():
                 # save if the current loss is better
                 if test_loss < best_test_loss:
                     print('save {} {}'.format(test_loss, best_test_loss))
-                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name))
+                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name))
                     best_test_loss = test_loss
 
             logger.add_record('train_loss', total_epoch_loss)
