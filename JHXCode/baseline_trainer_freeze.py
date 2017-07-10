@@ -93,16 +93,16 @@ def get_optimizer(net, lr, resnet=False, pretrained=False):
     if pretrained:
         if resnet:
             parameters = [
-                {'params': net.fc.parameters(), 'lr': lr*10},
-                {'params': net.layer1.parameters(), 'lr': lr},
-                {'params': net.layer2.parameters(), 'lr': lr},
-                {'params': net.layer3.parameters(), 'lr': lr},
-                {'params': net.layer4.parameters(), 'lr': lr}
+                {'params': net.fc.parameters(), 'lr': lr},
+                {'params': net.layer1.parameters(), 'lr': 0},
+                {'params': net.layer2.parameters(), 'lr': 0},
+                {'params': net.layer3.parameters(), 'lr': 0},
+                {'params': net.layer4.parameters(), 'lr': 0}
             ]
         else:
             parameters = [
-                {'params': net.features.parameters(), 'lr': lr},
-                {'params': net.classifier.parameters(), 'lr': lr * 10}
+                {'params': net.classifier.parameters(), 'lr': lr},
+                {'params': net.features.parameters(), 'lr': 0}
             ]
         optimizer = optim.SGD(params=parameters, weight_decay=5e-4, momentum=.9)
     else:
@@ -123,14 +123,14 @@ def train_baselines():
         name = str(model).split()[1]
         print('*****Start Training {} with batch size {}******'.format(name, batch))
         print(' epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | total_train_loss\n')
-        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}'.format(name), name)
+        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_freeze'.format(name), name)
 
         # load pre-trained model on train-37479
         net = model(pretrained=True)
         net = nn.DataParallel(net.cuda())
         # load_net(net, name)
-        # optimizer = get_optimizer(net, lr=.001, pretrained=True, resnet=True if 'resnet' in name else False)
-        optimizer = optim.SGD(lr=.005, momentum=0.9, params=net.parameters(), weight_decay=5e-4)
+        optimizer = get_optimizer(net, lr=.1, pretrained=True, resnet=True if 'resnet' in name else False)
+        # optimizer = optim.SGD(lr=.005, momentum=0.9, params=net.parameters(), weight_decay=5e-4)
         train_data.batch_size = batch
         val_data.batch_size = batch
 
@@ -149,7 +149,7 @@ def train_baselines():
             # train loss averaged every epoch
             total_epoch_loss = 0.0
 
-            lr_schedule(epoch, optimizer, base_lr=0.001, pretrained=True)
+            freeze_lr_schedule(epoch, optimizer, base_lr=0.1, pretrained=True)
 
             rate = get_learning_rate(optimizer)[0]  # check
 
@@ -199,7 +199,7 @@ def train_baselines():
                 # save if the current loss is better
                 if test_loss < best_test_loss:
                     print('save {} {}'.format(test_loss, best_test_loss))
-                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name))
+                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_freeze.pth'.format(name))
                     best_test_loss = test_loss
 
             logger.add_record('train_loss', total_epoch_loss)

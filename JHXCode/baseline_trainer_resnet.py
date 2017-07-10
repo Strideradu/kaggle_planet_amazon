@@ -121,7 +121,7 @@ def train_baselines():
         name = str(model).split()[1]
         print('*****Start Training {} with batch size {}******'.format(name, batch))
         print(' epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | total_train_loss\n')
-        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}'.format(name), name)
+        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_split'.format(name), name)
 
         # load pre-trained model on train-37479
         net = model(pretrained=True)

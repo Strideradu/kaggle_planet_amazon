@@ -128,6 +128,31 @@ def lr_schedule(epoch, optimizer, base_lr=0.1, pretrained=False):
     for para_group in optimizer.param_groups:
         para_group['lr'] = lr
 
+def freeze_lr_schedule(epoch, optimizer, base_lr=0.1):
+
+    if 0 <= epoch < 10:
+        lr = base_lr
+    elif 10 <= epoch < 20:
+        lr = base_lr * 0.5
+    elif 20 <= epoch < 30:
+        lr = base_lr * 0.1
+    elif 30 <= epoch < 40:
+        lr = base_lr * 0.01
+    else:
+        lr = base_lr * 0.001
+
+
+    if epoch < 20:
+        for para_group in optimizer.param_groups:
+            para_group['lr'] = 0
+
+        optimizer.param_groups[0]['lr'] = lr
+
+    else:
+        for para_group in optimizer.param_groups:
+            para_group['lr'] = lr
+
+        # optimizer.param_groups[0]['lr'] = 10*lr
 
 def split_train_validation(num_val=3000):
     """
