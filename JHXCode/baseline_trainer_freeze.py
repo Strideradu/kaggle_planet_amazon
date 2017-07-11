@@ -10,7 +10,7 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from datasets import mean, std
 from data.kgdataset import KgForestDataset, randomShiftScaleRotate, randomFlip, randomTranspose, toTensor
-from util import Logger, evaluate, multi_criterion, multi_f_measure, lr_schedule, get_learning_rate
+from util import Logger, evaluate, multi_criterion, multi_f_measure, lr_schedule, get_learning_rate, freeze_lr_schedule
 import numpy as np
 import torch
 import time
