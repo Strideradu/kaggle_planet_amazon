@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +21,7 @@
       <file leaf-file-name="kgdataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="702">
               <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="baseline_trainer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
+            <state relative-caret-position="3537">
               <caret line="131" column="44" lean-forward="false" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
               <folding />
             </state>
@@ -44,42 +43,20 @@
       <file leaf-file-name="baseline_trainer_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1124">
+            <state relative-caret-position="557">
               <caret line="129" column="44" lean-forward="false" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
+      <file leaf-file-name="baseline_ensemble_densenet_resnet.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="130" column="52" lean-forward="false" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
+            <state relative-caret-position="854">
+              <caret line="316" column="5" lean-forward="false" selection-start-line="316" selection-start-column="5" selection-end-line="316" selection-end-column="5" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="baseline_trainer_freeze.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="131" column="44" lean-forward="false" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="torch_resnet152.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
-              <caret line="275" column="40" lean-forward="true" selection-start-line="275" selection-start-column="29" selection-end-line="275" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,10 +65,44 @@
       <file leaf-file-name="baseline_ensembles.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+            <state relative-caret-position="962">
+              <caret line="332" column="0" lean-forward="true" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3240">
+              <caret line="130" column="52" lean-forward="false" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="baseline_trainer_freeze.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="12" column="119" lean-forward="false" selection-start-line="12" selection-start-column="119" selection-end-line="12" selection-end-column="119" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="torch_resnet152.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6858">
+              <caret line="275" column="40" lean-forward="true" selection-start-line="275" selection-start-column="29" selection-end-line="275" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -158,12 +169,12 @@
         <option value="$PROJECT_DIR$/baseline_trainer_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/baseline_ensemble_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/fpn_trainer.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/probs_to_csv.py" />
         <option value="$PROJECT_DIR$/JHXCode/util.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
       </list>
     </option>
   </component>
@@ -207,6 +218,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,8 +320,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -532,10 +543,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
+    <frame x="-11" y="-11" width="2182" height="1402" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26234132" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26140103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -876,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9234">
           <caret line="363" column="10" lean-forward="false" selection-start-line="363" selection-start-column="10" selection-end-line="363" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -885,25 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
           <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,15 +902,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/torch_resnet152.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
+        <state relative-caret-position="6858">
           <caret line="275" column="40" lean-forward="true" selection-start-line="275" selection-start-column="29" selection-end-line="275" selection-end-column="40" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
@@ -929,7 +917,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/data/kgdataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="702">
           <caret line="32" column="88" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -939,7 +927,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="3240">
           <caret line="130" column="52" lean-forward="false" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -947,9 +935,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="119" lean-forward="false" selection-start-line="12" selection-start-column="119" selection-end-line="12" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="3537">
           <caret line="131" column="44" lean-forward="false" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
           <folding />
         </state>
@@ -957,17 +953,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1124">
+        <state relative-caret-position="557">
           <caret line="129" column="44" lean-forward="false" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="131" column="44" lean-forward="false" selection-start-line="131" selection-start-column="44" selection-end-line="131" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="962">
+          <caret line="332" column="0" lean-forward="true" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="854">
+          <caret line="316" column="5" lean-forward="false" selection-start-line="316" selection-start-column="5" selection-end-line="316" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
