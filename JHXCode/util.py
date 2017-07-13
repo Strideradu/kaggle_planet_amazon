@@ -128,6 +128,23 @@ def lr_schedule(epoch, optimizer, base_lr=0.1, pretrained=False):
     for para_group in optimizer.param_groups:
         para_group['lr'] = lr
 
+def new_lr_schedule(epoch, optimizer):
+    if 0 <= epoch < 10:
+        lr = 0.01
+    elif 10 <= epoch < 25:
+        lr = 0.005
+    elif 25 <= epoch < 40:
+        lr = 0.001
+    elif 40 <= epoch < 50:
+        lr = 0.0005
+    else:
+        lr = 0.0001
+
+    for para_group in optimizer.param_groups:
+        para_group['lr'] = lr
+
+    optimizer.param_groups[-1]['lr'] = 10*lr
+
 def freeze_lr_schedule(epoch, optimizer, base_lr=0.1):
 
     if 0 <= epoch < 10:
