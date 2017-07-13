@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/planet_models/densenet_planet.py" afterPath="$PROJECT_DIR$/JHXCode/planet_models/densenet_planet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/util.py" afterPath="$PROJECT_DIR$/JHXCode/util.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_trainer_dense201_res101.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="baseline_trainer_dense201_res101.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+            <state relative-caret-position="-264">
+              <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -86,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resnet_planet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="resnet_planet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/resnet_planet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="539">
@@ -199,8 +196,8 @@
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_freeze.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
         <option value="$PROJECT_DIR$/JHXCode/util.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py" />
         <option value="$PROJECT_DIR$/JHXCode/planet_models/densenet_planet.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py" />
       </list>
     </option>
   </component>
@@ -963,14 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/densenet_planet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1232">
@@ -988,6 +977,14 @@
           <folding>
             <element signature="e#0#137#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_trainer_dense201_res101.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

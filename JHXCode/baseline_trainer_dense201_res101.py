@@ -76,7 +76,7 @@ def get_dataloader(batch_size):
     train_data_loader = DataLoader(batch_size=batch_size, dataset=train_data, shuffle=True)
 
     validation = KgForestDataset(
-        split='valid-3000',
+        split='validation-3000',
         transform=Compose(
             [
                 # Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
