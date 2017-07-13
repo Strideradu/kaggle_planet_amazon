@@ -191,7 +191,7 @@ def find_best_threshold(labels, probabilities):
         best_score = 0.0
         for i in range(17):
             for r in range(500):
-                r /= 500
+                r /= 500.0
                 t[i] = r
                 preds = (selected_preds > t).astype(int)
                 score = f2_score(labels, preds)
