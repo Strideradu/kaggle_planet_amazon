@@ -218,7 +218,7 @@ def get_validation_loader():
         height=256,
         width=256
     )
-    valid_dataloader = DataLoader(validation, batch_size=256, shuffle=False)
+    valid_dataloader = DataLoader(validation, batch_size=32, shuffle=False)
     return valid_dataloader
 
 
