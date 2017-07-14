@@ -165,7 +165,7 @@ def probs(dataloader):
         for m_idx, model in enumerate(models):
             name = str(model).split()[1]
             net = model().cuda()
-            name = 'full_data_{}.pth'.format(name)
+            name = 'full_data_{}_split.pth'.format(name)
             net = nn.DataParallel(net)
             net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/{}'.format(name)))
             net.eval()
@@ -267,7 +267,7 @@ def predict_test_majority():
         name = str(model).split()[1]
         print('predicting model {}'.format(name))
         net = nn.DataParallel(model().cuda())
-        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name)))
+        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name)))
         net.eval()
         preds = np.zeros((61191, 17))
         for t in transforms:
@@ -277,7 +277,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_new_threshold.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[m_idx]).astype(int)
         labels[m_idx] = preds
@@ -310,20 +310,20 @@ def predict_test_averaging(t):
 
 
 if __name__ == '__main__':
-    #valid_dataloader = get_validation_loader()
+    valid_dataloader = get_validation_loader()
     test_dataloader = get_test_dataloader()
 
     # save results to files
-    #probabilities = probs(valid_dataloader)
+    probabilities = probs(valid_dataloader)
 
     # get threshold
-    #model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
-    #for m in models:
-    #    name = str(m).split()[1].strip('_planet')
-    #    file_names = get_files([n for n in model_names if n != name])
-    #    print('Model {}'.format(name))
-    #    t = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
-    #    print(t)
+    model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
+    for m in models:
+        name = str(m).split()[1].strip('_planet')
+        file_names = get_files([n for n in model_names if n != name])
+        print('Model {}'.format(name))
+        thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
+        print(thresholds)
 
     # average testing
     # predict_test_averaging(threshold)
