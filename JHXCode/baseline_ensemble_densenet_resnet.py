@@ -208,7 +208,7 @@ def find_best_threshold(labels, probabilities):
 
 def get_validation_loader():
     validation = KgForestDataset(
-        split='train-40479',
+        split='validation-3000',
         transform=Compose(
             [
                 Lambda(lambda x: toTensor(x)),
