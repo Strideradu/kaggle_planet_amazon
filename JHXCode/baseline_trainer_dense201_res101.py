@@ -60,7 +60,7 @@ batch_size = [
 
 def get_dataloader(batch_size):
     train_data = KgForestDataset(
-        split='train-37479',
+        split='train-40479',
         transform=Compose(
             [
                 Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),

@@ -1,4 +1,5 @@
 import matplotlib
+
 matplotlib.use('Agg')
 import torch.nn as nn
 from torch.nn import functional as F
@@ -37,17 +38,14 @@ A baseline trainer trains the models as followed:
     train set: 40479
 """
 
-
 models = [
-            resnet18_planet, resnet34_planet,
-            resnet50_planet
-          ]
+    resnet152_planet,
+    densenet169,
+]
 batch_size = [
-                # 128, 128,
-                32, 32,
-                32
-                # 50
-            ]
+    16, 16
+    # 50
+]
 
 
 def get_dataloader(batch_size):
@@ -95,7 +93,7 @@ def get_optimizer(net, lr, resnet=False, pretrained=False):
                 {'params': net.layer2.parameters(), 'lr': lr},
                 {'params': net.layer3.parameters(), 'lr': lr},
                 {'params': net.layer4.parameters(), 'lr': lr},
-                {'params': net.fc.parameters(), 'lr': lr * 10}
+                {'params': net.fc.parameters(), 'lr': lr * 10},
             ]
         else:
             parameters = [
@@ -114,7 +112,6 @@ def load_net(net, name):
 
 
 def train_baselines():
-
     train_data, val_data = get_dataloader(96)
 
     for model, batch in zip(models, batch_size):
@@ -174,19 +171,19 @@ def train_baselines():
                 total_sum += 1
 
                 # print statistics
-                if it % print_every_iter == print_every_iter-1:
-                    smooth_loss = sum_smooth_loss/sum
+                if it % print_every_iter == print_every_iter - 1:
+                    smooth_loss = sum_smooth_loss / sum
                     sum_smooth_loss = 0.0
                     sum = 0
 
                     train_acc = multi_f_measure(probs.data, labels.cuda())
                     train_loss = loss.data[0]
                     print('\r{}   {}    {}   |  {}  | {}  {} | ... '.
-                          format(epoch + it/num_its, it + 1, rate, smooth_loss, train_loss, train_acc),
+                          format(epoch + it / num_its, it + 1, rate, smooth_loss, train_loss, train_acc),
                           )
 
             total_epoch_loss = total_epoch_loss / total_sum
-            if epoch % epoch_test == epoch_test-1 or epoch == num_epoches-1:
+            if epoch % epoch_test == epoch_test - 1 or epoch == num_epoches - 1:
                 net.cuda().eval()
                 test_loss, test_acc = evaluate(net, val_data)
                 print('\r')
@@ -197,7 +194,8 @@ def train_baselines():
                 # save if the current loss is better
                 if test_loss < best_test_loss:
                     print('save {} {}'.format(test_loss, best_test_loss))
-                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name))
+                    torch.save(net.state_dict(),
+                               '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name))
                     best_test_loss = test_loss
 
             logger.add_record('train_loss', total_epoch_loss)

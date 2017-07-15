@@ -42,12 +42,11 @@ models = [
             # resnet18_planet, resnet34_planet,
             # resnet50_planet,
             densenet121,
-            densenet169,
             densenet161
           ]
 batch_size = [
                 # 128, 128,
-                16, 16,
+                16,
                 16
                 # 50
             ]
@@ -55,7 +54,7 @@ batch_size = [
 
 def get_dataloader(batch_size):
     train_data = KgForestDataset(
-        split='train-37479',
+        split='train-40479',
         transform=Compose(
             [
                 Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
@@ -93,11 +92,12 @@ def get_optimizer(net, lr, resnet=False, pretrained=False):
     if pretrained:
         if resnet:
             parameters = [
-                {'params': net.fc.parameters(), 'lr': lr*10},
+
                 {'params': net.layer1.parameters(), 'lr': lr},
                 {'params': net.layer2.parameters(), 'lr': lr},
                 {'params': net.layer3.parameters(), 'lr': lr},
-                {'params': net.layer4.parameters(), 'lr': lr}
+                {'params': net.layer4.parameters(), 'lr': lr},
+                {'params': net.fc.parameters(), 'lr': lr * 10}
             ]
         else:
             parameters = [
@@ -123,7 +123,7 @@ def train_baselines():
         name = str(model).split()[1]
         print('*****Start Training {} with batch size {}******'.format(name, batch))
         print(' epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | total_train_loss\n')
-        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_split'.format(name), name)
+        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}'.format(name), name)
 
         # load pre-trained model on train-37479
         net = model(pretrained=True)
@@ -134,7 +134,7 @@ def train_baselines():
         train_data.batch_size = batch
         val_data.batch_size = batch
 
-        num_epoches = 60
+        num_epoches = 40
         print_every_iter = 20
         epoch_test = 1
 
@@ -199,7 +199,7 @@ def train_baselines():
                 # save if the current loss is better
                 if test_loss < best_test_loss:
                     print('save {} {}'.format(test_loss, best_test_loss))
-                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name))
+                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name))
                     best_test_loss = test_loss
 
             logger.add_record('train_loss', total_epoch_loss)
