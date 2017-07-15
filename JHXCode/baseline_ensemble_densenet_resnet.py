@@ -310,23 +310,23 @@ def predict_test_averaging(t):
 
 
 if __name__ == '__main__':
-    # valid_dataloader = get_validation_loader()
-    test_dataloader = get_test_dataloader()
+    valid_dataloader = get_validation_loader()
+    # test_dataloader = get_test_dataloader()
 
     # save results to files
-    # probabilities = probs(valid_dataloader)
+    probabilities = probs(valid_dataloader)
 
     # get threshold
-    # model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
-    # for m in models:
-    #    name = str(m).split()[1].strip('_planet')
-    #    file_names = get_files([n for n in model_names if n != name])
-    #    print('Model {}'.format(name))
-    #    thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
-    #    print(thresholds)
+    model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
+    for m in models:
+        name = str(m).split()[1].strip('_planet')
+        file_names = get_files([n for n in model_names if n != name])
+        print('Model {}'.format(name))
+        thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
+        print(thresholds)
 
     # average testing
     # predict_test_averaging(threshold)
 
     # majority voting
-    predict_test_majority()
+    # predict_test_majority()
