@@ -13,7 +13,6 @@ from util import predict, f2_score, pred_csv
 from data import kgdataset
 
 
-
 def default(imgs):
     return imgs
 
@@ -55,74 +54,91 @@ mean = [0.31151703, 0.34061992, 0.29885209]
 std = [0.16730586, 0.14391145, 0.13747531]
 
 thresholds = [
-#     [0.22433333, 0.20966667, 0.17,
-#      0.07, 0.20433333, 0.23033333,
-#      0.156, 0.23033333, 0.19933333,
-#      0.21533333, 0.13, 0.156, 0.205,
-#      0.208, 0.309, 0.25733333,
-#      0.072],                                            # resnet-34, acc 0.92829
-#
-#     [0.197, 0.21333333, 0.216, 0.092, 0.16666667, 0.15133333,
-#      0.178, 0.25033333, 0.165, 0.17566667, 0.184, 0.20566667,
-#      0.24933333, 0.233, 0.217, 0.16733333, 0.06],       # resnet-50, acc 0.93020
-#
-#     [0.16433333, 0.227, 0.17366667,
-#      0.05133333, 0.275, 0.16033333,
-#      0.1943333, 0.22533333, 0.22033333,
-#      0.16833333, 0.16366667, 0.34066667,
-#      0.25333333, 0.13466667, 0.29566667,
-#      0.209, 0.05533333],                                # resnet-152, 0.929617
-#
-#     [0.13166667, 0.22266667, 0.26733333,
-#      0.062, 0.303, 0.18366667,
-#      0.18966667, 0.305, 0.252,
-#      0.29033333, 0.18766667, 0.15166667,
-#      0.14066667, 0.04766667, 0.41466667,
-#      0.26233333, 0.07333333],                           # densenet-121, acc 0.92821
-#
-#     [0.18533333, 0.18866667, 0.13533333,
-#      0.03633333, 0.221, 0.17666667,
-#      0.231, 0.23933333, 0.21966667,
-#      0.169, 0.23333333, 0.21833333,
-#      0.24033333, 0.112, 0.40233333,
-#      0.31833333, 0.237],                                # densenet-161, 0.93108
-#
-#     [0.21266667, 0.18866667, 0.17733333,
-#      0.07166667, 0.15366667, 0.14966667,
-#      0.153, 0.17866667, 0.15966667,
-#      0.15366667, 0.16133333, 0.126,
-#      0.19066667, 0.09166667, 0.313,
-#      0.25366667, 0.06266667],                           # densenet-169, 0.92856
+    #     [0.22433333, 0.20966667, 0.17,
+    #      0.07, 0.20433333, 0.23033333,
+    #      0.156, 0.23033333, 0.19933333,
+    #      0.21533333, 0.13, 0.156, 0.205,
+    #      0.208, 0.309, 0.25733333,
+    #      0.072],                                            # resnet-34, acc 0.92829
+    #
+    #     [0.197, 0.21333333, 0.216, 0.092, 0.16666667, 0.15133333,
+    #      0.178, 0.25033333, 0.165, 0.17566667, 0.184, 0.20566667,
+    #      0.24933333, 0.233, 0.217, 0.16733333, 0.06],       # resnet-50, acc 0.93020
+    #
+    #     [0.16433333, 0.227, 0.17366667,
+    #      0.05133333, 0.275, 0.16033333,
+    #      0.1943333, 0.22533333, 0.22033333,
+    #      0.16833333, 0.16366667, 0.34066667,
+    #      0.25333333, 0.13466667, 0.29566667,
+    #      0.209, 0.05533333],                                # resnet-152, 0.929617
+    #
+    #     [0.13166667, 0.22266667, 0.26733333,
+    #      0.062, 0.303, 0.18366667,
+    #      0.18966667, 0.305, 0.252,
+    #      0.29033333, 0.18766667, 0.15166667,
+    #      0.14066667, 0.04766667, 0.41466667,
+    #      0.26233333, 0.07333333],                           # densenet-121, acc 0.92821
+    #
+    #     [0.18533333, 0.18866667, 0.13533333,
+    #      0.03633333, 0.221, 0.17666667,
+    #      0.231, 0.23933333, 0.21966667,
+    #      0.169, 0.23333333, 0.21833333,
+    #      0.24033333, 0.112, 0.40233333,
+    #      0.31833333, 0.237],                                # densenet-161, 0.93108
+    #
+    #     [0.21266667, 0.18866667, 0.17733333,
+    #      0.07166667, 0.15366667, 0.14966667,
+    #      0.153, 0.17866667, 0.15966667,
+    #      0.15366667, 0.16133333, 0.126,
+    #      0.19066667, 0.09166667, 0.313,
+    #      0.25366667, 0.06266667],                           # densenet-169, 0.92856
 
-    [0.18733333,  0.18966667,  0.11766667,  0.11366667,  0.228,       0.17466667,
-     0.183,       0.18166667,  0.2,         0.22933333,  0.204,       0.09466667,
-     0.11633333,  0.15633333,  0.152,       0.10466667,  0.026],
+    [0.18733333, 0.18966667, 0.11766667, 0.11366667, 0.228, 0.17466667,
+     0.183, 0.18166667, 0.2, 0.22933333, 0.204, 0.09466667,
+     0.11633333, 0.15633333, 0.152, 0.10466667, 0.026],
 
-    [0.18333333,  0.229,       0.11233333,  0.07033333,  0.24866667,  0.19466667,
-     0.21833333,  0.20066667,  0.197,       0.21233333,  0.23666667,  0.11833333,
-     0.16133333,  0.18333333,  0.257,       0.16933333,  0.151],
+    [0.18333333, 0.229, 0.11233333, 0.07033333, 0.24866667, 0.19466667,
+     0.21833333, 0.20066667, 0.197, 0.21233333, 0.23666667, 0.11833333,
+     0.16133333, 0.18333333, 0.257, 0.16933333, 0.151],
 
-    [0.15433333,  0.179,       0.14933333,  0.04433333,  0.19833333,  0.16166667,
-     0.169,       0.14533333,  0.16333333,  0.19866667,  0.17033333,  0.033,       0.16,
-     0.20033333,  0.13433333,  0.124,       0.07166667],
+    [0.15433333, 0.179, 0.14933333, 0.04433333, 0.19833333, 0.16166667,
+     0.169, 0.14533333, 0.16333333, 0.19866667, 0.17033333, 0.033, 0.16,
+     0.20033333, 0.13433333, 0.124, 0.07166667],
 
-    [0.18966667,  0.22633333,  0.102,       0.10233333,  0.197,       0.212,       0.183,
-     0.218,       0.133,       0.18166667,  0.213,       0.05066667,  0.121,
-     0.11033333,  0.12566667,  0.12733333,  0.12733333],
+    [0.18966667, 0.22633333, 0.102, 0.10233333, 0.197, 0.212, 0.183,
+     0.218, 0.133, 0.18166667, 0.213, 0.05066667, 0.121,
+     0.11033333, 0.12566667, 0.12733333, 0.12733333],
 
-    [0.125,       0.151,       0.153,       0.07433333,  0.25633333,  0.17266667,
-     0.24433333,  0.28533333,  0.182,       0.19666667,  0.21266667,  0.05533333,
-     0.06633333,  0.363,       0.224,       0.109,       0.03133333],
+    [0.125, 0.151, 0.153, 0.07433333, 0.25633333, 0.17266667,
+     0.24433333, 0.28533333, 0.182, 0.19666667, 0.21266667, 0.05533333,
+     0.06633333, 0.363, 0.224, 0.109, 0.03133333],
 
-    [0.191,       0.224,       0.09733333,  0.11,        0.136,       0.18833333,
-     0.213,       0.20766667,  0.155,       0.212,       0.19366667,  0.07733333,
-     0.23033333,  0.214,       0.17033333,  0.203,       0.033],
+    [0.191, 0.224, 0.09733333, 0.11, 0.136, 0.18833333,
+     0.213, 0.20766667, 0.155, 0.212, 0.19366667, 0.07733333,
+     0.23033333, 0.214, 0.17033333, 0.203, 0.033],
 
-    [0.17733333,  0.16533333,  0.11766667,  0.13133333,  0.14033333,  0.19933333,
-     0.22566667,  0.19066667,  0.15466667,  0.228,       0.219,       0.07633333,
-     0.20033333,  0.26233333,  0.21366667,  0.18266667,  0.03366667]
+    [0.17733333, 0.16533333, 0.11766667, 0.13133333, 0.14033333, 0.19933333,
+     0.22566667, 0.19066667, 0.15466667, 0.228, 0.219, 0.07633333,
+     0.20033333, 0.26233333, 0.21366667, 0.18266667, 0.03366667]
 ]
 
+threshold = [
+    [0.19133333, 0.226, 0.11566667, 0.09366667, 0.23266667, 0.21166667,
+     0.21433333, 0.21033333, 0.20766667, 0.246, 0.21033333, 0.19866667,
+     0.17166667, 0.181, 0.25533333, 0.18733333, 0.13833333],
+    [0.16333333, 0.206, 0.137, 0.103, 0.18666667, 0.15966667,
+     0.18433333, 0.16833333, 0.15566667, 0.17933333, 0.13466667, 0.109, 0.164,
+     0.19633333, 0.165, 0.142, 0.056],
+    [0.213, 0.22866667, 0.12266667, 0.10466667, 0.19033333, 0.19466667,
+     0.228, 0.21066667, 0.152, 0.19533333, 0.15733333, 0.12633333,
+     0.18566667, 0.17833333, 0.164, 0.18366667, 0.08833333],
+    [0.19, 0.232, 0.111, 0.10666667, 0.132, 0.18366667,
+     0.20733333, 0.20966667, 0.15966667, 0.21733333, 0.19433333, 0.08533333,
+     0.20666667, 0.23466667, 0.18766667, 0.20466667, 0.03433333],
+    [0.16166667, 0.20833333, 0.16, 0.12233333, 0.148, 0.19766667,
+     0.22666667, 0.206, 0.174, 0.21266667, 0.20033333, 0.13933333,
+     0.17066667, 0.299, 0.235, 0.22233333, 0.03733333]
+]
 
 # threshold = [ 0.17733333, 0.213, 0.15766667, 0.049, 0.28733333, 0.18066667,
 #               0.19666667, 0.212, 0.21566667, 0.17233333, 0.16466667, 0.274,
@@ -137,14 +153,14 @@ thresholds = [
 transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 
 models = [
-            resnet18_planet,
-            resnet34_planet,
-            resnet50_planet,
-            resnet152_planet,
-            densenet121,
-            densenet161,
-            densenet169,
-        ]
+    # resnet18_planet,
+    resnet34_planet,
+    resnet50_planet,
+    resnet152_planet,
+    # densenet121,
+    densenet161,
+    densenet169,
+]
 
 
 # save probabilities to files for debug
@@ -173,7 +189,8 @@ def probs(dataloader):
             m_predictions = predict(net, dataloader)
 
             # save
-            np.savetxt(X=m_predictions, fname='/mnt/home/dunan/Learn/Kaggle/planet_amazon/probs/{}_{}.txt'.format(t_name, name))
+            np.savetxt(X=m_predictions,
+                       fname='/mnt/home/dunan/Learn/Kaggle/planet_amazon/probs/{}_{}.txt'.format(t_name, name))
             probabilities[t_idx, m_idx] = m_predictions
     return probabilities
 
@@ -201,7 +218,7 @@ def find_best_threshold(labels, probabilities):
             t[i] = best_thresh
         threshold = threshold + t
         acc += best_score
-    print('AVG ACC,', acc/len(transforms))
+    print('AVG ACC,', acc / len(transforms))
     threshold = threshold / len(transforms)
     return threshold
 
@@ -267,7 +284,8 @@ def predict_test_majority():
         name = str(model).split()[1]
         print('predicting model {}'.format(name))
         net = nn.DataParallel(model().cuda())
-        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name)))
+        net.load_state_dict(
+            torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name)))
         net.eval()
         preds = np.zeros((61191, 17))
         for t in transforms:
@@ -276,16 +294,17 @@ def predict_test_majority():
             pred = predict(net, dataloader=test_dataloader)
             preds = preds + pred
         # get predictions for the single model
-        preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split.txt'.format(name), preds)
+        preds = preds / len(transforms)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split.txt'.format(name),
+                   preds)
         # get labels
         preds = (preds > thresholds[m_idx]).astype(int)
         labels[m_idx] = preds
 
     # majority voting
     labels = labels.sum(axis=0)
-    labels = (labels >= (len(models)//2)).astype(int)
-    pred_csv(predictions=labels, name='majority_voting_ensembles_full_data')
+    labels = (labels >= (len(models) // 2)).astype(int)
+    pred_csv(predictions=labels, name='majority_voting_ensembles_full_data_split')
 
 
 def predict_test_averaging(t):
@@ -304,29 +323,29 @@ def predict_test_averaging(t):
             pred = predict(dataloader=test_dataloader, net=net)
             preds = preds + pred
 
-    preds = preds/(len(models) * len(transforms))
+    preds = preds / (len(models) * len(transforms))
     # preds = preds / len(models)
     pred_csv(predictions=preds, threshold=t, name='transforms-resnet_densenet-ensembels')
 
 
 if __name__ == '__main__':
-    valid_dataloader = get_validation_loader()
-    # test_dataloader = get_test_dataloader()
+    #valid_dataloader = get_validation_loader()
+    test_dataloader = get_test_dataloader()
 
     # save results to files
-    probabilities = probs(valid_dataloader)
+    #probabilities = probs(valid_dataloader)
 
     # get threshold
-    model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
-    for m in models:
-        name = str(m).split()[1].strip('_planet')
-        file_names = get_files([n for n in model_names if n != name])
-        print('Model {}'.format(name))
-        thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
-        print(thresholds)
+    #model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
+    #for m in models:
+    #    name = str(m).split()[1].strip('_planet')
+    #    file_names = get_files([n for n in model_names if n != name])
+    #    print('Model {}'.format(name))
+    #    thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
+    #    print(thresholds)
 
-    # average testing
-    # predict_test_averaging(threshold)
+        # average testing
+        # predict_test_averaging(threshold)
 
-    # majority voting
-    # predict_test_majority()
+        # majority voting
+    predict_test_majority()
