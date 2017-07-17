@@ -52,7 +52,7 @@ batch_size = [
 
 def get_dataloader(batch_size):
     train_data = KgForestDataset(
-        split='train-37479',
+        split='train-40479',
         transform=Compose(
             [
                 Lambda(lambda x: randomShiftScaleRotate(x, u=0.75, shift_limit=6, scale_limit=6, rotate_limit=45)),
@@ -121,7 +121,7 @@ def train_baselines():
         name = str(model).split()[1]
         print('*****Start Training {} with batch size {}******'.format(name, batch))
         print(' epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | total_train_loss\n')
-        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_split_10xlr'.format(name), name)
+        logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/full_data_{}_10xlr'.format(name), name)
 
         # load pre-trained model on train-37479
         net = model(pretrained=True)
@@ -198,7 +198,7 @@ def train_baselines():
                 # save if the current loss is better
                 if test_loss < best_test_loss:
                     print('save {} {}'.format(test_loss, best_test_loss))
-                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split_10xlr.pth'.format(name))
+                    torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_10xlr.pth'.format(name))
                     best_test_loss = test_loss
 
             logger.add_record('train_loss', total_epoch_loss)
