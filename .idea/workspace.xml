@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -91,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_ensembles.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="baseline_ensembles.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2781">
-              <caret line="103" column="47" lean-forward="false" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
+            <state relative-caret-position="810">
+              <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -103,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_ensemble_densenet_resnet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseline_ensemble_densenet_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_res152dense169.py" />
         <option value="$PROJECT_DIR$/JHXCode/thresholds.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
       </list>
     </option>
   </component>
@@ -967,20 +967,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2781">
-          <caret line="103" column="47" lean-forward="false" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
+        <state relative-caret-position="459">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="810">
+          <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
