@@ -7,8 +7,10 @@ from torch.autograd import Variable
 from data.kgdataset import KgForestDataset, toTensor
 from torchvision.transforms import Normalize, Compose, Lambda
 import glob
-from planet_models.resnet_planet import resnet18_planet, resnet34_planet, resnet50_planet, resnet152_planet
-from planet_models.densenet_planet import densenet161, densenet121, densenet169
+from planet_models.resnet_planet import resnet18_planet, resnet34_planet, resnet50_planet, resnet101_planet, \
+    resnet152_planet
+from planet_models.fpn import fpn_34, fpn_152, fpn_50
+from planet_models.densenet_planet import densenet161, densenet121, densenet169, densenet201
 from util import predict, f2_score, pred_csv
 from data import kgdataset
 
@@ -329,23 +331,23 @@ def predict_test_averaging(t):
 
 
 if __name__ == '__main__':
-    #valid_dataloader = get_validation_loader()
+    # valid_dataloader = get_validation_loader()
     test_dataloader = get_test_dataloader()
 
     # save results to files
-    #probabilities = probs(valid_dataloader)
+    # probabilities = probs(valid_dataloader)
 
     # get threshold
-    #model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
-    #for m in models:
+    # model_names = ['resnet18', 'resnet34', 'resnet50', 'resnet152', 'densenet121', 'densenet161', 'densenet169']
+    # for m in models:
     #    name = str(m).split()[1].strip('_planet')
     #    file_names = get_files([n for n in model_names if n != name])
     #    print('Model {}'.format(name))
     #    thresholds = do_thresholding(file_names, labels=valid_dataloader.dataset.labels, models=[m])
     #    print(thresholds)
 
-        # average testing
-        # predict_test_averaging(threshold)
+    # average testing
+    # predict_test_averaging(threshold)
 
-        # majority voting
+    # majority voting
     predict_test_majority()
