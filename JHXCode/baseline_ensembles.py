@@ -113,8 +113,8 @@ mean = [0.31151703, 0.34061992, 0.29885209]
 std = [0.16730586, 0.14391145, 0.13747531]
 
 
-# transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
-transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+# transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 
 models = [
             # resnet18_planet,
@@ -262,7 +262,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split_10xlr_12transform.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split_10xlr.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[name]).astype(int)
         labels[m_idx] = preds
@@ -270,7 +270,7 @@ def predict_test_majority():
     # majority voting
     labels = labels.sum(axis=0)
     labels = (labels >= (len(models)//2)).astype(int)
-    pred_csv(predictions=labels, name='majority_voting_ensembles_split_data_10xlr_12transform')
+    pred_csv(predictions=labels, name='majority_voting_ensembles_split_data_10xlr')
 
 
 def predict_test_averaging(t):
