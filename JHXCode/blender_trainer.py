@@ -78,7 +78,7 @@ def train_blender():
     name = 'blender'
     print('*****Start Training {} with batch size {}******'.format(name, 64))
     print(' epoch   iter   rate  |  smooth_loss   |  train_loss  (acc)  |  valid_loss  (acc)  | total_train_loss\n')
-    logger = Logger('../log/{}'.format(name), name)
+    logger = Logger('/mnt/home/dunan/Learn/Kaggle/planet_amazon/log/{}_full'.format(name), name)
 
     net = Blender()
     # net.load_state_dict(torch.load('../models/full_data_blender.pth'))
@@ -156,7 +156,7 @@ def train_blender():
             # save if the current loss is better
             if test_loss < best_test_loss:
                 print('save {} {}'.format(test_loss, best_test_loss))
-                torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_adam_blender.pth'.format(name))
+                torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_adam_blender_full.pth'.format(name))
                 best_test_loss = test_loss
 
         logger.add_record('train_loss', total_epoch_loss)
