@@ -6,12 +6,12 @@ from planet_models.resnet_planet import resnet50_planet, resnet101_planet, resne
 from planet_models.densenet_planet import densenet201, densenet169, densenet121, densenet161
 
 models_names = [resnet50_planet,
-                #resnet101_planet,
+                resnet101_planet,
                 resnet152_planet,
                 densenet121,
                 densenet161,
                 densenet169,
-                #densenet201
+                densenet201
                 ]
 
 
@@ -29,7 +29,7 @@ class Blender(nn.Module):
             model.eval()
 
             model = nn.DataParallel(model)
-            model.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split.pth'.format(name)))
+            model.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}.pth'.format(name)))
             for p in model.parameters():
                 p.requires_grad = False
             self.models.append(model)
