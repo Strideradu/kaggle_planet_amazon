@@ -203,7 +203,7 @@ def get_validation_loader():
         height=256,
         width=256
     )
-    valid_dataloader = DataLoader(validation, batch_size=32, shuffle=False)
+    valid_dataloader = DataLoader(validation, batch_size=16, shuffle=False)
     return valid_dataloader
 
 
@@ -219,7 +219,7 @@ def get_test_dataloader():
         label_csv=None
     )
 
-    test_dataloader = DataLoader(test_dataset, batch_size=32)
+    test_dataloader = DataLoader(test_dataset, batch_size=16)
     return test_dataloader
 
 
