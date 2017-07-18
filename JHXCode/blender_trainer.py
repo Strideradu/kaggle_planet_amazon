@@ -59,13 +59,13 @@ def get_optimizer(net, lr):
 
 def lr_schedule(epoch, optimizer):
     if 0 <= epoch < 10:
-        lr = 0.1
-    elif 10 <= epoch < 25:
         lr = 0.05
-    elif 25 <= epoch < 40:
+    elif 10 <= epoch < 25:
         lr = 0.01
+    elif 25 <= epoch < 40:
+        lr = 0.005
     else:
-        lr = 0.001
+        lr = 0.0001
 
     for para_group in optimizer.param_groups:
         para_group['lr'] = lr
@@ -156,7 +156,7 @@ def train_blender():
             # save if the current loss is better
             if test_loss < best_test_loss:
                 print('save {} {}'.format(test_loss, best_test_loss))
-                torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_adam_blender_full.pth'.format(name))
+                torch.save(net.state_dict(), '/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_blenderv2_full.pth'.format(name))
                 best_test_loss = test_loss
 
         logger.add_record('train_loss', total_epoch_loss)
