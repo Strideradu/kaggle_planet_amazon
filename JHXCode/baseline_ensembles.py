@@ -15,7 +15,19 @@ from util import predict, f2_score, pred_csv
 from data import kgdataset
 from thresholds import thresholds
 
+def cropCenter(img, height, width):
 
+    h,w,c = img.shape
+    dx = (h-height)//2
+    dy = (w-width )//2
+
+    y1 = dy
+    y2 = y1 + height
+    x1 = dx
+    x2 = x1 + width
+    img = img[y1:y2,x1:x2,:]
+
+    return img
 
 def default(imgs):
     return imgs
@@ -53,13 +65,56 @@ def verticalFlip(imgs):
         imgs[index] = img
     return imgs
 
+def default_224(imgs):
+    for index, img in enumerate(imgs):
+        imgs[index] = cropCenter(img, 224, 224)
+    return imgs
+
+
+def rotate90_224(imgs):
+    for index, img in enumerate(imgs):
+        img = cropCenter(img, 224, 224)
+        imgs[index] = cv2.transpose(img, (1, 0, 2))
+    return imgs
+
+
+def rotate180_224(imgs):
+    for index, img in enumerate(imgs):
+        img = cropCenter(img, 224, 224)
+        imgs[index] = cv2.flip(img, -1)
+    return imgs
+
+
+def rotate270_224(imgs):
+    for index, img in enumerate(imgs):
+        img = cropCenter(img, 224, 224)
+        img = cv2.transpose(img, (1, 0, 2))
+        imgs[index] = cv2.flip(img, -1)
+    return imgs
+
+
+def horizontalFlip_224(imgs):
+    for index, img in enumerate(imgs):
+        img = cropCenter(img, 224, 224)
+        img = cv2.flip(img, 1)
+        imgs[index] = img
+    return imgs
+
+
+def verticalFlip_224(imgs):
+    for index, img in enumerate(imgs):
+        img = cropCenter(img, 224, 224)
+        img = cv2.flip(img, 0)
+        imgs[index] = img
+    return imgs
+
 
 mean = [0.31151703, 0.34061992, 0.29885209]
 std = [0.16730586, 0.14391145, 0.13747531]
 
 
-transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
-
+# transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 
 models = [
             # resnet18_planet,
@@ -207,7 +262,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split_10xlr.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_split_10xlr_12transform.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[name]).astype(int)
         labels[m_idx] = preds
@@ -215,7 +270,7 @@ def predict_test_majority():
     # majority voting
     labels = labels.sum(axis=0)
     labels = (labels >= (len(models)//2)).astype(int)
-    pred_csv(predictions=labels, name='majority_voting_ensembles_split_data_10xlr')
+    pred_csv(predictions=labels, name='majority_voting_ensembles_split_data_10xlr_12transform')
 
 
 def predict_test_averaging(t):
