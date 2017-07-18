@@ -209,7 +209,7 @@ def predict_test_majority():
         preds = preds/len(transforms)
         np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}.txt'.format(name), preds)
         # get labels
-        preds = (preds > thresholds[m_idx]).astype(int)
+        preds = (preds > thresholds[name]).astype(int)
         labels[m_idx] = preds
 
     # majority voting
