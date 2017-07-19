@@ -122,8 +122,8 @@ models = [
             resnet101_planet,
             resnet152_planet,
             densenet121,
-            densenet161,
-            densenet169,
+            densenet161_temp,
+            densenet169_temp,
             densenet201,
             # fpn_152,
             # fpn_50,
@@ -251,7 +251,7 @@ def predict_test_majority():
         name = str(model).split()[1]
         print('predicting model {}'.format(name))
         net = nn.DataParallel(model().cuda())
-        net.load_state_dict(torch.load('/home/strideradu/full_data_{}_10xlr.pth'.format(name)))
+        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_10xlr.pth'.format(name)))
         net.eval()
         preds = np.zeros((61191, 17))
         for t in transforms:
@@ -261,7 +261,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/home/strideradu/full_data_{}_10xlr_224and256.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_10xlr_224and256.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[name]).astype(int)
         labels[m_idx] = preds
