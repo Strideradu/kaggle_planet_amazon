@@ -251,7 +251,7 @@ def predict_test_majority():
         name = str(model).split()[1]
         print('predicting model {}'.format(name))
         net = nn.DataParallel(model().cuda())
-        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split_10xlr_224and256.pth'.format(name)))
+        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/full_data_{}_split_10xlr.pth'.format(name)))
         net.eval()
         preds = np.zeros((61191, 17))
         for t in transforms:
