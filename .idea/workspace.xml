@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/blender_trainer.py" afterPath="$PROJECT_DIR$/JHXCode/blender_trainer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/planet_models/blender.py" afterPath="$PROJECT_DIR$/JHXCode/planet_models/blender.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_ensemble_12transform.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseline_ensemble_12transform.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5962">
@@ -81,16 +82,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blender_trainer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="blender_trainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JHXCode/blender_trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1540">
-              <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-              <folding>
-                <marker date="1500431581050" expanded="true" signature="2001:2041" ph="..." />
-                <marker date="1500431581050" expanded="true" signature="5546:5613" ph="..." />
-                <marker date="1500431581050" expanded="true" signature="5546:5887" ph="..." />
-              </folding>
+            <state relative-caret-position="693">
+              <caret line="172" column="0" lean-forward="true" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,15 +95,9 @@
       <file leaf-file-name="blender.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/blender.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-              <folding>
-                <marker date="1500431581054" expanded="true" signature="555:1986" ph="..." />
-                <marker date="1500431581054" expanded="true" signature="579:1521" ph="..." />
-                <marker date="1500431581054" expanded="true" signature="1548:1986" ph="..." />
-                <marker date="1500431581054" expanded="true" signature="1652:1815" ph="..." />
-                <marker date="1500431581054" expanded="true" signature="2015:2313" ph="..." />
-              </folding>
+            <state relative-caret-position="572">
+              <caret line="31" column="119" lean-forward="false" selection-start-line="31" selection-start-column="119" selection-end-line="31" selection-end-column="119" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,10 +192,10 @@
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer_res152dense169.py" />
         <option value="$PROJECT_DIR$/JHXCode/thresholds.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
-        <option value="$PROJECT_DIR$/JHXCode/blender_trainer.py" />
-        <option value="$PROJECT_DIR$/JHXCode/planet_models/blender.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py" />
+        <option value="$PROJECT_DIR$/JHXCode/planet_models/blender.py" />
+        <option value="$PROJECT_DIR$/JHXCode/blender_trainer.py" />
       </list>
     </option>
   </component>
@@ -324,6 +315,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JHXCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kaggle_planet_amazon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JHXCode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="planet_models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -964,32 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/blender.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <marker date="1500431581054" expanded="true" signature="555:1986" ph="..." />
-            <marker date="1500431581054" expanded="true" signature="579:1521" ph="..." />
-            <marker date="1500431581054" expanded="true" signature="1548:1986" ph="..." />
-            <marker date="1500431581054" expanded="true" signature="1652:1815" ph="..." />
-            <marker date="1500431581054" expanded="true" signature="2015:2313" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/blender_trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-          <folding>
-            <marker date="1500431581050" expanded="true" signature="2001:2041" ph="..." />
-            <marker date="1500431581050" expanded="true" signature="5546:5613" ph="..." />
-            <marker date="1500431581050" expanded="true" signature="5546:5887" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net/dataset/tool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4092">
@@ -1023,6 +1006,22 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/blender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="31" column="119" lean-forward="false" selection-start-line="31" selection-start-column="119" selection-end-line="31" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/blender_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="172" column="0" lean-forward="true" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
