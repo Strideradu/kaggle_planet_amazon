@@ -49,7 +49,7 @@ def pred_csv(predictions, name, threshold=None):
         labels = ' '.join(idx_name()[index] for index in labels)
         submission['tags'][i] = labels
         print('Index ', i)
-    submission.to_csv(os.path.join('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submissions/', '{}.csv'.format(name)), index=False)
+    submission.to_csv(os.path.join('/home/strideradu/submissions/', '{}.csv'.format(name)), index=False)
 
 
 def multi_criterion(logits, labels):
