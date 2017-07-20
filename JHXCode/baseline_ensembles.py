@@ -66,42 +66,54 @@ def verticalFlip(imgs):
     return imgs
 
 def default_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size, 224, 224, 3), dtype=np.float32)
     for index, img in enumerate(imgs):
-        imgs[index] = cropCenter(img, 224, 224)
-    return imgs
+        new_imgs[index] = cropCenter(img, 224, 224)
+    return new_imgs
 
 
 def rotate90_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size, 224, 224, 3), dtype=np.float32)
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
-        imgs[index] = cv2.transpose(img, (1, 0, 2))
-    return imgs
+        new_imgs[index] = cv2.transpose(img, (1, 0, 2))
+    return new_imgs
 
 
 def rotate180_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size, 224, 224, 3), dtype=np.float32)
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
-        imgs[index] = cv2.flip(img, -1)
-    return imgs
+        new_imgs[index] = cv2.flip(img, -1)
+    return new_imgs
 
 
 def rotate270_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size, 224, 224, 3), dtype=np.float32)
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
         img = cv2.transpose(img, (1, 0, 2))
-        imgs[index] = cv2.flip(img, -1)
-    return imgs
+        new_imgs[index] = cv2.flip(img, -1)
+    return new_imgs
 
 
 def horizontalFlip_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size,224,224,3),dtype=np.float32)
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
         img = cv2.flip(img, 1)
-        imgs[index] = img
-    return imgs
+        new_imgs[index] = img
+    return new_imgs
 
 
 def verticalFlip_224(imgs):
+    batch_size = imgs.shape[0]
+    new_imgs = np.zeros((batch_size, 224, 224, 3), dtype=np.float32)
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
         img = cv2.flip(img, 0)
@@ -113,8 +125,8 @@ mean = [0.31151703, 0.34061992, 0.29885209]
 std = [0.16730586, 0.14391145, 0.13747531]
 
 
-transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
-# transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+# transforms = [default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 
 models = [
             # resnet18_planet,

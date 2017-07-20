@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf9d1205-c9b9-4609-a448-a5aa1ce9a098" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/data/kgdataset.py" afterPath="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" afterPath="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,6 +57,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="baseline_ensembles.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="737">
+              <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baseline_ensemble_12transform.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,7 +92,7 @@
       <file leaf-file-name="baseline_ensemble_densenet_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
+            <state relative-caret-position="-990">
               <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -93,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="baseline_ensemble_temp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="baseline_ensemble_temp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="69" column="68" lean-forward="false" selection-start-line="69" selection-start-column="68" selection-end-line="69" selection-end-column="68" />
+            <state relative-caret-position="319">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="120" selection-end-column="15" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -110,16 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
               <caret line="48" column="64" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blender.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/blender.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="31" column="119" lean-forward="false" selection-start-line="31" selection-start-column="119" selection-end-line="31" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -189,7 +187,6 @@
         <option value="$PROJECT_DIR$/JHXCode/baseline_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/thresholds.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py" />
-        <option value="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
         <option value="$PROJECT_DIR$/JHXCode/planet_models/blender.py" />
         <option value="$PROJECT_DIR$/JHXCode/blender_trainer.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py" />
@@ -197,6 +194,7 @@
         <option value="$PROJECT_DIR$/baseline_ensemble_temp.py" />
         <option value="$PROJECT_DIR$/JHXCode/data/kgdataset.py" />
         <option value="$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py" />
+        <option value="$PROJECT_DIR$/JHXCode/baseline_ensembles.py" />
       </list>
     </option>
   </component>
@@ -932,16 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5742">
-          <caret line="276" column="33" lean-forward="false" selection-start-line="276" selection-start-column="33" selection-end-line="276" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/planet_models/blender.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -990,16 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_12transform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6600">
@@ -1018,13 +996,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py">
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_densenet_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="69" column="68" lean-forward="false" selection-start-line="69" selection-start-column="68" selection-end-line="69" selection-end-column="68" />
+        <state relative-caret-position="-990">
+          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensemble_temp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="120" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JHXCode/baseline_ensembles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="737">
+          <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
