@@ -261,7 +261,7 @@ def predict_test_majority():
             preds = preds + pred
         # get predictions for the single model
         preds = preds/len(transforms)
-        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_10xlr_224and256.txt'.format(name), preds)
+        np.savetxt('/mnt/home/dunan/Learn/Kaggle/planet_amazon/submission_probs/full_data_{}_single_10xlr_224and256.txt'.format(name), preds)
         # get labels
         preds = (preds > thresholds[name]).astype(int)
         labels[m_idx] = preds
@@ -269,7 +269,7 @@ def predict_test_majority():
     # majority voting
     labels = labels.sum(axis=0)
     labels = (labels >= (len(models)//2)).astype(int)
-    pred_csv(predictions=labels, name='majority_voting_ensembles_split_data_10xlr_224and256')
+    pred_csv(predictions=labels, name='resnet50_single_full_data_10xlr_224and256')
 
 
 def predict_test_averaging(t):
@@ -290,7 +290,7 @@ def predict_test_averaging(t):
 
     preds = preds/(len(models) * len(transforms))
     # preds = preds / len(models)
-    pred_csv(predictions=preds, threshold=t, name='transforms-res50-152dense-ensembels')
+    pred_csv(predictions=preds, threshold=t, name='transforms-res50-single_predict')
 
 
 if __name__ == '__main__':
