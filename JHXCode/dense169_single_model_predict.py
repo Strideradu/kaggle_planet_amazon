@@ -125,7 +125,7 @@ mean = [0.31151703, 0.34061992, 0.29885209]
 std = [0.16730586, 0.14391145, 0.13747531]
 
 
-transforms = [default_224, rotate90_224, rotate180_224, rotate270_224, verticalFlip_224, horizontalFlip_224, default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
+transforms = [ default, rotate90, rotate180, rotate270, verticalFlip, horizontalFlip]
 
 models = [
             # resnet18_planet,
