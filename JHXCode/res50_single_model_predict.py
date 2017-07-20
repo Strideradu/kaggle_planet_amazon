@@ -272,27 +272,6 @@ def predict_test_majority():
     pred_csv(predictions=labels, name='resnet50_single_full_data_10xlr_224and256')
 
 
-def predict_test_averaging(t):
-    preds = np.zeros((61191, 17))
-    # imgs = test_dataloader.dataset.images.copy()
-    # iterate over models
-    for index, model in enumerate(models):
-        name = str(model).split()[1]
-        net = nn.DataParallel(model().cuda())
-        net.load_state_dict(torch.load('/mnt/home/dunan/Learn/Kaggle/planet_amazon/model/{}.pth'.format(name)))
-        net.eval()
-        # iterate over transformations
-        for transformation in transforms:
-            # imgs = transformation(imgs)
-            test_dataloader.dataset.images = transformation(test_dataloader.dataset.images)
-            pred = predict(dataloader=test_dataloader, net=net)
-            preds = preds + pred
-
-    preds = preds/(len(models) * len(transforms))
-    # preds = preds / len(models)
-    pred_csv(predictions=preds, threshold=t, name='transforms-res50-single_predict')
-
-
 if __name__ == '__main__':
     # valid_dataloader = get_validation_loader()
     test_dataloader = get_test_dataloader()

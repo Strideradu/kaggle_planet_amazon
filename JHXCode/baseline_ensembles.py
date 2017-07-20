@@ -117,8 +117,8 @@ def verticalFlip_224(imgs):
     for index, img in enumerate(imgs):
         img = cropCenter(img, 224, 224)
         img = cv2.flip(img, 0)
-        imgs[index] = img
-    return imgs
+        new_imgs[index] = img
+    return new_imgs
 
 
 mean = [0.31151703, 0.34061992, 0.29885209]
