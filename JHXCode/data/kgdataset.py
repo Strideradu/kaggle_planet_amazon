@@ -6,8 +6,8 @@ import random
 import math
 import torch
 
-#KAGGLE_DATA_DIR ="/mnt/home/dunan/Learn/Kaggle/planet_amazon/"
-KAGGLE_DATA_DIR ='/home/ubuntu/Kaggle/AmazonForest/data'
+KAGGLE_DATA_DIR ="/mnt/home/dunan/Learn/Kaggle/planet_amazon/"
+#KAGGLE_DATA_DIR ='/home/ubuntu/Kaggle/AmazonForest/data'
 
 CLASS_NAMES=[
     'clear',    	 # 0
